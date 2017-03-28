@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".PlannerActivity" />
-        <activity android:name=".CloudActivity"></activity>
+        <activity android:name=".CloudActivity" />
+        <activity android:name=".Settings"></activity>
     </application>
 
 </manifest>
