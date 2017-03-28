@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">HomeworkAppV2</string>
+
+    <!-- Main XML -->
+    <string name="buttondesc">Clickable Button which Leads to New State</string>
+
+    <!-- Font -->
+    <string name = "fonttype">sans</string>
+
+    <string name = "planner_edit_string">Edit</string>
+
+    <string-array name="sampledata">
+
+        <item> Test1 </item>
+        <item> Test2 </item>
+
+    </string-array>
+</resources>

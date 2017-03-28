@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.johnta.homeworkappv2.MainActivity"
+    android:background="#87ceeb">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.041"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintRight_toLeftOf="parent"
+        app:layout_constraintBottom_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/schedulebutton"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:background="@drawable/roundbutton"
+            android:contentDescription="@string/buttondesc"
+            app:srcCompat="@drawable/schedule"
+            tools:layout_constraintTop_creator="1"
+            tools:layout_constraintLeft_creator="1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/blankbutton"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@+id/cloudbutton"
+            android:layout_toEndOf="@+id/cloudbutton"
+            android:layout_marginBottom="46dp" />
+
+        <ImageButton
+            android:id="@+id/blankbutton"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:background="@drawable/roundbutton"
+            android:contentDescription="@string/buttondesc"
+            app:srcCompat="@drawable/filler"
+            tools:layout_constraintTop_creator="1"
+            tools:layout_constraintLeft_creator="1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_alignBottom="@+id/schedulebutton"
+            android:layout_alignLeft="@+id/plannerbutton"
+            android:layout_alignStart="@+id/plannerbutton"
+            android:layout_marginBottom="28dp" />
+
+        <ImageButton
+            android:id="@+id/plannerbutton"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:background="@drawable/roundbutton"
+            android:contentDescription="@string/buttondesc"
+            app:srcCompat="@drawable/planner"
+            tools:layout_editor_absoluteX="86dp"
+            tools:layout_editor_absoluteY="142dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginEnd="12dp"
+            android:layout_alignTop="@+id/settingbutton"
+            android:layout_toLeftOf="@+id/cloudbutton"
+            android:layout_toStartOf="@+id/cloudbutton"
+            android:layout_marginTop="41dp"
+            android:onClick="toPlannerScreen"
+            />
+
+        <ImageButton
+            android:id="@+id/settingbutton"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:background="@drawable/roundbutton"
+            android:contentDescription="@string/buttondesc"
+            app:srcCompat="@drawable/settings"
+            tools:layout_editor_absoluteX="114dp"
+            tools:layout_editor_absoluteY="8dp"
+            android:layout_marginTop="46dp"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/cloudbutton"
+            android:layout_toEndOf="@+id/cloudbutton" />
+
+        <ImageButton
+            android:id="@+id/cloudbutton"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:adjustViewBounds="true"
+            android:cropToPadding="false"
+            android:scaleType="fitXY"
+            android:contentDescription="@string/buttondesc"
+            app:srcCompat="@drawable/cloud"
+            android:background="@drawable/background_circle"
+            tools:layout_editor_absoluteX="114dp"
+            tools:layout_editor_absoluteY="71dp" />
+    </RelativeLayout>
+
+
+</android.support.constraint.ConstraintLayout>
