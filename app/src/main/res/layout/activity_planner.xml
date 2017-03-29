@@ -11,6 +11,8 @@
         android:id="@+id/imageView2"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        app:layout_widthPercent="50%"
+        app:layout_heightPercent="50%"
         android:background="@drawable/background_circle"
         app:srcCompat="@drawable/planner10pad"
         tools:layout_constraintTop_creator="1"
@@ -24,8 +26,9 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="0dp"
-        android:layout_height="356dp"
-        android:layout_marginBottom="4dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.7"
+        android:layout_marginBottom="1dp"
         android:layout_marginEnd="3dp"
         android:layout_marginLeft="3dp"
         android:layout_marginRight="3dp"
@@ -40,19 +43,22 @@
         tools:layout_constraintRight_creator="1">
 
         <ScrollView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="0.83">
+            tools:layout_editor_absoluteY="8dp"
+            tools:layout_editor_absoluteX="8dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical" >
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                >
 
                 <ListView
                     android:id="@android:id/list"
                     android:layout_width="match_parent"
-                    android:layout_height="357dp">
+                    android:layout_height="200dp"
+                    >
 
                 </ListView>
             </LinearLayout>

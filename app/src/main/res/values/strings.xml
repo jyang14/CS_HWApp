@@ -5,9 +5,9 @@
     <string name="buttondesc">Clickable Button which Leads to New State</string>
 
     <!-- Font -->
-    <string name = "fonttype">sans</string>
+    <string name="fonttype">sans</string>
 
-    <string name = "planner_edit_string">Edit</string>
+    <string name="planner_edit_string">Edit</string>
 
     <string-array name="sampledata">
 
