@@ -10,10 +10,12 @@ public class PlannerActivity extends ListActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_planner);
 
-        String[] listy = {"boo","he","lol","ha","hhs","skskd","sjjskd","sdjskaasx","ksksdjk"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getListView().getContext(),android.R.layout.simple_list_item_1, listy);
+        String[] list = {"boo","he","lol","ha","hhs","skskd","sjjskd","sdjskaasx","ksksdjk","skdsds","sally","sucks","a lot","lol"
+                ,"ha","moo","ping","dong","chong","long"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getListView().getContext(),android.R.layout.simple_list_item_1, list);
         getListView().setAdapter(adapter);
     }
 
