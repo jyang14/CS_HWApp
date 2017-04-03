@@ -19,6 +19,7 @@
             android:id="@+id/planner_picture"
             android:layout_width="150dp"
             android:layout_height="150dp"
+            android:layout_marginTop="5dp"
             android:background="@drawable/roundbutton"
             app:srcCompat="@drawable/planner10pad"
             android:layout_centerHorizontal="true"
@@ -34,7 +35,8 @@
             android:layout_marginTop="154dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:onClick="onClickEdit"/>
 
         <Button
             android:id="@+id/copy_button"
@@ -63,24 +65,26 @@
             android:layout_alignRight="@+id/planner_picture"
             android:layout_alignEnd="@+id/planner_picture" />
 
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="6dp"
 
-            android:orientation="horizontal"
+        <EditText
+            android:id="@+id/name_of_class"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Class Name"
+            android:editable="false"/>
+
+        <ListView
+            android:id="@android:id/list"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#ffffff"
             android:layout_below="@+id/edit_button"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:background="#ffffff">
+            android:layout_weight="1"
+            android:divider="#000000">
+        </ListView>
 
-            <ListView
-                android:id="@android:id/list"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent" />
-
-
-        </LinearLayout>
 
     </RelativeLayout>
 
