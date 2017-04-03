@@ -52,13 +52,6 @@ public class PlannerActivity extends ListActivity {
     }
 
     public void onClickEdit (View v) {
-    /*
-        popUpWindow.showAtLocation(mainLayout, Gravity.CENTER,100,100);
-        popUpWindow.update(50,50,50,50);
-        tvMsg = new TextView(this);
-        tvMsg.setText("Hi this is pop up window...");
-        */
-
 
         String newItem = txtInput.getText().toString();
         arrayList.add(newItem);
