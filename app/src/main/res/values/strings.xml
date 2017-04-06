@@ -8,6 +8,9 @@
     <string name="fonttype">sans</string>
 
     <string name="planner_edit_string">Edit</string>
+    <string name="welcometext">Welcome!</string>
+    <string name="settingtext">Settings</string>
+    <string name="settingstext">Settings</string>
 
     <string-array name="sampledata">
 

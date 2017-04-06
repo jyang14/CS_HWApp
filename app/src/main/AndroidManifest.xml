@@ -18,7 +18,8 @@
         </activity>
         <activity android:name=".PlannerActivity" />
         <activity android:name=".CloudActivity" />
-        <activity android:name=".Settings"></activity>
+        <activity android:name=".Settings" />
+        <activity android:name=".SignIn"></activity>
     </application>
 
 </manifest>
