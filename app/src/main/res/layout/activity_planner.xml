@@ -4,104 +4,79 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.johnta.homeworkappv2.PlannerActivity"
+    tools:context="com.example.johnta.homeworkappv2.settings"
     android:background="#87ceeb">
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:background="@drawable/background_circle"
-        app:srcCompat="@drawable/planner10pad"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintRight_creator="1"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="16dp"
-        tools:layout_constraintLeft_creator="1"
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="0dp"
-        android:layout_height="356dp"
-        android:layout_marginBottom="4dp"
-        android:layout_marginEnd="3dp"
-        android:layout_marginLeft="3dp"
-        android:layout_marginRight="3dp"
-        android:layout_marginStart="3dp"
-        android:background="#ffffff"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintTop_toTopOf="parent"
         tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintRight_creator="1">
+        tools:layout_constraintTop_creator="1">
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="0.83">
+        <ImageView
+            android:id="@+id/planner_picture"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/roundbutton"
+            app:srcCompat="@drawable/planner10pad"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="35dp" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical" >
+        <Button
+            android:id="@+id/edit_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Edit"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="130dp"
+            android:layout_marginTop="154dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:onClick="onClickEdit"/>
 
-                <ListView
-                    android:id="@android:id/list"
-                    android:layout_width="match_parent"
-                    android:layout_height="357dp">
+        <Button
+            android:id="@+id/copy_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Copy"
+            android:layout_alignBaseline="@+id/edit_button"
 
-                </ListView>
-            </LinearLayout>
-        </ScrollView>
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignRight="@id/planner_picture"
+            />
 
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Planner"
+            android:textColor="#000000"
+            android:textSize="32sp"
+            android:layout_alignTop="@+id/edit_button"
+            android:gravity="center"
+            android:layout_alignBottom="@+id/edit_button"
+            android:layout_alignLeft="@+id/planner_picture"
+            android:layout_alignStart="@+id/planner_picture"
+            android:layout_alignRight="@+id/planner_picture"
+            android:layout_alignEnd="@+id/planner_picture" />
 
-    </LinearLayout>
+        <ListView
+            android:id="@android:id/list"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#ffffff"
+            android:layout_below="@+id/edit_button"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_weight="1"
+            android:divider="#000000">
+        </ListView>
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="158dp"
-        android:layout_height="38dp"
-        android:text="Planner"
-        android:typeface="sans"
-        android:textColor="#000000"
-        android:textSize="32sp"
-        android:gravity="center"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintRight_creator="1"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="parent" />
-
-    <Button
-        android:id="@+id/planner_edit_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/planner_edit_string"
-        tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-        android:layout_marginStart="3dp"
-        tools:layout_constraintLeft_creator="1"
-        android:layout_marginBottom="5dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="3dp"
-        android:onClick="makeEditable"/>
-
-    <Button
-        android:id="@+id/planner_copy_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Copy"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-        android:layout_marginEnd="3dp"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginBottom="5dp"
-        android:layout_marginRight="3dp" />
+    </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff">
+
+
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_border_black">
+        <TextView
+            android:id="@+id/display_command_class_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="108dp"
+            android:gravity="center"
+            android:text="@string/title_enter_class_name"
+            android:textColor="#000000"
+            android:textSize="30sp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="5dp"
+            >
+
+        </TextView>
+
+        <EditText
+            android:id="@+id/name_of_class"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/display_command_class_name"
+            android:layout_marginTop="5sp"
+            android:background="@android:color/transparent"
+            android:ems="26"
+            android:gravity="center"
+            android:hint="@string/hint_enter_class_name"
+            android:inputType="textPersonName"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/button_popup_done"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:text="Click to Add"
+            android:onClick="onClickEditList"
+            />
+
+        <TextView
+            android:id="@+id/display_command_class_assignment"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/title_enter_class_assignment"
+            android:textColor="#000000"
+            android:textSize="30sp"
+            android:layout_above="@+id/class_assignment"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="5dp">
+
+        </TextView>
+
+        <EditText
+            android:id="@+id/class_assignment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:ems="26"
+            android:gravity="center"
+            android:hint="@string/hint_enter_class_assignment"
+            android:inputType="textPersonName"
+            android:textSize="20sp"
+            android:layout_marginBottom="140dp"
+            android:layout_marginTop="5sp"
+            android:layout_above="@+id/button_popup_done"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <View
+            android:id="@+id/line_class_name_1"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_below="@id/display_command_class_name"
+            android:background="@android:color/black"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            />
+
+        <View
+            android:id="@+id/line_class_name_2"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_below="@id/display_command_class_assignment"
+            android:background="@android:color/black"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+
+            />
+
+    </RelativeLayout>
+</LinearLayout>

@@ -16,6 +16,13 @@
 
         <item> Test1 </item>
         <item> Test2 </item>
+        <item> Test 3 </item>
 
     </string-array>
+
+    <string name="title_enter_class_name">Enter Class Name</string>
+    <string name="hint_enter_class_name"><i>Click to enter your class name</i></string>
+    <string name="title_enter_class_assignment"><i>Enter Class Assignment</i></string>
+    <string name="hint_enter_class_assignment"><i>Click to enter your class assignment</i></string>
+
 </resources>
