@@ -65,14 +65,6 @@
             android:layout_alignRight="@+id/planner_picture"
             android:layout_alignEnd="@+id/planner_picture" />
 
-
-        <EditText
-            android:id="@+id/name_of_class"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Class Name"
-            android:editable="false"/>
-
         <ListView
             android:id="@android:id/list"
             android:layout_width="fill_parent"
@@ -85,10 +77,6 @@
             android:divider="#000000">
         </ListView>
 
-
     </RelativeLayout>
-
-
-
 
 </android.support.constraint.ConstraintLayout>

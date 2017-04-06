@@ -24,7 +24,7 @@
         android:paddingTop="3dp"
         android:paddingBottom="3dp"
         android:paddingLeft="3dp"
-        android:hint="Class Description"
+        android:hint="Class Assignment"
         android:textSize="20sp"
         android:focusable="true"
         android:focusableInTouchMode="true"

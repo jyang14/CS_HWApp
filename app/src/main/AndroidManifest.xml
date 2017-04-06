@@ -19,6 +19,9 @@
         <activity android:name=".PlannerActivity" />
         <activity android:name=".CloudActivity" />
         <activity android:name=".settings"></activity>
+        <activity android:name=".popup"
+            android:theme="@style/AppTheme.CustomTheme">
+        </activity>
     </application>
 
 </manifest>
