@@ -21,7 +21,7 @@ public class UsersAdapter extends ArrayAdapter<String> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         // Get the data item for this position
-        String object_thing = getItem(position);
+        //name_assignments object_thing = getItem(position);
         // Check if an existing view is being reused, otherwise inflate the view
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.editlistitems, parent, false);
