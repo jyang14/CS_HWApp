@@ -7,12 +7,10 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class PlannerActivity extends ListActivity {
 
@@ -35,6 +33,7 @@ public class PlannerActivity extends ListActivity {
         popUpWindow = new PopupWindow(this);
         mainLayout = new LinearLayout(this);
 
+        /*
         setContentView(R.layout.activity_planner);
 
         ListView listView = (ListView)findViewById(android.R.id.list);
@@ -49,6 +48,9 @@ public class PlannerActivity extends ListActivity {
 
 
         txtInput = (EditText)findViewById(R.id.name_of_class);
+        */
+
+
     }
 
     public void makeEditable(View v) {
