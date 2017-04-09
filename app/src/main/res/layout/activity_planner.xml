@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.johnta.homeworkappv2.SettingsActivity"
+    tools:context="com.example.johnta.homeworkappv2.PlannerActivity"
     android:background="#87ceeb">
 
     <RelativeLayout
@@ -21,7 +21,7 @@
             android:layout_height="150dp"
             android:layout_marginTop="5dp"
             android:background="@drawable/roundbutton"
-            app:srcCompat="@drawable/planner10pad"
+            app:srcCompat="@drawable/cloud"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="35dp" />
 
@@ -44,7 +44,6 @@
             android:layout_height="wrap_content"
             android:text="Copy"
             android:layout_alignBaseline="@+id/edit_button"
-
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:layout_alignRight="@id/planner_picture"

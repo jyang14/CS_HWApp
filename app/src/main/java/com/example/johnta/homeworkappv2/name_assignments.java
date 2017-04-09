@@ -14,4 +14,6 @@ public class name_assignments {
         this.description_class_assignment = description_class_assignment;
 
     }
+
+
 }

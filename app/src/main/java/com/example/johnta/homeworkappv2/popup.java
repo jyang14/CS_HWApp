@@ -28,14 +28,17 @@ public class popup extends Activity {
         int height = dm.heightPixels;
 
         getWindow().setLayout((int)(width*0.8),(int)(height*0.6));
-
-        txtInput = (EditText)findViewById(R.id.name_of_class);
-        input_assignment = (EditText)findViewById(R.id.class_assignment);
     }
 
     public void onClickEditList (View v) {
+
+        txtInput = (EditText)findViewById(R.id.name_of_class);
+        input_assignment = (EditText)findViewById(R.id.class_assignment);
+
         String newItem = txtInput.getText().toString();
-        PlannerActivity.addItemToArray(newItem);
+        String newItem_2 = input_assignment.getText().toString();
+        PlannerActivity.addItemToArray(newItem,newItem_2);
+
         super.onBackPressed();
     }
 }
