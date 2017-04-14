@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.johnta.homeworkappv2.login_popup">
+    tools:context="com.example.johnta.homeworkappv2.NewUserPopup_popup">
 
 
     <RelativeLayout
@@ -109,6 +109,7 @@
             android:text="Click when finished"
             android:textSize="20sp"
             android:textColor="@android:color/white"
+            android:onClick="onClickTransitionToMain"
             />
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

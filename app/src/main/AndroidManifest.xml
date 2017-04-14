@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+
+        <activity android:name=".FirstCreateActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,18 +18,22 @@
             </intent-filter>
         </activity>
 
+
         <activity android:name=".PlannerActivity" />
         <activity android:name=".CloudActivity" />
         <activity android:name=".SettingsActivity" />
-        <activity android:name=".SignIn" />
+        <activity android:name=".MainActivity" />
 
         <activity
-            android:name=".popup"
+            android:name=".PlannerPopup_popup"
+            android:theme="@style/AppTheme.CustomTheme" />
+
+        <activity
+            android:name=".NewUserPopup_popup" />
+
+        <activity
+            android:name=".LoginPopup_popup"
             android:theme="@style/AppTheme.CustomTheme"/>
-
-        <activity
-            android:name=".login_popup" />
-
     </application>
 
 </manifest>

@@ -10,7 +10,7 @@ import android.widget.EditText;
  * Created by johnta on 4/3/17.
  */
 
-public class popup extends Activity {
+public class PlannerPopup_popup extends Activity {
 
     private EditText txtInput;
     private EditText input_assignment;
@@ -19,7 +19,7 @@ public class popup extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.plannerpopup);
+        setContentView(R.layout.popup_planner);
 
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);

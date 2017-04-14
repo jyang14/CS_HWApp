@@ -13,15 +13,15 @@ import java.util.ArrayList;
  * Created by johnta on 4/6/17.
  */
 
-public class Arrays_Into_One extends ArrayAdapter<name_assignments> {
-    public Arrays_Into_One(Context context, ArrayList<name_assignments> listOfInformation) {
+public class ArraysIntoOne_backend extends ArrayAdapter<NameAssignments_backend> {
+    public ArraysIntoOne_backend(Context context, ArrayList<NameAssignments_backend> listOfInformation) {
         super(context, 0, listOfInformation);
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        name_assignments named = getItem(position);
+        NameAssignments_backend named = getItem(position);
 
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.editlistitems, parent, false);

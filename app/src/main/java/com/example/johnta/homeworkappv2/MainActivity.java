@@ -14,13 +14,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void toPlannerScreen(View v) {
-        startActivity(new Intent(MainActivity.this,PlannerActivity.class));
+        startActivity(new Intent(MainActivity.this, PlannerActivity.class));
     }
 
     public void toCloudScreen(View v) {
         startActivity(new Intent(MainActivity.this, CloudActivity.class));
     }
-
-
-
 }

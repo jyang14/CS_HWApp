@@ -22,8 +22,8 @@ public class PlannerActivity extends ListActivity {
     private static PopupWindow popUpWindow;
     private static LinearLayout mainLayout;
 
-    private static ArrayList<name_assignments> arrayOfInformation = new ArrayList<name_assignments>();
-    private static Arrays_Into_One bigAdapter;
+    private static ArrayList<NameAssignments_backend> arrayOfInformation = new ArrayList<NameAssignments_backend>();
+    private static ArraysIntoOne_backend bigAdapter;
 
     private String [] items = {"Physics","Humanities","Math","STEM"};
     private String [] list_of_assignments = {"Notes","Reading","Problems","Engineering"};
@@ -38,20 +38,19 @@ public class PlannerActivity extends ListActivity {
 
         setContentView(R.layout.activity_planner);
 
-        bigAdapter = new Arrays_Into_One(this, arrayOfInformation);
+        bigAdapter = new ArraysIntoOne_backend(this, arrayOfInformation);
 
         ListView listView = (ListView) findViewById(android.R.id.list);
         listView.setAdapter(bigAdapter);
-
     }
 
     public void onClickEdit (View v) {
-        startActivity(new Intent(PlannerActivity.this,popup.class));
+        startActivity(new Intent(PlannerActivity.this,PlannerPopup_popup.class));
     }
 
     public static void addItemToArray (String itemToAdd, String itemToAdd_2) {
 
-        name_assignments newUser = new name_assignments(itemToAdd, itemToAdd_2);
+        NameAssignments_backend newUser = new NameAssignments_backend(itemToAdd, itemToAdd_2);
         bigAdapter.add(newUser);
         bigAdapter.notifyDataSetChanged();
     }
