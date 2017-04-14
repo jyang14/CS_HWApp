@@ -16,13 +16,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".PlannerActivity" />
         <activity android:name=".CloudActivity" />
         <activity android:name=".SettingsActivity" />
         <activity android:name=".SignIn" />
-        <activity android:name=".popup"
-            android:theme="@style/AppTheme.CustomTheme">
-        </activity>
+
+        <activity
+            android:name=".popup"
+            android:theme="@style/AppTheme.CustomTheme"/>
+
+        <activity
+            android:name=".login_popup" />
+
     </application>
 
 </manifest>

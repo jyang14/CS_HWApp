@@ -25,4 +25,11 @@
     <string name="title_enter_class_assignment"><i>Enter Class Assignment</i></string>
     <string name="hint_enter_class_assignment"><i>Click to enter your class assignment</i></string>
 
+    <string name = "desc_enter_username_sign_in_new"><i>Create a username</i></string>
+        <string name = "hint_enter_username_sign_in_new"><i>Click to create a username</i></string>
+    <string name = "desc_enter_email_address_sign_in_new"><i>Enter your email</i></string>
+        <string name = "hint_enter_email_address_sign_in_new"><i>Click to enter your email</i></string>
+    <string name = "desc_enter_password_sign_in_new"><i>Create a password</i></string>
+        <string name = "hint_enter_password_sign_in_new"><i>Click to create a password</i></string>
+
 </resources>

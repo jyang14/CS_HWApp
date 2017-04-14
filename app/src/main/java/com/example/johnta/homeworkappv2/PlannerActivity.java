@@ -55,6 +55,5 @@ public class PlannerActivity extends ListActivity {
         bigAdapter.add(newUser);
         bigAdapter.notifyDataSetChanged();
     }
-
 }
 
