@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.johnta.homeworkappv2.LoginPopup_popup">
-
+    tools:context="com.example.johnta.homeworkappv2.LoginPopup_popup"
+    android:background="#87ceeb">
 
     <RelativeLayout
         android:layout_width="0dp"
@@ -26,7 +26,11 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:text="Button"
-            android:background="@drawable/settingsbutton1"/>
+            android:text="Login"
+            android:textSize="20sp"
+            android:textColor="@android:color/white"
+            android:background="@drawable/settingsbutton1"
+            android:onClick="onClickTransitionToMain"/>
+
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

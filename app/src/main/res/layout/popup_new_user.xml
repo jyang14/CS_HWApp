@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.johnta.homeworkappv2.NewUserPopup_popup">
-
+    tools:context="com.example.johnta.homeworkappv2.NewUserPopup_popup"
+    android:background="#87ceeb">
 
     <RelativeLayout
         android:layout_width="0dp"
@@ -106,7 +106,7 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:text="Click when finished"
+            android:text="Finish"
             android:textSize="20sp"
             android:textColor="@android:color/white"
             android:onClick="onClickTransitionToMain"
