@@ -21,7 +21,7 @@
             android:layout_height="150dp"
             android:layout_marginTop="5dp"
             android:background="@drawable/roundbutton"
-            app:srcCompat="@drawable/cloud"
+            android:src="@drawable/planner10pad"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="35dp" />
 
@@ -30,6 +30,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Edit"
+            android:textSize="15sp"
+            android:textColor="@android:color/white"
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="130dp"
             android:layout_marginTop="154dp"
@@ -44,6 +46,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Copy"
+            android:textSize="15sp"
+            android:textColor="@android:color/white"
             android:layout_alignBaseline="@+id/edit_button"
             android:background="@drawable/settingsbutton1"
             android:layout_alignParentRight="true"

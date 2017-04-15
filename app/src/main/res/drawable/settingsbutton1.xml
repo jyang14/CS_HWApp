@@ -3,9 +3,9 @@
 
     <item android:state_pressed="false">
         <shape android:shape = "rectangle">
-         <solid android:color="@color/colorPrimary">
+         <solid android:color="#0B108C">
              <corners android:radius = "5dp">
-               <stroke android:width = "2dp" android:color = "#046c9f">
+               <stroke android:width = "2dp" android:color = "#0B108C">
                     <padding android:left ="15dp" android:right ="15dp" android:top ="15dp" android:bottom ="15dp">
                         <corners android:radius= "5dp">
                         </corners>
@@ -21,7 +21,7 @@
         <shape android:shape = "rectangle">
             <gradient android:centerColor="#003e6d">
                 <corners android:radius = "5dp">
-                    <stroke android:width = "2dp" android:color = "#046c9f">
+                    <stroke android:width = "2dp" android:color = "#07093D">
                         <padding android:left ="15dp" android:right ="15dp" android:top ="15dp" android:bottom ="15dp">
                             <corners android:radius= "5dp">
                             </corners>

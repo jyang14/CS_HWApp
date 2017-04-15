@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.view.View;
 
 public class LoginPopup_popup extends Activity {
 
@@ -21,7 +22,11 @@ public class LoginPopup_popup extends Activity {
         getWindow().setLayout((int)(width*0.8),(int)(height*0.6));
     }
 
-    public void onClickTransitionToMain() {
+    public void onClickTransitionToMain(View view) {
         startActivity(new Intent(LoginPopup_popup.this, MainActivity.class));
+    }
+
+    public void goBack(View view) {
+        startActivity(new Intent(LoginPopup_popup.this, FirstCreateActivity.class));
     }
 }
