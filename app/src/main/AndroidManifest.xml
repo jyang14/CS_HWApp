@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".FirstCreateActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,17 +22,17 @@
         <activity android:name=".PlannerActivity" />
         <activity android:name=".CloudActivity" />
         <activity android:name=".SettingsActivity" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".FirstCreateActivity" />
 
         <activity
             android:name=".PlannerPopup_popup"
             android:theme="@style/AppTheme.CustomTheme" />
 
         <activity
-            android:name=".NewUserPopup_popup" />
+            android:name=".NewUserPopupActivity" />
 
         <activity
-            android:name=".LoginPopup_popup"
+            android:name=".LoginPopup"
             android:theme="@style/AppTheme.CustomTheme"/>
     </application>
 

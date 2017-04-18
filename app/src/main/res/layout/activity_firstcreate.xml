@@ -25,12 +25,15 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textColor="@android:color/white"
-            android:text="Login"
+            android:text="Existing user"
             android:background="@drawable/settingsbutton1"
             android:layout_marginBottom="66dp"
+
             android:textSize="20sp"
+            android:layout_marginRight="5sp"
             android:layout_above="@+id/button"
             android:layout_alignLeft="@+id/button"
+
             android:layout_alignStart="@+id/button"
             android:onClick="onSignInUser"/>
 
@@ -45,16 +48,17 @@
             android:textSize="20sp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
             android:layout_alignParentStart="true"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5sp"
+            android:layout_marginRight="5sp"
             android:onClick="onCreateNewUser"/>
 
         <TextView
             android:id="@+id/welcome_text"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Welcome."
+            android:text="Welcome"
             android:textColor="@android:color/black"
             android:gravity="center"
             android:textSize="60sp"

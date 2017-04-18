@@ -7,8 +7,16 @@ import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static boolean whichScreen;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        whichScreen = true;
+        //NEEDS TO RETRIEVE STATE
+        if (whichScreen == true) {
+            startActivity(new Intent(MainActivity.this, FirstCreateActivity.class));
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }

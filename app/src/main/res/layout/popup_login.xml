@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.johnta.homeworkappv2.LoginPopup_popup"
+    tools:context="com.example.johnta.homeworkappv2.LoginPopup"
     android:background="#87ceeb">
 
     <RelativeLayout
@@ -43,14 +43,12 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:hint="Email Address"
+            android:layout_marginRight="5dp"
             android:background="@drawable/background_white_textfields"
             android:padding="10dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="215dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"/>
+            android:layout_above="@+id/editText5"
+            android:layout_alignLeft="@+id/editText5"
+            android:layout_alignStart="@+id/editText5" />
 
         <EditText
             android:id="@+id/editText5"

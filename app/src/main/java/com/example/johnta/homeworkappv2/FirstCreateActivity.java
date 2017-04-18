@@ -20,12 +20,14 @@ public class FirstCreateActivity extends AppCompatActivity {
     }
 
     public void onSignInUser(View view) {
-        layout_main.setVisibility(View.GONE);
-        startActivity(new Intent(FirstCreateActivity.this,LoginPopup_popup.class));
+        //layout_main.setVisibility(View.GONE);
+        startActivity(new Intent(FirstCreateActivity.this,LoginPopup.class));
+
     }
 
     public void onCreateNewUser(View view) {
-        startActivity(new Intent(FirstCreateActivity.this,NewUserPopup_popup.class));
+        startActivity(new Intent(FirstCreateActivity.this,NewUserPopupActivity.class));
+
     }
 
 }

@@ -3,7 +3,9 @@ package com.example.johnta.homeworkappv2;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -24,10 +26,6 @@ public class PlannerActivity extends ListActivity {
 
     private static ArrayList<NameAssignments_backend> arrayOfInformation = new ArrayList<NameAssignments_backend>();
     private static ArraysIntoOne_backend bigAdapter;
-
-    private String [] items = {"Physics","Humanities","Math","STEM"};
-    private String [] list_of_assignments = {"Notes","Reading","Problems","Engineering"};
-    private String [][] twoDimensionalItems = {{"Physics","Notes"}};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +51,16 @@ public class PlannerActivity extends ListActivity {
         NameAssignments_backend newUser = new NameAssignments_backend(itemToAdd, itemToAdd_2);
         bigAdapter.add(newUser);
         bigAdapter.notifyDataSetChanged();
+    }
+
+    public void onClickCopy (View v) {
+
+    }
+
+    public void onItemClick(AdapterView<?> l, View v, int position, long id) {
+        Log.i("HelloListView", "You clicked Item: " + id + " at position:" + position);
+        // Then you start a new Activity via Intent
+
     }
 }
 

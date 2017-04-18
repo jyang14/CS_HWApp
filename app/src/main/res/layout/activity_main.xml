@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.johnta.homeworkappv2.MainActivity"
-    android:background="#87ceeb">
+    android:background="@drawable/preface_popup_background">
 
     <RelativeLayout
         android:layout_width="fill_parent"
