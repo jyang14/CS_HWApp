@@ -11,11 +11,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        whichScreen = true;
+
         //NEEDS TO RETRIEVE STATE
-        if (whichScreen == true) {
-            startActivity(new Intent(MainActivity.this, FirstCreateActivity.class));
-        }
+       // if (whichScreen == true) {
+        //    startActivity(new Intent(MainActivity.this, FirstCreateActivity.class));
+       // }
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);

@@ -13,23 +13,6 @@
         android:background="@drawable/background_border_black">
 
         <EditText
-            android:id="@+id/name_of_class"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            android:background="@drawable/background_white_textfields"
-            android:padding="10sp"
-            android:ems="26"
-            android:gravity="center"
-            android:hint="@string/hint_enter_class_name"
-            android:textSize="20sp"
-            android:layout_above="@id/class_assignment"
-            android:layout_marginLeft="10sp"
-            android:layout_marginRight="10sp"
-            android:layout_marginTop="5sp"
-            android:layout_marginBottom="5sp"/>
-
-        <EditText
             android:id="@+id/class_assignment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -48,6 +31,24 @@
             android:layout_marginRight="10sp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"/>
+
+        <EditText
+            android:id="@+id/name_of_class"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:background="@drawable/background_white_textfields"
+            android:padding="10sp"
+            android:ems="26"
+            android:gravity="center"
+            android:hint="@string/hint_enter_class_name"
+            android:textSize="20sp"
+            android:layout_above="@id/class_assignment"
+            android:layout_marginLeft="10sp"
+            android:layout_marginRight="10sp"
+            android:layout_marginTop="5sp"
+            android:layout_marginBottom="5sp"/>
+
 
         <Button
             android:id="@+id/button_popup_done"

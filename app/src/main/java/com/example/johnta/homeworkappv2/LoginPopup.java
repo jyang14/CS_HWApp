@@ -15,11 +15,11 @@ public class LoginPopup extends AppCompatActivity {
 
     public void onClickTransitionToMain(View view) {
         startActivity(new Intent(LoginPopup.this, MainActivity.class));
-        finish();
+
     }
 
     public void goBack(View view) {
         startActivity(new Intent(LoginPopup.this, FirstCreateActivity.class));
-        finish();
+
     }
 }

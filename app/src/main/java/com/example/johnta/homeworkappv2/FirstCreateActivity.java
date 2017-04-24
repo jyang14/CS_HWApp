@@ -9,6 +9,7 @@ import android.widget.RelativeLayout;
 public class FirstCreateActivity extends AppCompatActivity {
 
     private RelativeLayout layout_main;
+    private static boolean popup = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,10 @@ public class FirstCreateActivity extends AppCompatActivity {
     public void onCreateNewUser(View view) {
         startActivity(new Intent(FirstCreateActivity.this,NewUserPopupActivity.class));
 
+    }
+
+    public boolean getState() {
+        return popup;
     }
 
 }

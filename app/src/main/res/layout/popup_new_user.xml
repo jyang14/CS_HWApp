@@ -30,11 +30,11 @@
             android:inputType="textPersonName"
             android:background="@drawable/background_white_textfields"
             android:padding="10dp"
-            android:layout_margin="5dp"
-
-
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_above="@+id/editText2"
+            android:layout_alignLeft="@+id/editText2"
+            android:layout_alignStart="@+id/editText2" />
 
         <EditText
             android:id="@+id/editText2"
