@@ -15,6 +15,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import static android.R.id.list;
+
 public class PlannerActivity extends ListActivity {
 
     public static ArrayList<String> arrayList, arrayList_assignments;
@@ -23,6 +25,8 @@ public class PlannerActivity extends ListActivity {
     private static TextView tvMsg;
     private static PopupWindow popUpWindow;
     private static LinearLayout mainLayout;
+
+    private static int position;
 
     private static ArrayList<NameAssignments_backend> arrayOfInformation = new ArrayList<NameAssignments_backend>();
     private static ArraysIntoOne_backend bigAdapter;
@@ -38,8 +42,22 @@ public class PlannerActivity extends ListActivity {
 
         bigAdapter = new ArraysIntoOne_backend(this, arrayOfInformation);
 
-        ListView listView = (ListView) findViewById(android.R.id.list);
+        ListView listView = (ListView) findViewById(list);
         listView.setAdapter(bigAdapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.i("HelloListView", "You clicked Item: " + id + " at position:" + position);
+
+                startActivity(new Intent(PlannerActivity.this, DeleteObjectFromArray.class));
+
+                DeleteObjectFromArray delObject = new DeleteObjectFromArray(bigAdapter);
+
+                delObject.deleteObject(bigAdapter, position);
+                ArrayList<String> fun = new ArrayList<String>();
+            }
+        });
     }
 
     public void onClickEdit (View v) {
@@ -47,20 +65,17 @@ public class PlannerActivity extends ListActivity {
     }
 
     public static void addItemToArray (String itemToAdd, String itemToAdd_2) {
+        NameAssignments_backend newItem = new NameAssignments_backend(itemToAdd, itemToAdd_2);
+        bigAdapter.add(newItem);
 
-        NameAssignments_backend newUser = new NameAssignments_backend(itemToAdd, itemToAdd_2);
-        bigAdapter.add(newUser);
         bigAdapter.notifyDataSetChanged();
+        System.out.print(bigAdapter.toString());
+
     }
 
     public void onClickCopy (View v) {
 
     }
 
-    public void onItemClick(AdapterView<?> l, View v, int position, long id) {
-        Log.i("HelloListView", "You clicked Item: " + id + " at position:" + position);
-        // Then you start a new Activity via Intent
-
-    }
 }
 

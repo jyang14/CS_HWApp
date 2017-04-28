@@ -103,7 +103,8 @@
             tools:layout_constraintTop_creator="1"
             android:layout_alignTop="@+id/blankbutton"
             android:layout_toRightOf="@+id/cloudbutton"
-            android:layout_toEndOf="@+id/cloudbutton" />
+            android:layout_toEndOf="@+id/cloudbutton"
+            android:onClick="toScheduleScreen"/>
 
         <ImageButton
             android:id="@+id/blankbutton"

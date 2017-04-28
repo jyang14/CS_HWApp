@@ -9,31 +9,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
+                s
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
         <activity android:name=".PlannerActivity" />
         <activity android:name=".CloudActivity" />
         <activity android:name=".SettingsActivity" />
         <activity android:name=".FirstCreateActivity" />
-
         <activity
             android:name=".PlannerPopup_popup"
             android:theme="@style/AppTheme.CustomTheme" />
-
-        <activity
-            android:name=".NewUserPopupActivity" />
-
+        <activity android:name=".NewUserPopupActivity" />
         <activity
             android:name=".LoginPopup"
-            android:theme="@style/AppTheme.CustomTheme"/>
+            android:theme="@style/AppTheme.CustomTheme" />
+        <activity android:name=".DeleteObjectFromArray" />
+        <activity android:name=".ScheduleActivity" />
+        <activity android:name=".MakeScheduleURL_popup"></activity>
     </application>
 
 </manifest>

@@ -14,6 +14,7 @@ import java.util.ArrayList;
  */
 
 public class ArraysIntoOne_backend extends ArrayAdapter<NameAssignments_backend> {
+
     public ArraysIntoOne_backend(Context context, ArrayList<NameAssignments_backend> listOfInformation) {
         super(context, 0, listOfInformation);
     }

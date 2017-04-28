@@ -15,11 +15,11 @@ public class NewUserPopupActivity extends AppCompatActivity {
 
     public void onClickTransitionToMain(View view) {
         startActivity(new Intent(NewUserPopupActivity.this, MainActivity.class));
-        finish();
+
     }
 
     public void onClickGoBackToPrimary(View view) {
         startActivity(new Intent(NewUserPopupActivity.this, FirstCreateActivity.class));
-        finish();
+
     }
 }

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.johnta.homeworkappv2.ScheduleActivity">
+
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <Button
+            android:id="@+id/button_to_website"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="Website"
+            android:textSize="20sp"
+            android:background="@drawable/settingsbutton1"
+            android:textColor="@android:color/white"
+            android:layout_margin="5sp"
+            android:onClick="toWebsite"/>
+
+        <Button
+            android:id="@+id/button_to_schedule"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/button_to_website"
+            android:layout_centerHorizontal="true"
+            android:text="Personal Schedule"
+            android:textSize="20sp"
+            android:textColor="@android:color/white"
+            android:background="@drawable/settingsbutton1"
+            android:layout_margin="5sp"
+            android:onClick="toPersonalSchedule"/>
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>
