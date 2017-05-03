@@ -6,9 +6,15 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+
 public class ScheduleActivity extends AppCompatActivity {
 
     private static String url;
+    private static String response;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +40,36 @@ public class ScheduleActivity extends AppCompatActivity {
     }
 
     public void toWebsiteScheduleURL () {
-        goToUrl (url);
+
+        try {
+
+            int index = url.indexOf("http:");
+            boolean transfer = true;
+
+            if (index != - 1) {
+                URL u = new URL(url);
+                HttpURLConnection huc = (HttpURLConnection) u.openConnection();
+                huc.setRequestMethod("GET");
+                huc.connect();
+                response = Integer.toString((huc.getResponseCode()));
+            }
+
+            if (index == -1) {
+                startActivity(new Intent(ScheduleActivity.this, Error404_popup.class));
+            } else if (!(response.equals("200"))) {
+                startActivity(new Intent(ScheduleActivity.this, Error404_popup.class));
+            } else {
+                goToUrl(url);
+            }
+
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+       // Log.i("John100",response);
+
     }
 
     private void goToUrl (String url) {

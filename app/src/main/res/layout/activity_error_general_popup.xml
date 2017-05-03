@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.johnta.homeworkappv2.ErrorGeneral_popup">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/background_border_black">
+
+        <TextView
+            android:id="@+id/scheduleURL"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Error"
+            android:textSize="20sp"
+            android:textColor="@drawable/background_border_black"
+            android:gravity="center"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:padding="10dp"
+            android:layout_margin="5sp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"/>
+
+        <Button
+            android:id="@+id/enterScheduleURL_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/settingsbutton1"
+            android:text="OK"
+            android:textSize="20sp"
+            android:textColor="@android:color/white"
+            android:onClick="getInput"
+            android:layout_below="@id/scheduleURL"
+            android:layout_margin="5sp" />
+
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>

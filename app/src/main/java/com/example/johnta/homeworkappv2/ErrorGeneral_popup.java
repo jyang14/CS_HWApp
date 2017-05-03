@@ -4,12 +4,16 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 
-public class DeleteObjectFromArray extends Activity {
+/**
+ * Created by johnta on 5/3/17.
+ */
+
+public class ErrorGeneral_popup extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_del_object_from_array);
+        setContentView(R.layout.activity_error_general_popup);
 
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
@@ -17,19 +21,6 @@ public class DeleteObjectFromArray extends Activity {
         int width = dm.widthPixels;
         int height = dm.heightPixels;
 
-        getWindow().setLayout((int)(width*0.8),(int)(height*0.6));
-    }
-
-    /* Constructor */
-    public DeleteObjectFromArray (ArraysIntoOne_backend bigAdapter) {
-
-    }
-
-    public DeleteObjectFromArray () {
-
-    }
-
-    public void deleteObject (ArraysIntoOne_backend bigAdapter, int position){
-
+        getWindow().setLayout((int)(width*0.6),(int)(height*0.3));
     }
 }
