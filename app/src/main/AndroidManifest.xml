@@ -31,7 +31,8 @@
         <activity android:name=".ScheduleActivity" />
         <activity android:name=".MakeScheduleURL_popup" />
         <activity android:name=".Error404_popup" />
-        <activity android:name=".ErrorGeneral_popup"></activity>
+        <activity android:name=".ErrorGeneral_popup" />
+        <activity android:name=".PersonalSchedule"></activity>
     </application>
 
 </manifest>

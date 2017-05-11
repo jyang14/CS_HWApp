@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -30,6 +29,7 @@ public class PlannerActivity extends ListActivity {
 
     private static ArrayList<NameAssignments_backend> arrayOfInformation = new ArrayList<NameAssignments_backend>();
     private static ArraysIntoOne_backend bigAdapter;
+    private static ArrayList<String> arrayFromDatabase = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +45,9 @@ public class PlannerActivity extends ListActivity {
         ListView listView = (ListView) findViewById(list);
         listView.setAdapter(bigAdapter);
 
+
+
+        /*
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -57,10 +60,14 @@ public class PlannerActivity extends ListActivity {
                 delObject.deleteObject(bigAdapter, position);
                 ArrayList<String> fun = new ArrayList<String>();
             }
-        });
+        });*/
+
+
     }
 
     public void onClickEdit (View v) {
+        Log.i("PlannerActivity","Item has been clicked!!!");
+
         startActivity(new Intent(PlannerActivity.this,PlannerPopup_popup.class));
     }
 
@@ -71,10 +78,16 @@ public class PlannerActivity extends ListActivity {
         bigAdapter.notifyDataSetChanged();
         System.out.print(bigAdapter.toString());
 
+
     }
 
     public void onClickCopy (View v) {
 
+    }
+
+    protected void onListItemClick (ListView list, View v, int position, long id) {
+        startActivity(new Intent(PlannerActivity.this,PlannerPopup_popup.class));
+        Log.i("PlannerActivity","Item has been clicked!!!");
     }
 
 }

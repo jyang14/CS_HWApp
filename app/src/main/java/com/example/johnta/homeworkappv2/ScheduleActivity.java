@@ -36,7 +36,7 @@ public class ScheduleActivity extends AppCompatActivity {
     }
 
     public void toPersonalSchedule (View view) {
-
+        startActivity(new Intent(ScheduleActivity.this, PersonalSchedule.class));
     }
 
     public void toWebsiteScheduleURL () {
