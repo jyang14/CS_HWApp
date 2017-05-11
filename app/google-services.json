@@ -1,0 +1,66 @@
+{
+  "project_info": {
+    "project_number": "514323657877",
+    "firebase_url": "https://cshwapp.firebaseio.com",
+    "project_id": "cshwapp",
+    "storage_bucket": "cshwapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:514323657877:android:f0d1089828a27f48",
+        "android_client_info": {
+          "package_name": "com.example.johnta.homeworkappv2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "514323657877-6fa0203o3m3f1k992mhcetn1qcvmvbca.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.johnta.homeworkappv2",
+            "certificate_hash": "0731cbdacf16f1682c59adbfa1220705340c417f"
+          }
+        },
+        {
+          "client_id": "514323657877-3fpb12rb1uniuuvlsos7bapgln8v9977.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.johnta.homeworkappv2",
+            "certificate_hash": "92e69133d4de7be96d7f5819d3a1a998097ed0bb"
+          }
+        },
+        {
+          "client_id": "514323657877-ivrum85hhh940t24ot1mmu074qdk89q2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAiU1uWwHyhqw_wP6U4udi3_dlYsk4GDUY"
+        },
+        {
+          "current_key": "AIzaSyBZZ14sCfbbLRhoNzeyO5y8NPxWg_2m_5w"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "514323657877-ivrum85hhh940t24ot1mmu074qdk89q2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
