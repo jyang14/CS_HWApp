@@ -12,6 +12,10 @@ import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
+import com.example.johnta.homeworkappv2.adapters.AssignmentAdapter;
+import com.example.johnta.homeworkappv2.adapters.AssignmentStruct;
+import com.example.johnta.homeworkappv2.popup.PlannerPopup_popup;
+
 import java.util.ArrayList;
 
 import static android.R.id.list;
@@ -27,8 +31,8 @@ public class PlannerActivity extends ListActivity {
 
     private static int position;
 
-    private static ArrayList<NameAssignments_backend> arrayOfInformation = new ArrayList<NameAssignments_backend>();
-    private static ArraysIntoOne_backend bigAdapter;
+    private static ArrayList<AssignmentStruct> arrayOfInformation = new ArrayList<AssignmentStruct>();
+    private static AssignmentAdapter assignmentAdapter;
     private static ArrayList<String> arrayFromDatabase = new ArrayList<String>();
 
     @Override
@@ -40,10 +44,10 @@ public class PlannerActivity extends ListActivity {
 
         setContentView(R.layout.activity_planner);
 
-        bigAdapter = new ArraysIntoOne_backend(this, arrayOfInformation);
+        assignmentAdapter = new AssignmentAdapter(this, arrayOfInformation);
 
         ListView listView = (ListView) findViewById(list);
-        listView.setAdapter(bigAdapter);
+        listView.setAdapter(assignmentAdapter);
 
         /*
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -53,9 +57,9 @@ public class PlannerActivity extends ListActivity {
 
                 startActivity(new Intent(PlannerActivity.this, DeleteObjectFromArray.class));
 
-                DeleteObjectFromArray delObject = new DeleteObjectFromArray(bigAdapter);
+                DeleteObjectFromArray delObject = new DeleteObjectFromArray(assignmentAdapter);
 
-                delObject.deleteObject(bigAdapter, position);
+                delObject.deleteObject(assignmentAdapter, position);
                 ArrayList<String> fun = new ArrayList<String>();
             }
         });*/
@@ -70,11 +74,11 @@ public class PlannerActivity extends ListActivity {
     }
 
     public static void addItemToArray (String itemToAdd, String itemToAdd_2) {
-        NameAssignments_backend newItem = new NameAssignments_backend(itemToAdd, itemToAdd_2);
-        bigAdapter.add(newItem);
+        AssignmentStruct newItem = new AssignmentStruct(itemToAdd, itemToAdd_2);
+        assignmentAdapter.add(newItem);
 
-        bigAdapter.notifyDataSetChanged();
-        System.out.print(bigAdapter.toString());
+        assignmentAdapter.notifyDataSetChanged();
+        System.out.print(assignmentAdapter.toString());
 
 
     }
@@ -83,7 +87,9 @@ public class PlannerActivity extends ListActivity {
 
     }
 
+    @Override
     protected void onListItemClick (ListView list, View v, int position, long id) {
+        super.onListItemClick(list,v,position,id);
         startActivity(new Intent(PlannerActivity.this,PlannerPopup_popup.class));
         Log.i("PlannerActivity","Item has been clicked!!!");
     }
