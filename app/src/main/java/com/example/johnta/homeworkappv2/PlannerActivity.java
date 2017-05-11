@@ -33,7 +33,7 @@ public class PlannerActivity extends ListActivity {
 
     private static ArrayList<AssignmentStructure> arrayOfInformation = new ArrayList<AssignmentStructure>();
     private static AssignmentAdapter assignmentAdapter;
-    private static ArrayList<String> arrayFromDatabase = new ArrayList<String>();
+    private static ArrayList<String> arrayFromDatabase = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,9 +56,9 @@ public class PlannerActivity extends ListActivity {
         startActivity(new Intent(PlannerActivity.this,PlannerPopup.class));
     }
 
-    public static void addItemToArray (String itemToAdd, String itemToAdd_2) {
-        AssignmentStructure newItem = new AssignmentStructure(itemToAdd, itemToAdd_2);
-        assignmentAdapter.add(newItem);
+    public static void addItemToArray (String className, String assignmentName) {
+        AssignmentStructure assignment = new AssignmentStructure(className, assignmentName);
+        assignmentAdapter.add(assignment);
 
         assignmentAdapter.notifyDataSetChanged();
         System.out.print(assignmentAdapter.toString());
@@ -76,13 +76,13 @@ public class PlannerActivity extends ListActivity {
     }
 
     @Override
-    public void onActivityResult(int request, int result, Intent intentApple) {
-        super.onActivityResult(request, result, intentApple);
+    public void onActivityResult(int request, int result, Intent data) {
+        super.onActivityResult(request, result, data);
 
         if (request == 123 && result == RESULT_OK) {
-            Bundle bundleOfBananas = intentApple.getExtras();
-            int position = bundleOfBananas.getInt("position");
-            boolean delete = bundleOfBananas.getBoolean("bananaCrate");
+            Bundle bundle = data.getExtras();
+            int position = bundle.getInt("position");
+            boolean delete = bundle.getBoolean("delete");
 
             if (delete) {
                 assignmentAdapter.remove(assignmentAdapter.getItem(position));

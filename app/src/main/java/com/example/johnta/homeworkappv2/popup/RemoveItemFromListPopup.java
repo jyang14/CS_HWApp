@@ -17,20 +17,20 @@ public class RemoveItemFromListPopup extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.popup_remove_item_from_list);
 
-        Intent intentThing = getIntent();
-        Bundle bundleThing = intentThing.getExtras();
-        position = bundleThing.getInt("position");
-        TextView text = (TextView)findViewById(R.id.popup_removeItemFromArray_textView1);
-        text.setText("Please confirm that you would like to remove " + bundleThing.getString("thing"));
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        position = bundle.getInt("position");
+        TextView text = (TextView) findViewById(R.id.popup_removeItemFromArray_textView1);
+        text.setText("Please confirm that you would like to remove " + bundle.getString("thing"));
     }
 
-    public void onClickDoStuff (View v) {
-        Intent intentApple = new Intent();
-        Bundle bundleOfBananas = new Bundle();
-        bundleOfBananas.putBoolean("bananaCrate",v.getId()==R.id.popup_removeItemFromArray_remove);
-        bundleOfBananas.putInt("position", position);
-        intentApple.putExtras(bundleOfBananas);
-        setResult(Activity.RESULT_OK,intentApple);
+    public void onClickDoStuff(View v) {
+        Intent intent = new Intent();
+        Bundle bundle = new Bundle();
+        bundle.putBoolean("delete", v.getId() == R.id.popup_removeItemFromArray_remove);
+        bundle.putInt("position", position);
+        intent.putExtras(bundle);
+        setResult(Activity.RESULT_OK, intent);
         finish();
     }
 
