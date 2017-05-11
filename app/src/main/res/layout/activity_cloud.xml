@@ -16,13 +16,13 @@
 
         <ImageView
             android:id="@+id/planner_picture"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginTop="5dp"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
             android:background="@drawable/roundbutton"
             android:src="@drawable/cloud"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="35dp" />
+            android:layout_marginBottom="11dp"
+            android:layout_above="@+id/textView"
+            android:layout_centerHorizontal="true" />
 
         <Button
             android:id="@+id/edit_button"
@@ -58,18 +58,19 @@
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="The Cloud"
-            android:textColor="#000000"
+            android:text="The Hub"
+            android:background="@drawable/background_names"
+            android:textColor="@android:color/white"
             android:textSize="32sp"
             android:layout_alignTop="@+id/edit_button"
             android:gravity="center"
             android:layout_alignBottom="@+id/edit_button"
-            android:layout_alignLeft="@+id/planner_picture"
-            android:layout_alignStart="@+id/planner_picture"
-            android:layout_alignRight="@+id/planner_picture"
-            android:layout_alignEnd="@+id/planner_picture" />
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
 
         <ListView
             android:id="@android:id/list"

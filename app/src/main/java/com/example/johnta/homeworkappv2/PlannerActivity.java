@@ -45,8 +45,6 @@ public class PlannerActivity extends ListActivity {
         ListView listView = (ListView) findViewById(list);
         listView.setAdapter(bigAdapter);
 
-
-
         /*
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
