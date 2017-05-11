@@ -1,21 +1,19 @@
 package com.example.johnta.homeworkappv2.popup;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.view.View;
 
 import com.example.johnta.homeworkappv2.R;
 
-/**
- * Created by johnta on 5/3/17.
- */
-
-public class ErrorGeneral_popup extends Activity {
+public class Error404Popup extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_error_general_popup);
+        setContentView(R.layout.popup_error404);
 
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
@@ -24,5 +22,14 @@ public class ErrorGeneral_popup extends Activity {
         int height = dm.heightPixels;
 
         getWindow().setLayout((int)(width*0.6),(int)(height*0.3));
+    }
+
+    public void onClickReturn(View view) {
+        super.onBackPressed();
+    }
+
+    public void newURL (View view) {
+        startActivity(new Intent(Error404Popup.this, CreateScheduleURLPopup.class));
+        super.onBackPressed();
     }
 }

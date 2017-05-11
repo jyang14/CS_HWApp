@@ -15,16 +15,13 @@ import com.google.firebase.database.FirebaseDatabase;
  * Created by johnta on 4/3/17.
  */
 
-public class PlannerPopup_popup extends Activity {
+public class PlannerPopup extends Activity {
 
     private EditText txtInput;
     private EditText input_assignment;
 
     DatabaseReference mDatabase;
     FirebaseDatabase mFirebase;
-
-    //DatabaseReference mDatabase;
-    //FirebaseDatabase mFirebase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +56,10 @@ public class PlannerPopup_popup extends Activity {
         mDatabase.child("Class_Name").push().setValue(txtInput.getText().toString());
         mDatabase.child("Assignment_Name").push().setValue(input_assignment.getText().toString());
 
+        super.onBackPressed();
+    }
+
+    public void onClickCancel (View v) {
         super.onBackPressed();
     }
 }

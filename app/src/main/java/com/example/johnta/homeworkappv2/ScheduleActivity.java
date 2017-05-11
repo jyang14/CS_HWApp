@@ -6,8 +6,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.example.johnta.homeworkappv2.popup.Error404_popup;
-import com.example.johnta.homeworkappv2.popup.MakeScheduleURL_popup;
+import com.example.johnta.homeworkappv2.popup.Error404Popup;
+import com.example.johnta.homeworkappv2.popup.CreateScheduleURLPopup;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -27,7 +27,7 @@ public class ScheduleActivity extends AppCompatActivity {
 
     public void toWebsite (View view) {
         if (url == null) {
-            startActivity(new Intent(ScheduleActivity.this, MakeScheduleURL_popup.class));
+            startActivity(new Intent(ScheduleActivity.this, CreateScheduleURLPopup.class));
         } else {
             toWebsiteScheduleURL();
         }
@@ -58,9 +58,9 @@ public class ScheduleActivity extends AppCompatActivity {
             }
 
             if (index == -1) {
-                startActivity(new Intent(ScheduleActivity.this, Error404_popup.class));
+                startActivity(new Intent(ScheduleActivity.this, Error404Popup.class));
             } else if (!(response.equals("200"))) {
-                startActivity(new Intent(ScheduleActivity.this, Error404_popup.class));
+                startActivity(new Intent(ScheduleActivity.this, Error404Popup.class));
             } else {
                 goToUrl(url);
             }
