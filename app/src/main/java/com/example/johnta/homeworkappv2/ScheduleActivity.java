@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.example.johnta.homeworkappv2.popup.Error404_popup;
+import com.example.johnta.homeworkappv2.popup.MakeScheduleURL_popup;
+
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;

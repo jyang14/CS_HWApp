@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.RelativeLayout;
 
+import com.example.johnta.homeworkappv2.popup.LoginPopup;
+
 public class FirstCreateActivity extends AppCompatActivity {
 
     private RelativeLayout layout_main;

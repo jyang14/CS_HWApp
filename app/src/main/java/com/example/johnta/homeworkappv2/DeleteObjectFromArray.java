@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 
+import com.example.johnta.homeworkappv2.adapters.AssignmentAdapter;
+
 public class DeleteObjectFromArray extends Activity {
 
     @Override
@@ -21,7 +23,7 @@ public class DeleteObjectFromArray extends Activity {
     }
 
     /* Constructor */
-    public DeleteObjectFromArray (ArraysIntoOne_backend bigAdapter) {
+    public DeleteObjectFromArray (AssignmentAdapter assignmentAdapter) {
 
     }
 
@@ -29,7 +31,7 @@ public class DeleteObjectFromArray extends Activity {
 
     }
 
-    public void deleteObject (ArraysIntoOne_backend bigAdapter, int position){
+    public void deleteObject (AssignmentAdapter assignmentAdapter, int position){
 
     }
 }
