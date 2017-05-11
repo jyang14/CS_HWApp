@@ -13,7 +13,7 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.example.johnta.homeworkappv2.adapters.AssignmentAdapter;
-import com.example.johnta.homeworkappv2.adapters.AssignmentStruct;
+import com.example.johnta.homeworkappv2.adapters.AssignmentStructure;
 import com.example.johnta.homeworkappv2.popup.PlannerPopup;
 
 import java.util.ArrayList;
@@ -31,7 +31,7 @@ public class PlannerActivity extends ListActivity {
 
     private static int position;
 
-    private static ArrayList<AssignmentStruct> arrayOfInformation = new ArrayList<AssignmentStruct>();
+    private static ArrayList<AssignmentStructure> arrayOfInformation = new ArrayList<AssignmentStructure>();
     private static AssignmentAdapter assignmentAdapter;
     private static ArrayList<String> arrayFromDatabase = new ArrayList<String>();
 
@@ -48,23 +48,6 @@ public class PlannerActivity extends ListActivity {
 
         ListView listView = (ListView) findViewById(list);
         listView.setAdapter(assignmentAdapter);
-
-        /*
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Log.i("HelloListView", "You clicked Item: " + id + " at position:" + position);
-
-                startActivity(new Intent(PlannerActivity.this, DeleteObjectFromArray.class));
-
-                DeleteObjectFromArray delObject = new DeleteObjectFromArray(assignmentAdapter);
-
-                delObject.deleteObject(assignmentAdapter, position);
-                ArrayList<String> fun = new ArrayList<String>();
-            }
-        });*/
-
-
     }
 
     public void onClickEdit (View v) {
@@ -74,13 +57,11 @@ public class PlannerActivity extends ListActivity {
     }
 
     public static void addItemToArray (String itemToAdd, String itemToAdd_2) {
-        AssignmentStruct newItem = new AssignmentStruct(itemToAdd, itemToAdd_2);
+        AssignmentStructure newItem = new AssignmentStructure(itemToAdd, itemToAdd_2);
         assignmentAdapter.add(newItem);
 
         assignmentAdapter.notifyDataSetChanged();
         System.out.print(assignmentAdapter.toString());
-
-
     }
 
     public void onClickCopy (View v) {
@@ -94,5 +75,20 @@ public class PlannerActivity extends ListActivity {
         Log.i("PlannerActivity","Item has been clicked!!!");
     }
 
+    @Override
+    public void onActivityResult(int request, int result, Intent intentApple) {
+        super.onActivityResult(request, result, intentApple);
+
+        if (request == 123 && result == RESULT_OK) {
+            Bundle bundleOfBananas = intentApple.getExtras();
+            int position = bundleOfBananas.getInt("position");
+            boolean delete = bundleOfBananas.getBoolean("bananaCrate");
+
+            if (delete) {
+                assignmentAdapter.remove(assignmentAdapter.getItem(position));
+            }
+        }
+
+    }
 }
 

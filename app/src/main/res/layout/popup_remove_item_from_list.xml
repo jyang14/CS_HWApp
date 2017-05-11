@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+    <Button
+        android:id="@+id/popup_removeItemFromArray_remove"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Remove"
+        android:textSize="20sp"
+        android:ems="26"
+        android:background="@drawable/settingsbutton1"
+        android:textColor="@android:color/white"
+        android:layout_margin="5sp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:onClick="onClickDoStuff"/>
+
+    <Button
+        android:id="@+id/popup_removeItemFromArray_cancel"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/popup_removeItemFromArray_remove"
+        android:layout_centerHorizontal="true"
+        android:text="Cancel"
+        android:background="@drawable/settingsbutton1"
+        android:textColor="@android:color/white"
+
+        android:textSize="20sp"
+        android:ems="26"
+        android:layout_alignStart="@id/popup_removeItemFromArray_remove"
+        android:layout_alignLeft="@id/popup_removeItemFromArray_remove"
+        android:layout_alignEnd="@id/popup_removeItemFromArray_remove"
+        android:layout_alignRight="@id/popup_removeItemFromArray_remove"
+        android:onClick="onClickDoStuff"/>
+
+    <TextView
+        android:id="@+id/popup_removeItemFromArray_textView1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/popup_removeItemFromArray_remove"
+        android:layout_centerHorizontal="true"
+        android:text="Would you like to remove this?"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        android:ems="26"
+        android:layout_alignLeft="@id/popup_removeItemFromArray_remove"
+        android:layout_alignRight="@id/popup_removeItemFromArray_remove"
+        android:gravity="center"
+        />
+
+
+</android.support.percent.PercentRelativeLayout>

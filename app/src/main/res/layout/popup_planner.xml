@@ -69,7 +69,23 @@
             android:layout_marginBottom="5sp"
             android:layout_marginTop="5sp"/>
 
+        <Button
+            android:id="@+id/button13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/settingsbutton1"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:ems="26"
 
+            android:layout_alignLeft="@+id/button_popup_done"
+            android:layout_alignStart="@+id/button_popup_done"
+            android:layout_below="@+id/button_popup_done"
+            android:text="Cancel"
+
+            android:onClick="onClickCancel"
+            android:layout_alignRight="@+id/button_popup_done"
+            android:layout_alignEnd="@+id/button_popup_done" />
 
 
     </RelativeLayout>

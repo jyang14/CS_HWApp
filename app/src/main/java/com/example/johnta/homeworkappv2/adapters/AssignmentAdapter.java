@@ -1,7 +1,8 @@
 package com.example.johnta.homeworkappv2.adapters;
 
-import android.content.Context;
+import android.app.Activity;
 import android.content.Intent;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.example.johnta.homeworkappv2.R;
-import com.example.johnta.homeworkappv2.popup.PlannerPopup;
+import com.example.johnta.homeworkappv2.popup.RemoveItemFromListPopup;
 
 import java.util.ArrayList;
 
@@ -18,22 +19,22 @@ import java.util.ArrayList;
  * Created by johnta on 4/6/17.
  */
 
-public class AssignmentAdapter extends ArrayAdapter<AssignmentStruct> {
+public class AssignmentAdapter extends ArrayAdapter<AssignmentStructure> {
 
-    Context context;
+    Activity context;
 
-    public AssignmentAdapter(Context context, ArrayList<AssignmentStruct> listOfInformation) {
+    public AssignmentAdapter(Activity context, ArrayList<AssignmentStructure> listOfInformation) {
         super(context, 0, listOfInformation);
         this.context = context;
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
 
-        AssignmentStruct named = getItem(position);
+        final AssignmentStructure named = getItem(position);
 
         if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.editlistitems, parent, false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.backup_editlistitems, parent, false);
         }
 
         TextView name_of_class = (TextView) convertView.findViewById(R.id.name_of_class);
@@ -45,7 +46,19 @@ public class AssignmentAdapter extends ArrayAdapter<AssignmentStruct> {
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                context.startActivity(new Intent(context, PlannerPopup.class));
+
+                Intent intentThing = new Intent(context, RemoveItemFromListPopup.class);
+
+                Bundle bundleThing = new Bundle();
+                bundleThing.putString("thing",named.description_class_assignment);
+                bundleThing.putInt("position",position);
+                intentThing.putExtras(bundleThing);
+
+                //context.startActivity(intentThing);
+
+                context.startActivityForResult(intentThing,123);
+
+
                 Log.i("PlannerActivity", "Item has been clicked!!!");
             }
         });
