@@ -21,7 +21,7 @@
         <activity android:name=".SettingsActivity" />
         <activity android:name=".FirstCreateActivity" />
         <activity
-            android:name=".popup.PlannerPopup_popup"
+            android:name=".popup.PlannerPopup"
             android:theme="@style/AppTheme.CustomTheme" />
         <activity android:name=".NewUserPopupActivity" />
         <activity
@@ -29,9 +29,9 @@
             android:theme="@style/AppTheme.CustomTheme" />
         <activity android:name=".DeleteObjectFromArray" />
         <activity android:name=".ScheduleActivity" />
-        <activity android:name=".popup.MakeScheduleURL_popup" />
-        <activity android:name=".popup.Error404_popup" />
-        <activity android:name=".popup.ErrorGeneral_popup" />
+        <activity android:name=".popup.CreateScheduleURLPopup" />
+        <activity android:name=".popup.Error404Popup" />
+        <activity android:name=".popup.ErrorGeneralPopup" />
         <activity android:name=".PersonalSchedule"></activity>
     </application>
 

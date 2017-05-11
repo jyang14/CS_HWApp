@@ -10,7 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.example.johnta.homeworkappv2.R;
-import com.example.johnta.homeworkappv2.popup.PlannerPopup_popup;
+import com.example.johnta.homeworkappv2.popup.PlannerPopup;
 
 import java.util.ArrayList;
 
@@ -45,7 +45,7 @@ public class AssignmentAdapter extends ArrayAdapter<AssignmentStruct> {
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                context.startActivity(new Intent(context, PlannerPopup_popup.class));
+                context.startActivity(new Intent(context, PlannerPopup.class));
                 Log.i("PlannerActivity", "Item has been clicked!!!");
             }
         });

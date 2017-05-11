@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import com.example.johnta.homeworkappv2.adapters.AssignmentAdapter;
 import com.example.johnta.homeworkappv2.adapters.AssignmentStruct;
-import com.example.johnta.homeworkappv2.popup.PlannerPopup_popup;
+import com.example.johnta.homeworkappv2.popup.PlannerPopup;
 
 import java.util.ArrayList;
 
@@ -70,7 +70,7 @@ public class PlannerActivity extends ListActivity {
     public void onClickEdit (View v) {
         Log.i("PlannerActivity","Item has been clicked!!!");
 
-        startActivity(new Intent(PlannerActivity.this,PlannerPopup_popup.class));
+        startActivity(new Intent(PlannerActivity.this,PlannerPopup.class));
     }
 
     public static void addItemToArray (String itemToAdd, String itemToAdd_2) {
@@ -90,7 +90,7 @@ public class PlannerActivity extends ListActivity {
     @Override
     protected void onListItemClick (ListView list, View v, int position, long id) {
         super.onListItemClick(list,v,position,id);
-        startActivity(new Intent(PlannerActivity.this,PlannerPopup_popup.class));
+        startActivity(new Intent(PlannerActivity.this,PlannerPopup.class));
         Log.i("PlannerActivity","Item has been clicked!!!");
     }
 

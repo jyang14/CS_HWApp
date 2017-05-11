@@ -1,22 +1,19 @@
 package com.example.johnta.homeworkappv2.popup;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
-import android.widget.EditText;
 
 import com.example.johnta.homeworkappv2.R;
-import com.example.johnta.homeworkappv2.ScheduleActivity;
 
-public class MakeScheduleURL_popup extends Activity {
-
-    private String url;
+public class Error404Popup extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.popup_make_schedule_url);
+        setContentView(R.layout.activity_error404_popup);
 
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
@@ -24,16 +21,15 @@ public class MakeScheduleURL_popup extends Activity {
         int width = dm.widthPixels;
         int height = dm.heightPixels;
 
-        getWindow().setLayout((int)(width*0.8),(int)(height*0.8));
+        getWindow().setLayout((int)(width*0.6),(int)(height*0.3));
     }
 
-    public void onClickGoBackToBefore(View view) {
+    public void onClickReturn(View view) {
         super.onBackPressed();
     }
 
-    public void getInput (View view) {
-        url = ((EditText)findViewById(R.id.scheduleURL)).getText().toString();
-        ScheduleActivity.setURL(url);
+    public void newURL (View view) {
+        startActivity(new Intent(Error404Popup.this, CreateScheduleURLPopup.class));
         super.onBackPressed();
     }
 }

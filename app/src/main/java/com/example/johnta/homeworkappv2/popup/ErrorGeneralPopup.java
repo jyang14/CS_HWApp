@@ -10,7 +10,7 @@ import com.example.johnta.homeworkappv2.R;
  * Created by johnta on 5/3/17.
  */
 
-public class ErrorGeneral_popup extends Activity {
+public class ErrorGeneralPopup extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -15,7 +15,7 @@ import com.google.firebase.database.FirebaseDatabase;
  * Created by johnta on 4/3/17.
  */
 
-public class PlannerPopup_popup extends Activity {
+public class PlannerPopup extends Activity {
 
     private EditText txtInput;
     private EditText input_assignment;
