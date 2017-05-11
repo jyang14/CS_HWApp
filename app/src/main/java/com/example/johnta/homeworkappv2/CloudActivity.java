@@ -12,11 +12,11 @@ public class CloudActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cloud);
     }
 
-    public void onClickEdit (View v) {
+    public void onClickEdit(View v) {
 
     }
 
-    public void onClickCopyToPlanner (View v) {
+    public void onClickCopyToPlanner(View v) {
 
     }
 }

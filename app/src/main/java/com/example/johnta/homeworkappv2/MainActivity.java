@@ -13,10 +13,8 @@ public class MainActivity extends AppCompatActivity {
     private static boolean isUserSignedIn = false;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
 
 
         DatabaseReference mDatabase;
@@ -43,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(MainActivity.this, CloudActivity.class));
     }
 
-    public void toScheduleScreen (View v) {
+    public void toScheduleScreen(View v) {
         startActivity(new Intent(MainActivity.this, ScheduleActivity.class));
     }
 }
