@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.johnta.homeworkappv2.popup.CloudPopup"
+    android:background="@drawable/preface_popup_background">
+
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/editText6"
+            android:background="@drawable/background_white_textfields"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="5sp"
+            android:textSize="20sp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Name"
+            android:layout_margin="5sp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            />
+
+        <Button
+            android:id="@+id/popup_login_button"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Enter"
+
+            android:background="@drawable/settingsbutton1"
+            android:ems="26"
+            android:textSize="20sp"
+            android:textColor="@android:color/white"
+            android:layout_below="@+id/editText6"
+            android:layout_alignStart="@id/editText6"
+            android:layout_alignLeft="@id/editText6"
+            android:layout_alignEnd="@id/editText6"
+            android:layout_alignRight="@id/editText6"
+            />
+
+        <EditText
+            android:id="@+id/editText7"
+            android:layout_width="fill_parent"
+            android:background="@drawable/background_white_textfields"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/editText6"
+            android:layout_centerHorizontal="true"
+            android:layout_alignStart="@id/editText6"
+            android:layout_alignLeft="@id/editText6"
+            android:layout_alignEnd="@id/editText6"
+            android:layout_alignRight="@id/editText6"
+            android:padding="5sp"
+            android:textSize="20sp"
+            android:ems="26"
+            android:inputType="textPersonName"
+            android:text="Name"
+            android:gravity="center"/>
+
+
+    </RelativeLayout>
+
+
+</android.support.constraint.ConstraintLayout>
