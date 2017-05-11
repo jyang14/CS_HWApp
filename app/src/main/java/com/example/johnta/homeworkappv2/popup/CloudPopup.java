@@ -3,6 +3,7 @@ package com.example.johnta.homeworkappv2.popup;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
+import android.view.View;
 import android.widget.EditText;
 
 import com.example.johnta.homeworkappv2.R;
@@ -27,5 +28,10 @@ public class CloudPopup extends AppCompatActivity {
         int height = dm.heightPixels;
 
         getWindow().setLayout((int)(width*0.8),(int)(height*0.6));
+    }
+
+    public void onClickCancel (View v) {
+        finish();
+        super.onBackPressed();
     }
 }
