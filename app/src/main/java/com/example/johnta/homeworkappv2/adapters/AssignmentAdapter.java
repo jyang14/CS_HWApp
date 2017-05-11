@@ -50,13 +50,13 @@ public class AssignmentAdapter extends ArrayAdapter<AssignmentStructure> {
                 Intent intent = new Intent(context, RemoveItemFromListPopup.class);
 
                 Bundle bundle = new Bundle();
-                bundle.putString("thing",named.description_class_assignment);
-                bundle.putInt("position",position);
+                bundle.putString("thing", named.description_class_assignment);
+                bundle.putInt("position", position);
                 intent.putExtras(bundle);
 
                 //context.startActivity(intent);
 
-                context.startActivityForResult(intent,123);
+                context.startActivityForResult(intent, 123);
 
 
                 Log.i("PlannerActivity", "Item has been clicked!!!");

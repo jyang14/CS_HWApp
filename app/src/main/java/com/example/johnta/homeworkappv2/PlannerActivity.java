@@ -22,6 +22,8 @@ import static android.R.id.list;
 
 public class PlannerActivity extends ListActivity {
 
+    private static final String TAG = "PLANNERACTIVITY";
+
     public static ArrayList<String> arrayList, arrayList_assignments;
     private static ArrayAdapter<String> adapter, adapter_assignments;
     private static EditText txtInput;
@@ -34,6 +36,14 @@ public class PlannerActivity extends ListActivity {
     private static ArrayList<AssignmentStructure> arrayOfInformation = new ArrayList<AssignmentStructure>();
     private static AssignmentAdapter assignmentAdapter;
     private static ArrayList<String> arrayFromDatabase = new ArrayList<>();
+
+    public static void addItemToArray(String className, String assignmentName) {
+        AssignmentStructure assignment = new AssignmentStructure(className, assignmentName);
+        assignmentAdapter.add(assignment);
+
+        assignmentAdapter.notifyDataSetChanged();
+        Log.v(TAG, assignmentAdapter.toString());
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,29 +60,14 @@ public class PlannerActivity extends ListActivity {
         listView.setAdapter(assignmentAdapter);
     }
 
-    public void onClickEdit (View v) {
-        Log.i("PlannerActivity","Item has been clicked!!!");
+    public void onClickEdit(View v) {
+        Log.i("PlannerActivity", "Item has been clicked!!!");
 
-        startActivity(new Intent(PlannerActivity.this,PlannerPopup.class));
+        startActivity(new Intent(PlannerActivity.this, PlannerPopup.class));
     }
 
-    public static void addItemToArray (String className, String assignmentName) {
-        AssignmentStructure assignment = new AssignmentStructure(className, assignmentName);
-        assignmentAdapter.add(assignment);
+    public void onClickCopy(View v) {
 
-        assignmentAdapter.notifyDataSetChanged();
-        System.out.print(assignmentAdapter.toString());
-    }
-
-    public void onClickCopy (View v) {
-
-    }
-
-    @Override
-    protected void onListItemClick (ListView list, View v, int position, long id) {
-        super.onListItemClick(list,v,position,id);
-        startActivity(new Intent(PlannerActivity.this,PlannerPopup.class));
-        Log.i("PlannerActivity","Item has been clicked!!!");
     }
 
     @Override

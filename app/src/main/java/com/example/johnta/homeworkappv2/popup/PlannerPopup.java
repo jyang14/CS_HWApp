@@ -17,11 +17,10 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class PlannerPopup extends Activity {
 
-    private EditText txtInput;
-    private EditText input_assignment;
-
     DatabaseReference mDatabase;
     FirebaseDatabase mFirebase;
+    private EditText txtInput;
+    private EditText input_assignment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,17 +40,17 @@ public class PlannerPopup extends Activity {
         int width = dm.widthPixels;
         int height = dm.heightPixels;
 
-        getWindow().setLayout((int)(width*0.8),(int)(height*0.6));
+        getWindow().setLayout((int) (width * 0.8), (int) (height * 0.6));
     }
 
-    public void onClickEditList (View v) {
+    public void onClickEditList(View v) {
 
-        txtInput = (EditText)findViewById(R.id.name_of_class);
-        input_assignment = (EditText)findViewById(R.id.class_assignment);
+        txtInput = (EditText) findViewById(R.id.name_of_class);
+        input_assignment = (EditText) findViewById(R.id.class_assignment);
 
         String newItem = txtInput.getText().toString();
         String newItem_2 = input_assignment.getText().toString();
-        PlannerActivity.addItemToArray(newItem,newItem_2);
+        PlannerActivity.addItemToArray(newItem, newItem_2);
 
         mDatabase.child("Class_Name").push().setValue(txtInput.getText().toString());
         mDatabase.child("Assignment_Name").push().setValue(input_assignment.getText().toString());
@@ -59,7 +58,7 @@ public class PlannerPopup extends Activity {
         super.onBackPressed();
     }
 
-    public void onClickCancel (View v) {
+    public void onClickCancel(View v) {
         super.onBackPressed();
     }
 }
