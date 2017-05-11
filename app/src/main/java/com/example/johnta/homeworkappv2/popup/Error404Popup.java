@@ -21,14 +21,14 @@ public class Error404Popup extends Activity {
         int width = dm.widthPixels;
         int height = dm.heightPixels;
 
-        getWindow().setLayout((int)(width*0.6),(int)(height*0.3));
+        getWindow().setLayout((int) (width * 0.6), (int) (height * 0.3));
     }
 
     public void onClickReturn(View view) {
         super.onBackPressed();
     }
 
-    public void newURL (View view) {
+    public void newURL(View view) {
         startActivity(new Intent(Error404Popup.this, CreateScheduleURLPopup.class));
         super.onBackPressed();
     }

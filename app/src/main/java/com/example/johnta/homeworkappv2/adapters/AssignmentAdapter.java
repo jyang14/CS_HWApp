@@ -37,26 +37,26 @@ public class AssignmentAdapter extends ArrayAdapter<AssignmentStructure> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.backup_editlistitems, parent, false);
         }
 
-        TextView name_of_class = (TextView) convertView.findViewById(R.id.name_of_class);
-        TextView class_assignment = (TextView) convertView.findViewById(R.id.homework_description);
+        TextView nameOfClass = (TextView) convertView.findViewById(R.id.name_of_class);
+        TextView homeworkDescription = (TextView) convertView.findViewById(R.id.homework_description);
 
-        name_of_class.setText(named.name_of_the_class);
-        class_assignment.setText(named.description_class_assignment);
+        nameOfClass.setText(named.name_of_the_class);
+        homeworkDescription.setText(named.description_class_assignment);
 
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Intent intentThing = new Intent(context, RemoveItemFromListPopup.class);
+                Intent intent = new Intent(context, RemoveItemFromListPopup.class);
 
-                Bundle bundleThing = new Bundle();
-                bundleThing.putString("thing",named.description_class_assignment);
-                bundleThing.putInt("position",position);
-                intentThing.putExtras(bundleThing);
+                Bundle bundle = new Bundle();
+                bundle.putString("thing", named.description_class_assignment);
+                bundle.putInt("position", position);
+                intent.putExtras(bundle);
 
-                //context.startActivity(intentThing);
+                //context.startActivity(intent);
 
-                context.startActivityForResult(intentThing,123);
+                context.startActivityForResult(intent, 123);
 
 
                 Log.i("PlannerActivity", "Item has been clicked!!!");

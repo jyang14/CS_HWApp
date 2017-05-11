@@ -10,26 +10,26 @@ import com.example.johnta.homeworkappv2.popup.LoginPopup;
 
 public class FirstCreateActivity extends AppCompatActivity {
 
-    private RelativeLayout layout_main;
     private static boolean popup = true;
+    private RelativeLayout layout_main;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_firstcreate);
 
-        layout_main = (RelativeLayout)findViewById(R.id.relativeLayoutFirstCreate);
+        layout_main = (RelativeLayout) findViewById(R.id.relativeLayoutFirstCreate);
         layout_main.setVisibility(View.VISIBLE);
     }
 
     public void onSignInUser(View view) {
         //layout_main.setVisibility(View.GONE);
-        startActivity(new Intent(FirstCreateActivity.this,LoginPopup.class));
+        startActivity(new Intent(FirstCreateActivity.this, LoginPopup.class));
 
     }
 
     public void onCreateNewUser(View view) {
-        startActivity(new Intent(FirstCreateActivity.this,NewUserPopupActivity.class));
+        startActivity(new Intent(FirstCreateActivity.this, NewUserPopupActivity.class));
 
     }
 

@@ -24,15 +24,15 @@ public class CreateScheduleURLPopup extends Activity {
         int width = dm.widthPixels;
         int height = dm.heightPixels;
 
-        getWindow().setLayout((int)(width*0.8),(int)(height*0.8));
+        getWindow().setLayout((int) (width * 0.8), (int) (height * 0.8));
     }
 
     public void onClickGoBackToBefore(View view) {
         super.onBackPressed();
     }
 
-    public void getInput (View view) {
-        url = ((EditText)findViewById(R.id.scheduleURL)).getText().toString();
+    public void getInput(View view) {
+        url = ((EditText) findViewById(R.id.scheduleURL)).getText().toString();
         ScheduleActivity.setURL(url);
         super.onBackPressed();
     }

@@ -8,6 +8,15 @@ import com.example.johnta.homeworkappv2.adapters.AssignmentAdapter;
 
 public class DeleteObjectFromArray extends Activity {
 
+    /* Constructor */
+    public DeleteObjectFromArray(AssignmentAdapter assignmentAdapter) {
+
+    }
+
+    public DeleteObjectFromArray() {
+
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,19 +28,10 @@ public class DeleteObjectFromArray extends Activity {
         int width = dm.widthPixels;
         int height = dm.heightPixels;
 
-        getWindow().setLayout((int)(width*0.8),(int)(height*0.6));
+        getWindow().setLayout((int) (width * 0.8), (int) (height * 0.6));
     }
 
-    /* Constructor */
-    public DeleteObjectFromArray (AssignmentAdapter assignmentAdapter) {
-
-    }
-
-    public DeleteObjectFromArray () {
-
-    }
-
-    public void deleteObject (AssignmentAdapter assignmentAdapter, int position){
+    public void deleteObject(AssignmentAdapter assignmentAdapter, int position) {
 
     }
 }
