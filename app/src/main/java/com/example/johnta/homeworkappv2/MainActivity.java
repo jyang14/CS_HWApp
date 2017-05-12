@@ -44,4 +44,8 @@ public class MainActivity extends AppCompatActivity {
     public void toScheduleScreen(View v) {
         startActivity(new Intent(MainActivity.this, ScheduleActivity.class));
     }
+
+    public void toSettingsScreen(View view) {
+        startActivity(new Intent(MainActivity.this, SettingsActivity.class));
+    }
 }

@@ -16,113 +16,61 @@
         tools:layout_constraintTop_creator="1">
 
         <ImageView
-            android:id="@+id/setting_picture"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_centerHorizontal="true"
-            android:background="@drawable/background_circle"
-            android:src="@drawable/settings"/>
+            android:id="@+id/planner_picture"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:background="@drawable/roundbutton"
+            android:src="@drawable/settings_icon"
+            android:layout_margin="10sp"
 
-        <!--
-        app:srcCompat="@drawable/settinggear10pad"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="0dp"
-        -->
+            android:layout_centerHorizontal="true" />
 
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Settings"
-            android:textColor="#000000"
-            android:textSize="32sp"
-            android:typeface="sans"
-            android:layout_below="@+id/setting_picture"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
-
-
-        <LinearLayout
-            android:id="@+id/linearLayout"
+        <Button
+            android:id="@+id/settings_changeBackgroundColor_button"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_marginBottom="4dp"
-            android:layout_marginEnd="3dp"
-            android:layout_marginLeft="3dp"
-            android:layout_marginRight="3dp"
-            android:layout_marginStart="3dp"
-            android:layout_marginTop="5dp"
-            android:background="#ffffff"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            tools:layout_constraintBottom_creator="1"
-            tools:layout_constraintLeft_creator="1"
-            tools:layout_constraintRight_creator="1"
-            android:layout_below="@id/textView4">
+            android:layout_height="wrap_content"
+            android:text="Change Background Color"
+            android:padding="5sp"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:background="@drawable/settingsbutton1"
+            android:layout_margin="5sp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
 
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/settingsbutton1"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:padding="5sp"
+            android:layout_below="@+id/settings_changeBackgroundColor_button"
+            android:layout_centerHorizontal="true"
+            android:text="Button sound"
 
-            <Button
-                android:id="@+id/button7"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/settingsbutton1"
-                android:text="Press me!"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
-                android:textColor="#f6f6f6" />
+            android:layout_alignStart="@id/settings_changeBackgroundColor_button"
+            android:layout_alignLeft="@id/settings_changeBackgroundColor_button"
+            android:layout_alignEnd="@id/settings_changeBackgroundColor_button"
+            android:layout_alignRight="@id/settings_changeBackgroundColor_button"/>
 
-            <Button
-                android:id="@+id/button5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/settingsbutton1"
-                android:text="press me again"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
-                android:textColor="#f6f6f6"
-                />
-
-            <Button
-                android:id="@+id/button4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/settingsbutton1"
-                android:text="and me"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
-                android:textColor="#f6f6f6" />
-
-            <Button
-                android:id="@+id/button3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/settingsbutton1"
-                android:text="Butt"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
-                android:textColor="#f6f6f6" />
-        </LinearLayout>
-
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/button4"
+            android:background="@drawable/settingsbutton1"
+            android:layout_centerHorizontal="true"
+            android:text="Credits"
+            android:textSize="20sp"
+            android:padding="5sp"
+            android:layout_marginTop="5sp"
+            android:textColor="@android:color/white"
+            android:layout_alignStart="@id/settings_changeBackgroundColor_button"
+            android:layout_alignLeft="@id/settings_changeBackgroundColor_button"
+            android:layout_alignEnd="@id/settings_changeBackgroundColor_button"
+            android:layout_alignRight="@id/settings_changeBackgroundColor_button"/>
 
 
     </RelativeLayout>
