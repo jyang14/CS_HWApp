@@ -59,7 +59,6 @@ public class PlannerActivity extends ListActivity {
         ListView listView = (ListView) findViewById(list);
         listView.setAdapter(assignmentAdapter);
 
-
         mDatabase.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String prevChildKey) {

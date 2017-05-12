@@ -53,7 +53,7 @@ public class AssignmentAdapter extends ArrayAdapter<AssignmentStructure> {
         homeworkDescription.setText(named.getDescription());
        // subtractButton.set
 
-        convertView.setOnClickListener(new View.OnClickListener() {
+        subtractButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 

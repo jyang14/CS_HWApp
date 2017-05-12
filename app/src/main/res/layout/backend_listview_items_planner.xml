@@ -43,7 +43,8 @@
         android:layout_alignBottom="@+id/name_of_class"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        app:srcCompat="@drawable/subtract_icon" />
+        app:srcCompat="@drawable/subtract_icon"
+        android:onClick=""/>
 
     <ImageButton
         android:id="@+id/backend_listViewItemsPlanner_transfer"
@@ -56,4 +57,5 @@
         android:layout_alignBottom="@+id/homework_description"
         android:layout_toLeftOf="@+id/backend_listViewItemsPlanner_subtract"
         android:layout_toStartOf="@+id/backend_listViewItemsPlanner_subtract" />
+
 </RelativeLayout>
