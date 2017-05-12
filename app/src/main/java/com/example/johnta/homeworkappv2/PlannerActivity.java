@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.example.johnta.homeworkappv2.adapters.AssignmentAdapter;
 import com.example.johnta.homeworkappv2.adapters.AssignmentStructure;
+import com.example.johnta.homeworkappv2.firebase.FirebaseWrapper;
 import com.example.johnta.homeworkappv2.popup.PlannerPopup;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -41,6 +42,10 @@ public class PlannerActivity extends ListActivity {
     static DatabaseReference mDatabase;
     static FirebaseDatabase mFirebase;
 
+    static DatabaseReference mDatabaseForDelete;
+    static FirebaseDatabase mFirebaseForDelete;
+    private static AssignmentAdapter assignmentAdapterForDelete;
+
     /**
      * Oncreate method for the initilization of the PlannerActivity screen
      * @param savedInstanceState
@@ -55,19 +60,28 @@ public class PlannerActivity extends ListActivity {
         setContentView(R.layout.activity_planner);
 
         assignmentAdapter = new AssignmentAdapter(this, arrayOfInformation);
+        assignmentAdapter.clear();
 
-        ListView listView = (ListView) findViewById(list);
+        final ListView listView = (ListView) findViewById(list);
         listView.setAdapter(assignmentAdapter);
 
+        FirebaseWrapper.getInstance(this).refreshLists(listView, mDatabase, assignmentAdapter);
+
+        // assignmentAdapter = new ArraysIntoOne_backend(this, arrayOfInformation);
+        assignmentAdapter.notifyDataSetChanged();
+    }
+
+    private void refreshLists(final ListView listView) {
         mDatabase.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String prevChildKey) {
                 AssignmentStructure assignment = dataSnapshot.getValue(AssignmentStructure.class);
 
                 assignmentAdapter.add(assignment);
-                assignmentAdapter.notifyDataSetChanged();
+                //assignmentAdapter.notifyDataSetChanged();
 
                 //assignmentAdapter.add(assignment);
+                listView.setAdapter(assignmentAdapter);
             }
 
             @Override
@@ -82,10 +96,6 @@ public class PlannerActivity extends ListActivity {
             @Override
             public void onCancelled(DatabaseError databaseError) {}
         });
-
-        // assignmentAdapter = new ArraysIntoOne_backend(this, arrayOfInformation);
-        listView.setAdapter(assignmentAdapter);
-        assignmentAdapter.notifyDataSetChanged();
     }
 
     /**
@@ -101,15 +111,15 @@ public class PlannerActivity extends ListActivity {
 
         mDatabase.child("Assignment").push().setValue(assignment);
 
-        assignmentAdapter.notifyDataSetChanged();
-        Log.v(TAG, assignmentAdapter.toString());
+        //assignmentAdapter.notifyDataSetChanged();
+        //Log.v(TAG, assignmentAdapter.toString());
     }
 
     /**
      * Opens up popup PlannerPopup when clicked to allow users to populate assignments to planner
      * @param v
      */
-    public void onClickEdit(View v) {
+    public void onClickAdd(View v) {
         Log.i("PlannerActivity", "Item has been clicked!!!");
 
         startActivity(new Intent(PlannerActivity.this, PlannerPopup.class));
@@ -132,11 +142,12 @@ public class PlannerActivity extends ListActivity {
 
         if (request == 123 && result == RESULT_OK) {
             Bundle bundle = data.getExtras();
-            int position = bundle.getInt("position");
+            final int position = bundle.getInt("position");
             boolean delete = bundle.getBoolean("delete");
 
             if (delete) {
                 assignmentAdapter.remove(assignmentAdapter.getItem(position));
+
             }
         }
 

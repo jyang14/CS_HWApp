@@ -34,7 +34,8 @@
         <activity android:name=".popup.ErrorGeneralPopup" />
         <activity android:name=".PersonalSchedule" />
         <activity android:name=".popup.RemoveItemFromListPopup" />
-        <activity android:name=".popup.CloudPopup"></activity>
+        <activity android:name=".popup.CloudPopup" />
+        <activity android:name=".popup.ButtonSoundPopup"></activity>
     </application>
 
 </manifest>

@@ -11,11 +11,11 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         app:layout_constraintBottom_toTopOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.195"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.058"
+        app:layout_constraintVertical_bias="0.0"
         tools:layout_constraintBottom_creator="1"
         tools:layout_constraintLeft_creator="1"
         tools:layout_constraintRight_creator="1"
@@ -25,131 +25,130 @@
             android:id="@+id/textView10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/cloudbutton"
+            android:layout_alignLeft="@+id/cloudbutton"
+            android:layout_alignRight="@+id/cloudbutton"
+            android:layout_alignStart="@+id/cloudbutton"
+            android:layout_below="@+id/cloudbutton"
+            android:gravity="center"
             android:text="Cloud"
             android:textColor="#ffffff"
-            android:gravity="center"
-            android:textSize="30sp"
-            android:layout_below="@+id/cloudbutton"
-            android:layout_alignLeft="@+id/cloudbutton"
-            android:layout_alignStart="@+id/cloudbutton"
-            android:layout_alignRight="@+id/cloudbutton"
-            android:layout_alignEnd="@+id/cloudbutton" />
+            android:textSize="30sp" />
 
         <TextView
             android:id="@+id/textView9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Planner"
-            android:textColor="#ffffff"
-            android:gravity="center"
-            android:textSize="20sp"
-            android:layout_below="@+id/plannerbutton"
             android:layout_alignLeft="@+id/plannerbutton"
             android:layout_alignStart="@+id/plannerbutton"
-            android:layout_alignRight="@+id/plannerbutton"
-            android:layout_alignEnd="@+id/plannerbutton" />
+            android:layout_below="@+id/plannerbutton"
+            android:gravity="center"
+            android:text="Planner"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/textView8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="50sp"
+            android:layout_height="50sp"
+            android:layout_alignBottom="@+id/textView9"
+            android:layout_alignEnd="@+id/settingbutton"
+            android:layout_alignRight="@+id/settingbutton"
+            android:layout_below="@+id/textView9"
+            android:gravity="center"
             android:text="Settings"
             android:textColor="#ffffff"
-            android:gravity="center"
-            android:textSize="20sp"
-            android:layout_alignBaseline="@+id/textView9"
-            android:layout_alignBottom="@+id/textView9"
-            android:layout_alignLeft="@+id/settingbutton"
-            android:layout_alignStart="@+id/settingbutton"
-            android:layout_alignRight="@+id/settingbutton"
-            android:layout_alignEnd="@+id/settingbutton" />
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/textView7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/blankbutton"
+            android:layout_alignLeft="@+id/blankbutton"
+            android:layout_alignRight="@+id/blankbutton"
+            android:layout_alignStart="@+id/blankbutton"
+            android:layout_below="@+id/blankbutton"
+            android:gravity="center"
             android:text="Blank"
             android:textColor="#ffffff"
-            android:gravity="center"
-            android:textSize="20sp"
-            android:layout_below="@+id/blankbutton"
-            android:layout_alignLeft="@+id/blankbutton"
-            android:layout_alignStart="@+id/blankbutton"
-            android:layout_alignRight="@+id/blankbutton"
-            android:layout_alignEnd="@+id/blankbutton" />
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/schedulebutton"
+            android:layout_alignStart="@+id/schedulebutton"
+            android:layout_below="@+id/schedulebutton"
+            android:gravity="center"
             android:text="Schedule"
             android:textColor="#ffffff"
-            android:gravity="center"
-            android:textSize="20sp"
-            android:layout_below="@+id/schedulebutton"
-            android:layout_alignLeft="@+id/schedulebutton"
-            android:layout_alignStart="@+id/schedulebutton" />
+            android:textSize="20sp" />
 
         <ImageButton
             android:id="@+id/schedulebutton"
             android:layout_width="75dp"
             android:layout_height="75dp"
+            android:layout_alignTop="@+id/blankbutton"
+            android:layout_toEndOf="@+id/cloudbutton"
+            android:layout_toRightOf="@+id/cloudbutton"
             android:background="@drawable/roundbutton"
             android:contentDescription="@string/buttondesc"
+            android:onClick="toScheduleScreen"
             app:layout_constraintLeft_toRightOf="@+id/blankbutton"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/schedule"
             tools:layout_constraintLeft_creator="1"
-            tools:layout_constraintTop_creator="1"
-            android:layout_alignTop="@+id/blankbutton"
-            android:layout_toRightOf="@+id/cloudbutton"
-            android:layout_toEndOf="@+id/cloudbutton"
-            android:onClick="toScheduleScreen"/>
+            tools:layout_constraintTop_creator="1" />
 
         <ImageButton
             android:id="@+id/blankbutton"
             android:layout_width="75dp"
             android:layout_height="75dp"
+            android:layout_below="@+id/textView10"
+            android:layout_marginTop="21dp"
+            android:layout_toLeftOf="@+id/textView10"
+            android:layout_toStartOf="@+id/textView10"
             android:background="@drawable/roundbutton"
             android:contentDescription="@string/buttondesc"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/filler"
             tools:layout_constraintLeft_creator="1"
-            tools:layout_constraintTop_creator="1"
-            android:layout_marginTop="21dp"
-            android:layout_below="@+id/textView10"
-            android:layout_toLeftOf="@+id/textView10"
-            android:layout_toStartOf="@+id/textView10" />
+            tools:layout_constraintTop_creator="1" />
 
         <ImageButton
             android:id="@+id/plannerbutton"
             android:layout_width="75dp"
             android:layout_height="75dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="32dp"
+            android:layout_toLeftOf="@+id/cloudbutton"
+            android:layout_toStartOf="@+id/cloudbutton"
             android:background="@drawable/roundbutton"
             android:contentDescription="@string/buttondesc"
             android:onClick="toPlannerScreen"
             app:srcCompat="@drawable/planner"
             tools:layout_editor_absoluteX="86dp"
-            tools:layout_editor_absoluteY="142dp"
-            android:layout_alignParentTop="true"
-            android:layout_toLeftOf="@+id/cloudbutton"
-            android:layout_toStartOf="@+id/cloudbutton"
-            android:layout_marginTop="32dp" />
+            tools:layout_editor_absoluteY="142dp" />
 
         <ImageButton
             android:id="@+id/settingbutton"
             android:layout_width="75dp"
             android:layout_height="75dp"
+            android:layout_alignEnd="@+id/schedulebutton"
+            android:layout_alignRight="@+id/schedulebutton"
+            android:layout_alignTop="@+id/plannerbutton"
+            android:layout_marginEnd="15dp"
+            android:layout_marginRight="15dp"
+
             android:background="@drawable/roundbutton"
             android:contentDescription="@string/buttondesc"
+            android:onClick="toSettingsScreen"
             app:srcCompat="@drawable/settings"
             tools:layout_editor_absoluteX="114dp"
-            tools:layout_editor_absoluteY="8dp"
-            android:layout_marginBottom="51dp"
-            android:layout_above="@+id/cloudbutton"
-            android:layout_toRightOf="@+id/cloudbutton"
-            android:layout_toEndOf="@+id/cloudbutton" />
+            tools:layout_editor_absoluteY="8dp" />
 
         <ImageButton
             android:id="@+id/cloudbutton"
@@ -161,11 +160,11 @@
             android:background="@drawable/background_circle"
             android:contentDescription="@string/buttondesc"
             android:cropToPadding="false"
+            android:onClick="toCloudScreen"
             android:scaleType="fitXY"
             app:srcCompat="@drawable/cloud"
             tools:layout_editor_absoluteX="114dp"
-            tools:layout_editor_absoluteY="71dp"
-            android:onClick="toCloudScreen"/>
+            tools:layout_editor_absoluteY="71dp" />
     </RelativeLayout>
 
 
