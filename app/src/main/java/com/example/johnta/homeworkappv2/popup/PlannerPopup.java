@@ -8,8 +8,6 @@ import android.widget.EditText;
 
 import com.example.johnta.homeworkappv2.PlannerActivity;
 import com.example.johnta.homeworkappv2.R;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 /**
  * Created by johnta on 4/3/17.
@@ -17,8 +15,6 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class PlannerPopup extends Activity {
 
-    DatabaseReference mDatabase;
-    FirebaseDatabase mFirebase;
     private EditText txtInput;
     private EditText input_assignment;
 
@@ -27,9 +23,6 @@ public class PlannerPopup extends Activity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.popup_planner);
-
-        mFirebase = FirebaseDatabase.getInstance();
-        mDatabase = mFirebase.getReference();
 
         txtInput = (EditText) findViewById(R.id.name_of_class);
         input_assignment = (EditText) findViewById(R.id.class_assignment);
@@ -51,9 +44,6 @@ public class PlannerPopup extends Activity {
         String newItem = txtInput.getText().toString();
         String newItem_2 = input_assignment.getText().toString();
         PlannerActivity.addItemToArray(newItem, newItem_2);
-
-        mDatabase.child("Class_Name").push().setValue(txtInput.getText().toString());
-        mDatabase.child("Assignment_Name").push().setValue(input_assignment.getText().toString());
 
         super.onBackPressed();
     }

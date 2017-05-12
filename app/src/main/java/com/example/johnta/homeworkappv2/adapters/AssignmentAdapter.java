@@ -43,8 +43,8 @@ public class AssignmentAdapter extends ArrayAdapter<AssignmentStructure> {
         ImageButton subtractButton = (ImageButton)convertView.findViewById(R.id.backend_listViewItemsPlanner_subtract);
         ImageButton transferButton = (ImageButton)convertView.findViewById(R.id.backend_listViewItemsPlanner_transfer);
 
-        nameOfClass.setText(named.name_of_the_class);
-        homeworkDescription.setText(named.description_class_assignment);
+        nameOfClass.setText(named.getClassname());
+        homeworkDescription.setText(named.getDescription());
        // subtractButton.set
 
         convertView.setOnClickListener(new View.OnClickListener() {
@@ -54,7 +54,7 @@ public class AssignmentAdapter extends ArrayAdapter<AssignmentStructure> {
                 Intent intent = new Intent(context, RemoveItemFromListPopup.class);
 
                 Bundle bundle = new Bundle();
-                bundle.putString("thing", named.description_class_assignment);
+                bundle.putString("thing", named.getDescription());
                 bundle.putInt("position", position);
                 intent.putExtras(bundle);
 
