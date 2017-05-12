@@ -2,9 +2,8 @@
 <android.support.percent.PercentRelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-
+    android:layout_height="match_parent"
+    android:background="@drawable/preface_popup_background">
 
     <Button
         android:id="@+id/popup_removeItemFromArray_remove"
@@ -29,7 +28,6 @@
         android:text="Cancel"
         android:background="@drawable/settingsbutton1"
         android:textColor="@android:color/white"
-
         android:textSize="20sp"
         android:ems="26"
         android:layout_alignStart="@id/popup_removeItemFromArray_remove"

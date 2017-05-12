@@ -164,7 +164,8 @@
             android:scaleType="fitXY"
             app:srcCompat="@drawable/cloud"
             tools:layout_editor_absoluteX="114dp"
-            tools:layout_editor_absoluteY="71dp" />
+            tools:layout_editor_absoluteY="71dp"
+            android:onClick="toCloudScreen"/>
     </RelativeLayout>
 
 

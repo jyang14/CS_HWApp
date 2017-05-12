@@ -21,11 +21,11 @@
             android:background="@drawable/roundbutton"
             android:src="@drawable/cloud"
             android:layout_marginBottom="11dp"
-            android:layout_above="@+id/textView"
+            android:layout_above="@+id/activity_cloud_textView"
             android:layout_centerHorizontal="true" />
 
         <Button
-            android:id="@+id/edit_button"
+            android:id="@+id/activity_cloud_editButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Edit"
@@ -33,51 +33,51 @@
             android:textColor="@android:color/white"
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="130dp"
-            android:layout_marginTop="154dp"
+            android:layout_marginTop="188dp"
+
+            android:onClick="onClickEdit"
+            android:background="@drawable/settingsbutton1"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:onClick="onClickEdit"
-            android:background="@drawable/settingsbutton1"/>
+            android:layout_alignParentStart="true" />
 
         <Button
-            android:id="@+id/copy_button"
+            android:id="@+id/activity_cloud_copyButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Copy"
             android:textSize="15sp"
             android:textColor="@android:color/white"
-            android:layout_alignBaseline="@+id/edit_button"
             android:background="@drawable/settingsbutton1"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:layout_alignRight="@id/planner_picture"
 
             android:onClick="onClickCopyToPlanner"
-            />
+            android:layout_above="@+id/listView"
+            android:layout_alignTop="@+id/activity_cloud_textView" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/activity_cloud_textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="The Hub"
+            android:padding="10sp"
             android:background="@drawable/background_names"
             android:textColor="@android:color/white"
             android:textSize="32sp"
-            android:layout_alignTop="@+id/edit_button"
             android:gravity="center"
-            android:layout_alignBottom="@+id/edit_button"
+            android:onClick="onClickEdit"
+            android:layout_alignTop="@+id/activity_cloud_editButton"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignParentStart="true" />
 
         <ListView
-            android:id="@android:id/list"
+            android:id="@+id/listView"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:background="#ffffff"
-            android:layout_below="@+id/edit_button"
+            android:layout_below="@+id/activity_cloud_textView"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_weight="1"
