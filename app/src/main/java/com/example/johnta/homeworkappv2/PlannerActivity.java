@@ -6,15 +6,17 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.example.johnta.homeworkappv2.adapters.AssignmentAdapter;
 import com.example.johnta.homeworkappv2.adapters.AssignmentStructure;
 import com.example.johnta.homeworkappv2.popup.PlannerPopup;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
@@ -26,10 +28,6 @@ public class PlannerActivity extends ListActivity {
 
     public static ArrayList<String> arrayList, arrayList_assignments;
     private static ArrayAdapter<String> adapter, adapter_assignments;
-    private static EditText txtInput;
-    private static TextView tvMsg;
-    private static PopupWindow popUpWindow;
-    private static LinearLayout mainLayout;
 
     private static int position;
 
@@ -40,20 +38,19 @@ public class PlannerActivity extends ListActivity {
     private static AssignmentAdapter assignmentAdapter;
     private static ArrayList<String> arrayFromDatabase = new ArrayList<>();
 
-    public static void addItemToArray(String className, String assignmentName) {
-        AssignmentStructure assignment = new AssignmentStructure(className, assignmentName);
-        assignmentAdapter.add(assignment);
+    static DatabaseReference mDatabase;
+    static FirebaseDatabase mFirebase;
 
-        assignmentAdapter.notifyDataSetChanged();
-        Log.v(TAG, assignmentAdapter.toString());
-    }
-
+    /**
+     * Oncreate method for the initilization of the PlannerActivity screen
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        popUpWindow = new PopupWindow(this);
-        mainLayout = new LinearLayout(this);
+        mFirebase = FirebaseDatabase.getInstance();
+        mDatabase = mFirebase.getReference("Assignment");
 
         setContentView(R.layout.activity_planner);
 
@@ -61,8 +58,58 @@ public class PlannerActivity extends ListActivity {
 
         ListView listView = (ListView) findViewById(list);
         listView.setAdapter(assignmentAdapter);
+
+
+        mDatabase.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String prevChildKey) {
+                AssignmentStructure assignment = dataSnapshot.getValue(AssignmentStructure.class);
+
+                assignmentAdapter.add(assignment);
+                assignmentAdapter.notifyDataSetChanged();
+
+                //assignmentAdapter.add(assignment);
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String prevChildKey) {}
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {}
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String prevChildKey) {}
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {}
+        });
+
+        // assignmentAdapter = new ArraysIntoOne_backend(this, arrayOfInformation);
+        listView.setAdapter(assignmentAdapter);
+        assignmentAdapter.notifyDataSetChanged();
     }
 
+    /**
+     * Adds item to the listView upon completion of user input
+     * @param className - name of the class
+     * @param assignmentName - description of assignment
+     */
+    public static void addItemToArray(String className, String assignmentName) {
+        mDatabase = mFirebase.getReference();
+
+        AssignmentStructure assignment = new AssignmentStructure(className, assignmentName);
+        //assignmentAdapter.add(assignment);
+
+        mDatabase.child("Assignment").push().setValue(assignment);
+
+        assignmentAdapter.notifyDataSetChanged();
+        Log.v(TAG, assignmentAdapter.toString());
+    }
+
+    /**
+     * Opens up popup PlannerPopup when clicked to allow users to populate assignments to planner
+     * @param v
+     */
     public void onClickEdit(View v) {
         Log.i("PlannerActivity", "Item has been clicked!!!");
 
@@ -73,6 +120,13 @@ public class PlannerActivity extends ListActivity {
 
     }
 
+    /**
+     * Checks for the result and sees if the state is correct in order to determine whether or not to delete
+     * the specified object in the position
+     * @param request
+     * @param result
+     * @param data
+     */
     @Override
     public void onActivityResult(int request, int result, Intent data) {
         super.onActivityResult(request, result, data);
