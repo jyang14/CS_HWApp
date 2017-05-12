@@ -22,6 +22,8 @@ import java.util.ArrayList;
 
 public class AssignmentAdapter extends ArrayAdapter<AssignmentStructure> {
 
+    private static final String TAG = "ASSIGNMENTADAPTER";
+
     Activity context;
 
     public AssignmentAdapter(Activity context, ArrayList<AssignmentStructure> listOfInformation) {
@@ -40,8 +42,12 @@ public class AssignmentAdapter extends ArrayAdapter<AssignmentStructure> {
 
         TextView nameOfClass = (TextView) convertView.findViewById(R.id.name_of_class);
         TextView homeworkDescription = (TextView) convertView.findViewById(R.id.homework_description);
+
         ImageButton subtractButton = (ImageButton)convertView.findViewById(R.id.backend_listViewItemsPlanner_subtract);
+        subtractButton.setImageResource(R.drawable.subtract_icon);
+
         ImageButton transferButton = (ImageButton)convertView.findViewById(R.id.backend_listViewItemsPlanner_transfer);
+        transferButton.setImageResource(R.drawable.transfer_icon);
 
         nameOfClass.setText(named.getClassname());
         homeworkDescription.setText(named.getDescription());
@@ -57,8 +63,6 @@ public class AssignmentAdapter extends ArrayAdapter<AssignmentStructure> {
                 bundle.putString("thing", named.getDescription());
                 bundle.putInt("position", position);
                 intent.putExtras(bundle);
-
-                //context.startActivity(intent);
 
                 context.startActivityForResult(intent, 123);
 
