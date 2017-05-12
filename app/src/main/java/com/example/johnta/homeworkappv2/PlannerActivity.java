@@ -33,6 +33,9 @@ public class PlannerActivity extends ListActivity {
 
     private static int position;
 
+    private static boolean pathWay = true;
+    private TextView buttonText;
+
     private static ArrayList<AssignmentStructure> arrayOfInformation = new ArrayList<AssignmentStructure>();
     private static AssignmentAdapter assignmentAdapter;
     private static ArrayList<String> arrayFromDatabase = new ArrayList<>();
@@ -66,7 +69,7 @@ public class PlannerActivity extends ListActivity {
         startActivity(new Intent(PlannerActivity.this, PlannerPopup.class));
     }
 
-    public void onClickCopy(View v) {
+    public void onClickCopy (View v) {
 
     }
 

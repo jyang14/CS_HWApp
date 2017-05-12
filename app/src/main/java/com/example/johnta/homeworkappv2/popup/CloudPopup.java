@@ -34,4 +34,8 @@ public class CloudPopup extends AppCompatActivity {
         finish();
         super.onBackPressed();
     }
+
+    public void onClickAdd (View v) {
+
+    }
 }

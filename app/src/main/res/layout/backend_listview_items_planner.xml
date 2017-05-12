@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="horizontal" >
@@ -32,6 +33,27 @@
         android:focusableInTouchMode="true"
         android:layout_alignBaseline="@+id/name_of_class"
         android:layout_alignBottom="@+id/name_of_class"
-        android:layout_toRightOf="@+id/name_of_class"
-        android:layout_toEndOf="@+id/name_of_class" />
+        android:layout_toRightOf="@+id/name_of_class" />
+
+    <ImageButton
+        android:id="@+id/backend_listViewItemsPlanner_subtract"
+        android:background="@android:color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/name_of_class"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        app:srcCompat="@drawable/subtract_icon" />
+
+    <ImageButton
+        android:id="@+id/backend_listViewItemsPlanner_transfer"
+        android:background="@android:color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        app:srcCompat="@drawable/transfer_icon"
+        android:layout_toRightOf="@+id/homework_description"
+        android:layout_alignBottom="@+id/homework_description"
+        android:layout_toLeftOf="@+id/backend_listViewItemsPlanner_subtract"
+        android:layout_toStartOf="@+id/backend_listViewItemsPlanner_subtract" />
 </RelativeLayout>

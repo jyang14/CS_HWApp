@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.johnta.homeworkappv2.R;
@@ -34,14 +35,17 @@ public class AssignmentAdapter extends ArrayAdapter<AssignmentStructure> {
         final AssignmentStructure named = getItem(position);
 
         if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.backup_editlistitems, parent, false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.backend_listview_items_planner, parent, false);
         }
 
         TextView nameOfClass = (TextView) convertView.findViewById(R.id.name_of_class);
         TextView homeworkDescription = (TextView) convertView.findViewById(R.id.homework_description);
+        ImageButton subtractButton = (ImageButton)convertView.findViewById(R.id.backend_listViewItemsPlanner_subtract);
+        ImageButton transferButton = (ImageButton)convertView.findViewById(R.id.backend_listViewItemsPlanner_transfer);
 
         nameOfClass.setText(named.name_of_the_class);
         homeworkDescription.setText(named.description_class_assignment);
+       // subtractButton.set
 
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,7 +61,6 @@ public class AssignmentAdapter extends ArrayAdapter<AssignmentStructure> {
                 //context.startActivity(intent);
 
                 context.startActivityForResult(intent, 123);
-
 
                 Log.i("PlannerActivity", "Item has been clicked!!!");
             }

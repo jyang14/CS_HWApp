@@ -21,15 +21,33 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <EditText
+            android:id="@+id/editText7"
+            android:layout_width="fill_parent"
+            android:background="@drawable/background_white_textfields"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/editText6"
+            android:layout_centerHorizontal="true"
+            android:layout_alignStart="@id/editText6"
+            android:layout_alignLeft="@id/editText6"
+            android:layout_alignEnd="@id/editText6"
+            android:layout_alignRight="@id/editText6"
+            android:padding="10sp"
+            android:textSize="20sp"
+            android:ems="26"
+            android:inputType="textPersonName"
+            android:hint="Click to enter your class name"
+            android:gravity="center"/>
+
+        <EditText
             android:id="@+id/editText6"
             android:background="@drawable/background_white_textfields"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:padding="5sp"
+            android:padding="10sp"
             android:textSize="20sp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Name"
+            android:hint="@string/hint_enter_class_assignment"
             android:layout_margin="5sp"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
@@ -41,7 +59,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="Enter"
-
+            android:padding="5sp"
             android:background="@drawable/settingsbutton1"
             android:ems="26"
             android:textSize="20sp"
@@ -51,25 +69,28 @@
             android:layout_alignLeft="@id/editText6"
             android:layout_alignEnd="@id/editText6"
             android:layout_alignRight="@id/editText6"
+            android:layout_marginBottom="5sp"
+
+            android:onClick="onClickAdd"
             />
 
-        <EditText
-            android:id="@+id/editText7"
+        <Button
+            android:id="@+id/button14"
             android:layout_width="fill_parent"
-            android:background="@drawable/background_white_textfields"
+            android:background="@drawable/settingsbutton1"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/editText6"
-            android:layout_centerHorizontal="true"
-            android:layout_alignStart="@id/editText6"
-            android:layout_alignLeft="@id/editText6"
-            android:layout_alignEnd="@id/editText6"
-            android:layout_alignRight="@id/editText6"
-            android:padding="5sp"
+            android:textColor="@android:color/white"
             android:textSize="20sp"
-            android:ems="26"
-            android:inputType="textPersonName"
-            android:text="Name"
-            android:gravity="center"/>
+            android:padding="5sp"
+            android:layout_below="@+id/popup_login_button"
+            android:layout_centerHorizontal="true"
+            android:text="Cancel"
+            android:layout_alignStart="@id/popup_login_button"
+            android:layout_alignLeft="@id/popup_login_button"
+            android:layout_alignEnd="@id/popup_login_button"
+            android:layout_alignRight="@id/popup_login_button"
+
+            android:onClick="onClickCancel"/>
 
 
     </RelativeLayout>

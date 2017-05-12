@@ -25,7 +25,6 @@ public class CloudActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cloud);
 
         assignmentAdapterCloud = new AssignmentAdapter(this, arrayOfInformationCloud);
-
         ListView listView = (ListView) findViewById(list);
         listView.setAdapter(assignmentAdapterCloud);
     }
