@@ -21,25 +21,25 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <EditText
-            android:id="@+id/editText7"
+            android:id="@+id/popup_cloudPlanner_name_of_class"
             android:layout_width="fill_parent"
             android:background="@drawable/background_white_textfields"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/editText6"
+            android:layout_above="@+id/popup_cloudPlanner_assignment_name"
             android:layout_centerHorizontal="true"
-            android:layout_alignStart="@id/editText6"
-            android:layout_alignLeft="@id/editText6"
-            android:layout_alignEnd="@id/editText6"
-            android:layout_alignRight="@id/editText6"
+            android:layout_alignStart="@id/popup_cloudPlanner_assignment_name"
+            android:layout_alignLeft="@id/popup_cloudPlanner_assignment_name"
+            android:layout_alignEnd="@id/popup_cloudPlanner_assignment_name"
+            android:layout_alignRight="@id/popup_cloudPlanner_assignment_name"
             android:padding="10sp"
             android:textSize="20sp"
             android:ems="26"
             android:inputType="textPersonName"
             android:hint="Click to enter your class name"
-            android:gravity="center"/>
+            android:gravity="center" />
 
         <EditText
-            android:id="@+id/editText6"
+            android:id="@+id/popup_cloudPlanner_assignment_name"
             android:background="@drawable/background_white_textfields"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -64,11 +64,11 @@
             android:ems="26"
             android:textSize="20sp"
             android:textColor="@android:color/white"
-            android:layout_below="@+id/editText6"
-            android:layout_alignStart="@id/editText6"
-            android:layout_alignLeft="@id/editText6"
-            android:layout_alignEnd="@id/editText6"
-            android:layout_alignRight="@id/editText6"
+            android:layout_below="@+id/popup_cloudPlanner_assignment_name"
+            android:layout_alignStart="@id/popup_cloudPlanner_assignment_name"
+            android:layout_alignLeft="@id/popup_cloudPlanner_assignment_name"
+            android:layout_alignEnd="@id/popup_cloudPlanner_assignment_name"
+            android:layout_alignRight="@id/popup_cloudPlanner_assignment_name"
             android:layout_marginBottom="5sp"
 
             android:onClick="onClickAdd"

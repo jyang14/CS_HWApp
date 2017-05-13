@@ -58,7 +58,7 @@ public class PlannerActivity extends ListActivity {
 
     /**
      * Opens up popup PlannerPopup when clicked to allow users to populate assignments to planner
-     * @param v
+     * @param v View
      */
     public void onClickAdd(View v) {
         Log.i("PlannerActivity", "Item has been clicked!!!");
@@ -73,9 +73,9 @@ public class PlannerActivity extends ListActivity {
     /**
      * Checks for the result and sees if the state is correct in order to determine whether or not to delete
      * the specified object in the position
-     * @param request
-     * @param result
-     * @param data
+     * @param request request code
+     * @param result result code
+     * @param data Intent containing data
      */
     @Override
     public void onActivityResult(int request, int result, Intent data) {

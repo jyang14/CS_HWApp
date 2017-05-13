@@ -26,21 +26,37 @@ public class AssignmentStructure {
 
     }
 
+    /**
+     * Setter for name of class
+     * @param classname name of the class to be set
+     */
     public void setClassname (String classname)
     {
         this.classname = classname;
     }
 
+    /**
+     * Setter for the description of the assignment
+     * @param descriptionOfAssignment description of the assignment
+     */
     public void setDescription (String descriptionOfAssignment)
     {
         description = descriptionOfAssignment;
     }
 
+    /**
+     * Gets the name of the class
+     * @return
+     */
     public String getClassname ()
     {
         return classname;
     }
 
+    /**
+     * Gets the description of the assignment
+     * @return
+     */
     public String getDescription ()
     {
         return description;

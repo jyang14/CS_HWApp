@@ -27,8 +27,14 @@ public class CreateScheduleURLPopup extends Activity {
         getWindow().setLayout((int) (width * 0.8), (int) (height * 0.8));
     }
 
+    /**
+     * User calls this method by clicking on back arrow
+     * @param view
+     */
     public void onClickGoBackToBefore(View view) {
+        finish();
         super.onBackPressed();
+
     }
 
     public void getInput(View view) {
