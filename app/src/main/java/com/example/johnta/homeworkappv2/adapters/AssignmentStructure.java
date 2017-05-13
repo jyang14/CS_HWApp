@@ -25,7 +25,7 @@ public class AssignmentStructure {
     }
 
     /**
-     * Empty Constructor
+     * Empty Constructor for Firebase
      */
     public AssignmentStructure() {
 

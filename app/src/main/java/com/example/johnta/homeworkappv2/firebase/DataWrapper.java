@@ -1,9 +1,11 @@
 package com.example.johnta.homeworkappv2.firebase;
 
+import android.util.Log;
 import android.widget.ListView;
 
 import com.example.johnta.homeworkappv2.adapters.AssignmentAdapter;
 import com.example.johnta.homeworkappv2.adapters.AssignmentStructure;
+import com.example.johnta.homeworkappv2.firebase.data.User;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -16,7 +18,10 @@ import com.google.firebase.database.FirebaseDatabase;
 
 class DataWrapper implements DataInterface {
 
+    static private final String TAG = "DATAWRAPPER";
+
     FirebaseDatabase firebaseDatabase;
+    User user;
 
     DataWrapper() {
         firebaseDatabase = FirebaseDatabase.getInstance();
@@ -83,5 +88,20 @@ class DataWrapper implements DataInterface {
             public void onCancelled(DatabaseError databaseError) {
             }
         });
+    }
+
+    @Override
+    public User getUser() {
+        return null;
+    }
+
+    @Override
+    public void updateUser() {
+        if (user == null) {
+            Log.w(TAG, "INVALID STATE NULL USER");
+            return;
+        }
+
+        firebaseDatabase.getReference("Users").child(user.hashEmail()).setValue(user);
     }
 }
