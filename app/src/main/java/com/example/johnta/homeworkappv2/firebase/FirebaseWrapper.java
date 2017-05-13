@@ -4,6 +4,7 @@ import android.content.Context;
 import android.widget.ListView;
 
 import com.example.johnta.homeworkappv2.adapters.AssignmentAdapter;
+import com.example.johnta.homeworkappv2.adapters.AssignmentStructure;
 
 /**
  * Created by johnta on 5/12/17.
@@ -29,6 +30,11 @@ public class FirebaseWrapper implements DataInterface, AuthInterface {
     @Override
     public void addItemToArray(String className, String assignmentName) {
         dataWrapper.addItemToArray(className, assignmentName);
+    }
+
+    @Override
+    public void removeItem(AssignmentStructure assignmentStructure) {
+        dataWrapper.removeItem(assignmentStructure);
     }
 
     @Override
