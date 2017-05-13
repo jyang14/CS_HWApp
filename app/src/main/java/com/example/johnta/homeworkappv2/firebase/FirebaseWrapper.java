@@ -4,54 +4,35 @@ import android.content.Context;
 import android.widget.ListView;
 
 import com.example.johnta.homeworkappv2.adapters.AssignmentAdapter;
-import com.example.johnta.homeworkappv2.adapters.AssignmentStructure;
-import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
 
 /**
  * Created by johnta on 5/12/17.
  */
 
-public class FirebaseWrapper {
-    private static final FirebaseWrapper ourInstance = new FirebaseWrapper();
+public class FirebaseWrapper implements DataInterface, AuthInterface {
 
-    public static FirebaseWrapper getInstance(Context activity) {
+    private static FirebaseWrapper instance;
 
-        return ourInstance;
-    }
+    private final DataWrapper dataWrapper;
 
     private FirebaseWrapper() {
-
-
+        dataWrapper = new DataWrapper();
 
     }
 
-    public void refreshLists(final ListView listView, DatabaseReference mDatabase, final AssignmentAdapter assignmentAdapter) {
-        mDatabase.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String prevChildKey) {
-                AssignmentStructure assignment = dataSnapshot.getValue(AssignmentStructure.class);
+    public static FirebaseWrapper getInstance(Context activity) {
+        if (instance == null)
+            instance = new FirebaseWrapper();
+        return instance;
+    }
 
-                assignmentAdapter.add(assignment);
-                //assignmentAdapter.notifyDataSetChanged();
+    @Override
+    public void addItemToArray(String className, String assignmentName) {
+        dataWrapper.addItemToArray(className, assignmentName);
+    }
 
-                //assignmentAdapter.add(assignment);
-                listView.setAdapter(assignmentAdapter);
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String prevChildKey) {}
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {}
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String prevChildKey) {}
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {}
-        });
+    @Override
+    public void refreshLists(ListView listView, AssignmentAdapter assignmentAdapter) {
+        dataWrapper.refreshLists(listView, assignmentAdapter);
     }
 }
