@@ -1,14 +1,14 @@
 package com.example.johnta.homeworkappv2.popup;
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.EditText;
 
 import com.example.johnta.homeworkappv2.R;
 
-public class CloudPopup extends AppCompatActivity {
+public class CloudPopup extends Activity {
 
     private EditText txtInput;
     private EditText input_assignment;

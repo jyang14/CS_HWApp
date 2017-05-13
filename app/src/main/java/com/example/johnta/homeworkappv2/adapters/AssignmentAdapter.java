@@ -53,6 +53,9 @@ public class AssignmentAdapter extends ArrayAdapter<AssignmentStructure> {
         homeworkDescription.setText(named.getDescription());
        // subtractButton.set
 
+        /**
+         * Onclicklistener for the remove item from list
+         */
         subtractButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -69,6 +72,15 @@ public class AssignmentAdapter extends ArrayAdapter<AssignmentStructure> {
                 Log.i("PlannerActivity", "Item has been clicked!!!");
             }
         });
+
+
+        transferButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
 
         return convertView;
     }

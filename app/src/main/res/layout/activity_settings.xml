@@ -22,7 +22,6 @@
             android:background="@drawable/roundbutton"
             android:src="@drawable/settings_icon"
             android:layout_margin="10sp"
-
             android:layout_centerHorizontal="true" />
 
         <Button
@@ -53,7 +52,9 @@
             android:layout_alignStart="@id/settings_changeBackgroundColor_button"
             android:layout_alignLeft="@id/settings_changeBackgroundColor_button"
             android:layout_alignEnd="@id/settings_changeBackgroundColor_button"
-            android:layout_alignRight="@id/settings_changeBackgroundColor_button"/>
+            android:layout_alignRight="@id/settings_changeBackgroundColor_button"
+
+            android:onClick="buttonSound"/>
 
         <Button
             android:id="@+id/button5"

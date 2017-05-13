@@ -29,7 +29,7 @@ public class CloudActivity extends AppCompatActivity {
         listView.setAdapter(assignmentAdapterCloud);
     }
 
-    public void onClickEdit (View v) {
+    public void onClickAdd (View v) {
         startActivity(new Intent(CloudActivity.this, CloudPopup.class));
     }
 
