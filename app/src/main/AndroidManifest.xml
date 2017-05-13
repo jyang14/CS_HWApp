@@ -25,7 +25,7 @@
             android:theme="@style/AppTheme.CustomTheme" />
         <activity android:name=".NewUserPopupActivity" />
         <activity
-            android:name=".popup.LoginPopup"
+            android:name=".popup.fullscreenpopups.LoginPopup"
             android:theme="@style/AppTheme.CustomTheme" />
         <activity android:name=".DeleteObjectFromArray" />
         <activity android:name=".ScheduleActivity" />
@@ -35,7 +35,9 @@
         <activity android:name=".PersonalSchedule" />
         <activity android:name=".popup.RemoveItemFromListPopup" />
         <activity android:name=".popup.CloudPopup" />
-        <activity android:name=".popup.ButtonSoundPopup"></activity>
+        <activity android:name=".popup.ButtonSoundPopup" />
+        <activity android:name=".popup.ChangeBackgroundColorPopup" />
+        <activity android:name=".popup.fullscreenpopups.CreditsPopup"></activity>
     </application>
 
 </manifest>

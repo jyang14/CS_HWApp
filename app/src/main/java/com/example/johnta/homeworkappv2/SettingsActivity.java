@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.example.johnta.homeworkappv2.popup.ButtonSoundPopup;
+import com.example.johnta.homeworkappv2.popup.ChangeBackgroundColorPopup;
+import com.example.johnta.homeworkappv2.popup.fullscreenpopups.CreditsPopup;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -20,10 +22,10 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     public void toCreditsScreen (View v) {
-
+        startActivity(new Intent(SettingsActivity.this, CreditsPopup.class));
     }
 
     public void changeBackgroundColor (View v) {
-
+        startActivity(new Intent(SettingsActivity.this, ChangeBackgroundColorPopup.class));
     }
 }

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.johnta.homeworkappv2.popup.ButtonSoundPopup">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/popup_changeBackgroundColor_lightYellow"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Light Yellow"
+
+            android:layout_above="@+id/popup_changeBackgroundColor_skyBlue"
+            android:layout_centerHorizontal="true"
+
+            android:background="#FFFFE0"
+            android:layout_margin="5sp"/>
+
+        <Button
+            android:id="@+id/popup_changeBackgroundColor_lightGray"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/popup_changeBackgroundColor_skyBlue"
+            android:text="Light Gray"
+
+            android:background="#D3D3D3"
+
+            android:layout_margin="5sp"
+            />
+
+        <Button
+            android:id="@+id/popup_changeBackgroundColor_skyBlue"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="Sky Blue"
+
+            android:background="#87CEEB"
+
+            android:layout_alignStart="@id/popup_changeBackgroundColor_lightYellow"
+            android:layout_alignLeft="@id/popup_changeBackgroundColor_lightYellow"
+            android:layout_alignEnd="@id/popup_changeBackgroundColor_lightYellow"
+            android:layout_alignRight="@id/popup_changeBackgroundColor_lightYellow"
+
+            />
+
+        <Button
+            android:id="@+id/popup_changeBackgroundColor_white"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="White"
+            android:layout_below="@+id/popup_changeBackgroundColor_lightGray"
+            android:layout_alignLeft="@+id/popup_changeBackgroundColor_lightGray"
+            android:layout_alignStart="@+id/popup_changeBackgroundColor_lightGray"
+            android:layout_alignEnd="@id/popup_changeBackgroundColor_lightYellow"
+            android:layout_alignRight="@id/popup_changeBackgroundColor_lightYellow"
+            android:background="#ffffff"/>
+
+        <Button
+            android:id="@+id/popup_changeBackgroundColor_blue"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/popup_changeBackgroundColor_white"
+            android:layout_centerHorizontal="true"
+            android:text="Blue"
+            android:layout_margin="5sp"
+            android:background="#107FC9"
+            />
+
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>
