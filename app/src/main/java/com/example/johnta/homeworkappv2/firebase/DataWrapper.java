@@ -20,9 +20,13 @@ class DataWrapper implements DataInterface {
 
     DataWrapper() {
         firebaseDatabase = FirebaseDatabase.getInstance();
-
     }
 
+    /**
+     * Takes the two user inputs and adds them to the FireBase array
+     * @param className name of the class name of the class
+     * @param assignmentName description of assignment description of the homework assignment
+     */
     @Override
     public void addItemToArray(String className, String assignmentName) {
         DatabaseReference assignmentRef = firebaseDatabase.getReference("Assignment");
@@ -36,12 +40,21 @@ class DataWrapper implements DataInterface {
         //Log.v(TAG, assignmentAdapter.toString());
     }
 
+    /**
+     * Takes the assignmentStructure object and removes it from the firebase
+     * @param assignmentStructure assignment the thing to be removed
+     */
     @Override
     public void removeItem(AssignmentStructure assignmentStructure) {
         DatabaseReference assignmentRef = firebaseDatabase.getReference("Assignment");
         assignmentRef.child(assignmentStructure.hash()).removeValue();
     }
 
+    /**
+     * Reloads the adapter upon onCreate()
+     * @param listView the activitiy's listView
+     * @param assignmentAdapter the listView's adapter
+     */
     @Override
     public void refreshLists(final ListView listView, final AssignmentAdapter assignmentAdapter) {
         DatabaseReference assignmentRef = firebaseDatabase.getReference("Assignment");

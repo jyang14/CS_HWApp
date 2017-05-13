@@ -81,4 +81,13 @@ public class ScheduleActivity extends AppCompatActivity {
         startActivity(launchBrowser);
     }
 
+    /**
+     * Overrides onResume and calls the HelperWrapper.setBackgroundColor method
+     */
+    @Override
+    public void onResume() {
+        super.onResume();
+        HelperWrapper.setBackgroundColorWindow(this);
+    }
+
 }

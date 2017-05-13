@@ -6,6 +6,7 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.EditText;
 
+import com.example.johnta.homeworkappv2.HelperWrapper;
 import com.example.johnta.homeworkappv2.R;
 import com.example.johnta.homeworkappv2.ScheduleActivity;
 
@@ -41,5 +42,14 @@ public class CreateScheduleURLPopup extends Activity {
         url = ((EditText) findViewById(R.id.scheduleURL)).getText().toString();
         ScheduleActivity.setURL(url);
         super.onBackPressed();
+    }
+
+    /**
+     * Overrides onResume and calls the HelperWrapper.setBackgroundColor method
+     */
+    @Override
+    public void onResume() {
+        super.onResume();
+        HelperWrapper.setBackgroundColorWindow(this);
     }
 }

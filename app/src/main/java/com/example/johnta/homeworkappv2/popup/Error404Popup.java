@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
 
+import com.example.johnta.homeworkappv2.HelperWrapper;
 import com.example.johnta.homeworkappv2.R;
 
 public class Error404Popup extends Activity {
@@ -31,5 +32,13 @@ public class Error404Popup extends Activity {
     public void newURL(View view) {
         startActivity(new Intent(Error404Popup.this, CreateScheduleURLPopup.class));
         super.onBackPressed();
+    }
+    /**
+     * Overrides onResume and calls the HelperWrapper.setBackgroundColor method
+     */
+    @Override
+    public void onResume() {
+        super.onResume();
+        HelperWrapper.setBackgroundColorWindow(this);
     }
 }

@@ -8,15 +8,25 @@ import com.example.johnta.homeworkappv2.adapters.AssignmentAdapter;
 
 public class DeleteObjectFromArray extends Activity {
 
-    /* Constructor */
+    /**
+     * Constructor
+     * @param assignmentAdapter the adapter for the main class
+     */
     public DeleteObjectFromArray(AssignmentAdapter assignmentAdapter) {
 
     }
 
+    /**
+     * Empty constructor
+     */
     public DeleteObjectFromArray() {
 
     }
 
+    /**
+     * Creates the activity
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +41,12 @@ public class DeleteObjectFromArray extends Activity {
         getWindow().setLayout((int) (width * 0.8), (int) (height * 0.6));
     }
 
-    public void deleteObject(AssignmentAdapter assignmentAdapter, int position) {
-
+    /**
+     * Overrides onResume and calls the HelperWrapper.setBackgroundColor method
+     */
+    @Override
+    public void onResume() {
+        super.onResume();
+        HelperWrapper.setBackgroundColorWindow(this);
     }
 }

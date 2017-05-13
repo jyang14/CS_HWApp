@@ -6,6 +6,7 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.EditText;
 
+import com.example.johnta.homeworkappv2.HelperWrapper;
 import com.example.johnta.homeworkappv2.R;
 import com.example.johnta.homeworkappv2.firebase.FirebaseWrapper;
 
@@ -18,6 +19,10 @@ public class PlannerPopup extends Activity {
     private EditText txtInput;
     private EditText input_assignment;
 
+    /**
+     * Creates the popup_planner activity
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +41,10 @@ public class PlannerPopup extends Activity {
         getWindow().setLayout((int) (width * 0.8), (int) (height * 0.6));
     }
 
+    /**
+     * Adds user input to FireBase
+     * @param v Current view
+     */
     public void onClickEditList(View v) {
 
         txtInput = (EditText) findViewById(R.id.name_of_class);
@@ -48,7 +57,21 @@ public class PlannerPopup extends Activity {
         super.onBackPressed();
     }
 
+    /**
+     * Overrides onResume and calls the HelperWrapper.setBackgroundColor method
+     */
+    @Override
+    public void onResume() {
+        super.onResume();
+        HelperWrapper.setBackgroundColorWindow(this);
+    }
+
+    /**
+     * Cancels the addition of the item and returns to previous activity
+     * @param v Current view
+     */
     public void onClickCancel(View v) {
+        finish();
         super.onBackPressed();
     }
 }

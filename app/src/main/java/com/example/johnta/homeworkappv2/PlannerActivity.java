@@ -92,5 +92,14 @@ public class PlannerActivity extends ListActivity {
         }
 
     }
+
+    /**
+     * Overrides onResume and calls the HelperWrapper.setBackgroundColor method
+     */
+    @Override
+    public void onResume() {
+        super.onResume();
+        HelperWrapper.setBackgroundColorWindow(this);
+    }
 }
 

@@ -37,4 +37,13 @@ public class FirstCreateActivity extends AppCompatActivity {
         return popup;
     }
 
+    /**
+     * Overrides onResume and calls the HelperWrapper.setBackgroundColor method
+     */
+    @Override
+    public void onResume() {
+        super.onResume();
+        HelperWrapper.setBackgroundColorWindow(this);
+    }
+
 }
