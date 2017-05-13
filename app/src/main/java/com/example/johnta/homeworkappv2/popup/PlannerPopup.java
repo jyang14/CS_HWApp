@@ -6,8 +6,8 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.EditText;
 
-import com.example.johnta.homeworkappv2.PlannerActivity;
 import com.example.johnta.homeworkappv2.R;
+import com.example.johnta.homeworkappv2.firebase.FirebaseWrapper;
 
 /**
  * Created by johnta on 4/3/17.
@@ -43,7 +43,7 @@ public class PlannerPopup extends Activity {
 
         String newItem = txtInput.getText().toString();
         String newItem_2 = input_assignment.getText().toString();
-        PlannerActivity.addItemToArray(newItem, newItem_2);
+        FirebaseWrapper.getInstance(this).addItemToArray(newItem, newItem_2);
 
         super.onBackPressed();
     }
