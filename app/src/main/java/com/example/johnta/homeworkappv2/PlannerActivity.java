@@ -3,7 +3,6 @@ package com.example.johnta.homeworkappv2;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -61,8 +60,6 @@ public class PlannerActivity extends ListActivity {
      * @param v View
      */
     public void onClickAdd(View v) {
-        Log.i("PlannerActivity", "Item has been clicked!!!");
-
         startActivity(new Intent(PlannerActivity.this, PlannerPopup.class));
     }
 

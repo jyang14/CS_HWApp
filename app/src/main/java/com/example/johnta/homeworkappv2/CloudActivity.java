@@ -32,10 +32,13 @@ public class CloudActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_cloud);
 
         assignmentAdapterCloud = new AssignmentAdapter(this, arrayOfInformationCloud);
-        ListView listView = (ListView) findViewById(list);
+        assignmentAdapterCloud.clear();
+
+        final ListView listView = (ListView) findViewById(list);
         listView.setAdapter(assignmentAdapterCloud);
 
         FirebaseWrapper.getInstance(this).refreshLists(listView, assignmentAdapterCloud);
@@ -56,18 +59,6 @@ public class CloudActivity extends AppCompatActivity {
     }
 
     /**
-     * Called when user clicks "enter" in popup
-     * @param itemToAdd the name of the class
-     * @param itemToAdd_2 the description of the assignment itself
-     */
-    public static void addItemToArray(String itemToAdd, String itemToAdd_2) {
-        AssignmentStructure newItemCloud = new AssignmentStructure(itemToAdd, itemToAdd_2);
-        assignmentAdapterCloud.add(newItemCloud);
-
-        assignmentAdapterCloud.notifyDataSetChanged();
-    }
-
-    /**
      * Handled by internal caller
      * @param request request code
      * @param result result code
@@ -83,8 +74,10 @@ public class CloudActivity extends AppCompatActivity {
             boolean delete = bundle.getBoolean("delete");
 
             if (delete) {
-                assignmentAdapterCloud.remove(assignmentAdapterCloud.getItem(position));
-
+                AssignmentStructure assignment = assignmentAdapterCloud.getItem(position);
+                assignmentAdapterCloud.remove(assignment);
+                FirebaseWrapper.getInstance(this).removeItem(assignment);
+                assignmentAdapterCloud.notifyDataSetChanged();
             }
         }
     }

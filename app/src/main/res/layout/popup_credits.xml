@@ -2,54 +2,87 @@
 <android.support.percent.PercentRelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:percent="http://schemas.android.com/apk/res-auto"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <RelativeLayout
+    <TextView
+        android:id="@+id/textView"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="Credits"
+        android:textSize="30sp"
+        android:gravity="center"
+        android:background="@drawable/settingsbutton1"
+        android:textColor="@android:color/white"
+        android:padding="5sp" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:background="@drawable/settingsbutton1"
+        android:textColor="@android:color/white"
+        percent:layout_marginTopPercent = "1%"
+        percent:layout_marginBottomPercent = "1%"
+        percent:layout_widthPercent="95%"
+        android:layout_height="wrap_content"
+        android:text="Primary Developers"
+        android:padding="5sp"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:textSize="20sp"
+        android:layout_below="@+id/textView" />
+
+    <TextView
+        android:id="@+id/textView4"
+
+        percent:layout_widthPercent="90%"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView13"
+        android:layout_centerHorizontal="true"
+        android:text="John Ta \n\n Ram \n\n Celine Bui"
+
+        android:gravity="center"
+        android:background="@drawable/background_white_textfields"
+        android:padding="5sp"
+        android:textSize="15sp"
+        android:textColor="@android:color/black"/>
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView4"
+        android:layout_centerHorizontal="true"
+        android:text="Special Thanks"
+
+        percent:layout_marginTopPercent = "1%"
+        percent:layout_marginBottomPercent = "1%"
+        percent:layout_widthPercent="95%"
+
+        android:gravity="center"
+        android:background="@drawable/settingsbutton1"
+        android:padding="5sp"
+        android:textSize="20sp"
+        android:textColor="@android:color/white"
+        />
+
+    <TextView
+        android:id="@+id/textView16"
+        percent:layout_widthPercent="90%"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView15"
+        android:layout_centerHorizontal="true"
+        android:text="Jinchao Yang \n\n Ms. Angela Taricco"
+
+        android:gravity="center"
+        android:background="@drawable/background_white_textfields"
+        android:padding="5sp"
+        android:textSize="15sp"
+        android:textColor="@android:color/black"/>
 
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:text="Credits"
-            android:textSize="30sp"
-            android:gravity="center"
-            android:background="@drawable/settingsbutton1"
-            android:textColor="@android:color/white"
-            android:padding="5sp"
-            />
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="match_parent"
-            app:layout_widthPercent="80%"
-            android:layout_height="wrap_content"
-            android:text="TextView"
-            android:textSize="20sp"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
-            android:layout_margin="5sp"/>
-
-        <TextView
-            android:id="@+id/textView13"
-            android:background="@drawable/settingsbutton1"
-            android:textColor="@android:color/white"
-            android:layout_width="match_parent"
-            app:layout_widthPercent="80%"
-            android:layout_height="wrap_content"
-            android:text="TextView"
-            android:padding="5sp"
-            android:gravity="center"
-            android:textSize="20sp"
-            android:layout_above="@+id/textView4"
-            android:layout_alignLeft="@+id/textView4"
-            android:layout_alignStart="@+id/textView4" />
-
-
-    </RelativeLayout>
 </android.support.percent.PercentRelativeLayout>

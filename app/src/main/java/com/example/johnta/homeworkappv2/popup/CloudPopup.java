@@ -6,8 +6,8 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.EditText;
 
-import com.example.johnta.homeworkappv2.CloudActivity;
 import com.example.johnta.homeworkappv2.R;
+import com.example.johnta.homeworkappv2.firebase.FirebaseWrapper;
 
 public class CloudPopup extends Activity {
 
@@ -43,8 +43,7 @@ public class CloudPopup extends Activity {
         nameOfClassCloud = txtInput.getText().toString();
         classAssignmentCloud = input_assignment.getText().toString();
 
-        CloudActivity.addItemToArray(nameOfClassCloud, classAssignmentCloud);
-
+        FirebaseWrapper.getInstance(this).addItemToArray(nameOfClassCloud, classAssignmentCloud);
         finish();
         super.onBackPressed();
     }
