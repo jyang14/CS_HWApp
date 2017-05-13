@@ -9,80 +9,80 @@
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1">
 
         <Button
             android:id="@+id/popup_changeBackgroundColor_lightYellow"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Light Yellow"
-
             android:layout_above="@+id/popup_changeBackgroundColor_skyBlue"
+
             android:layout_centerHorizontal="true"
+            android:layout_margin="5sp"
 
             android:background="#FFFFE0"
-            android:layout_margin="5sp"
-            android:textSize="20sp"
+            android:onClick="changeBackgroundToLightYellow"
+            android:text="Light Yellow"
 
-            android:onClick="changeBackgroundToLightYellow"/>
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/popup_changeBackgroundColor_lightGray"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/popup_changeBackgroundColor_skyBlue"
-            android:text="Light Gray"
+            android:layout_margin="5sp"
 
             android:background="#D3D3D3"
 
-            android:layout_margin="5sp"
-            android:textSize="20sp"
-
             android:onClick="changeBackgroundToLightGray"
-            />
+            android:text="Light Gray"
+
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/popup_changeBackgroundColor_skyBlue"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:text="Sky Blue"
-
-            android:background="#87CEEB"
-
-            android:layout_alignStart="@id/popup_changeBackgroundColor_lightYellow"
-            android:layout_alignLeft="@id/popup_changeBackgroundColor_lightYellow"
             android:layout_alignEnd="@id/popup_changeBackgroundColor_lightYellow"
+            android:layout_alignLeft="@id/popup_changeBackgroundColor_lightYellow"
             android:layout_alignRight="@id/popup_changeBackgroundColor_lightYellow"
 
-            android:textSize="20sp"
+            android:layout_alignStart="@id/popup_changeBackgroundColor_lightYellow"
 
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:background="#87CEEB"
             android:onClick="changeBackgroundToSkyBlue"
-            />
+
+            android:text="Sky Blue"
+
+            android:textSize="20sp" />
 
 
         <Button
             android:id="@+id/popup_changeBackgroundColor_white"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="White"
-            android:layout_below="@+id/popup_changeBackgroundColor_lightGray"
-            android:layout_alignLeft="@+id/popup_changeBackgroundColor_lightGray"
-            android:layout_alignStart="@+id/popup_changeBackgroundColor_lightGray"
             android:layout_alignEnd="@id/popup_changeBackgroundColor_lightYellow"
+            android:layout_alignLeft="@+id/popup_changeBackgroundColor_lightGray"
             android:layout_alignRight="@id/popup_changeBackgroundColor_lightYellow"
+            android:layout_alignStart="@+id/popup_changeBackgroundColor_lightGray"
+            android:layout_below="@+id/popup_changeBackgroundColor_lightGray"
             android:background="#ffffff"
-            android:textSize="20sp"
+            android:onClick="changeBackgroundToWhite"
+            android:text="White"
 
-            android:onClick="changeBackgroundToWhite"/>
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/popup_changeBackgroundColor_blue"
@@ -90,25 +90,54 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/popup_changeBackgroundColor_white"
             android:layout_centerHorizontal="true"
-            android:text="Blue"
             android:layout_margin="5sp"
             android:background="#107FC9"
-            android:textSize="20sp"
-
             android:onClick="changeBackgroundToBlue"
-            />
+            android:text="Blue"
+
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/textView14"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/popup_changeBackgroundColor_lightYellow"
+            android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:text="Pick a Background Color"
             android:background="@drawable/settingsbutton1"
-            android:textSize="30sp"
+            android:gravity="center"
             android:padding="5sp"
+            android:text="Pick a Background Color"
             android:textColor="@android:color/white"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+
+            android:layout_below="@+id/popup_changeBackgroundColor_blue"
+            android:layout_centerHorizontal="true"
+
+            android:background="@drawable/settingsbutton1"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:padding="5sp"
+            android:layout_alignEnd="@id/popup_changeBackgroundColor_lightYellow"
+            android:layout_alignLeft="@+id/popup_changeBackgroundColor_lightGray"
+            android:layout_alignRight="@id/popup_changeBackgroundColor_lightYellow"
+            android:layout_alignStart="@+id/popup_changeBackgroundColor_lightGray"/>
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Warning: This popup's color will not change unless refreshed."
+            android:layout_below="@+id/button3"
+            android:layout_marginTop="5sp"
+            android:layout_centerHorizontal="true"
+
+            android:textColor="@android:color/black"
             android:gravity="center"/>
 
     </RelativeLayout>

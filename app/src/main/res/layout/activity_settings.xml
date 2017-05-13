@@ -76,7 +76,6 @@
 
             android:onClick="toCreditsScreen"/>
 
-
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>

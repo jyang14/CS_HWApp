@@ -1,58 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.percent.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:percent="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.johnta.homeworkappv2.FirstCreateActivity"
     android:background="@drawable/preface_popup_background">
-
-    <RelativeLayout
-        android:id="@+id/relativeLayoutFirstCreate"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@android:color/white"
-            android:text="Existing user"
-            android:background="@drawable/settingsbutton1"
-
-            android:textSize="20sp"
-            android:layout_marginLeft="5sp"
-            android:layout_marginRight="5sp"
-            android:layout_marginBottom="5sp"
-            android:onClick="onSignInUser"
-            android:layout_above="@+id/button"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
-
-        <Button
-            android:id="@+id/button"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@android:color/white"
-            android:text="Create an Account"
-            android:background="@drawable/settingsbutton1"
-            android:layout_marginBottom="77dp"
-            android:textSize="20sp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginLeft="5sp"
-            android:layout_marginRight="5sp"
-            android:onClick="onCreateNewUser"/>
 
         <TextView
             android:id="@+id/welcome_text"
@@ -64,20 +17,27 @@
             android:padding="5sp"
             android:gravity="center"
             android:textSize="50sp"
-            android:background="@drawable/settingsbutton1"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:background="@drawable/settingsbutton1" />
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+            percent:layout_widthPercent = "40%"
+            percent:layout_aspectRatio="100%"
+
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
             app:srcCompat="@mipmap/homeworkhub_logo"
 
-            android:layout_marginBottom="54dp"
-            android:layout_above="@+id/button2"
-            android:layout_centerHorizontal="true" />
+            />
 
-    </RelativeLayout>
-</android.support.constraint.ConstraintLayout>
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/sign_in_button"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+
+
+        />
+
+</android.support.percent.PercentRelativeLayout>

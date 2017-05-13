@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.RelativeLayout;
 
 import com.example.johnta.homeworkappv2.firebase.FirebaseWrapper;
 import com.example.johnta.homeworkappv2.firebase.handler.SignedInHandler;
@@ -17,8 +16,8 @@ public class FirstCreateActivity extends AppCompatActivity implements SignedInHa
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_firstcreate);
 
-        RelativeLayout layout_main = (RelativeLayout) findViewById(R.id.relativeLayoutFirstCreate);
-        layout_main.setVisibility(View.VISIBLE);
+        //RelativeLayout layout_main = (RelativeLayout) findViewById(R.id.relativeLayoutFirstCreate);
+        //layout_main.setVisibility(View.VISIBLE);
         FirebaseWrapper.getInstance(this).signIn();
     }
 
@@ -38,6 +37,7 @@ public class FirstCreateActivity extends AppCompatActivity implements SignedInHa
     @Override
     public void onSignInSuccess() {
         Log.v("LOGIN", "Login Success");
+        startActivity(new Intent(this, MainActivity.class));
     }
 
     /**
