@@ -35,7 +35,9 @@
             android:background="@drawable/settingsbutton1"
             android:layout_margin="5sp"
             android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+
+            android:onClick="changeBackgroundColor"/>
 
         <Button
             android:id="@+id/button4"
@@ -71,7 +73,9 @@
             android:layout_alignStart="@id/settings_changeBackgroundColor_button"
             android:layout_alignLeft="@id/settings_changeBackgroundColor_button"
             android:layout_alignEnd="@id/settings_changeBackgroundColor_button"
-            android:layout_alignRight="@id/settings_changeBackgroundColor_button"/>
+            android:layout_alignRight="@id/settings_changeBackgroundColor_button"
+
+            android:onClick="toCreditsScreen"/>
 
 
     </RelativeLayout>

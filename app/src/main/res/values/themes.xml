@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="LightYellow" parent="@android:style/Theme.Light">
+        <item name="android:windowBackground">@color/lightYellow</item>
+    </style>
+
+    <style name="LightGray" parent="@android:style/Theme.Light">
+        <item name="android:windowBackground">@color/lightGray</item>
+    </style>
+
+    <style name="SkyBlue" parent="@android:style/Theme.Light">
+        <item name="android:windowBackground">@color/skyBlue</item>
+    </style>
+
+    <style name="White" parent="@android:style/Theme.Light">
+        <item name="android:windowBackground">@color/white</item>
+    </style>
+
+    <style name="Blue" parent="@android:style/Theme.Light">
+        <item name="android:windowBackground">@color/blue</item>
+    </style>
+
+</resources>

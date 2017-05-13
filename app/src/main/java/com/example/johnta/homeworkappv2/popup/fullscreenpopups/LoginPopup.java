@@ -1,4 +1,4 @@
-package com.example.johnta.homeworkappv2.popup;
+package com.example.johnta.homeworkappv2.popup.fullscreenpopups;
 
 import android.content.Intent;
 import android.os.Bundle;
