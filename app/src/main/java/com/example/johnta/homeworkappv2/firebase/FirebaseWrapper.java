@@ -30,10 +30,10 @@ public class FirebaseWrapper implements DataInterface, AuthInterface {
 
     /**
      *
-     * @param activity
+     * @param context
      * @return
      */
-    public static FirebaseWrapper getInstance(Context activity) {
+    public static FirebaseWrapper getInstance(Context context) {
         if (instance == null)
             instance = new FirebaseWrapper(context);
         instance.setContext(context);
