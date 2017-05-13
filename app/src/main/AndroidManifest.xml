@@ -12,17 +12,17 @@
         android:theme="@style/AppTheme">
 
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity" />
+        <activity android:name=".PlannerActivity" />
+        <activity android:name=".CloudActivity" />
+        <activity android:name=".SettingsActivity" />
+        <activity android:name=".FirstCreateActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PlannerActivity" />
-        <activity android:name=".CloudActivity" />
-        <activity android:name=".SettingsActivity" />
-        <activity android:name=".FirstCreateActivity" />
         <activity
             android:name=".popup.PlannerPopup"
             android:theme="@style/AppTheme.CustomTheme" />

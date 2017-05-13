@@ -4,6 +4,7 @@ import android.widget.ListView;
 
 import com.example.johnta.homeworkappv2.adapters.AssignmentAdapter;
 import com.example.johnta.homeworkappv2.adapters.AssignmentStructure;
+import com.example.johnta.homeworkappv2.firebase.data.User;
 
 /**
  * Created by jinch on 5/13/2017.
@@ -26,4 +27,9 @@ interface DataInterface {
     void removeItem(AssignmentStructure assignmentStructure);
 
     void refreshLists(ListView listView, AssignmentAdapter assignmentAdapter);
+
+    User getUser();
+
+    void updateUser();
+
 }
