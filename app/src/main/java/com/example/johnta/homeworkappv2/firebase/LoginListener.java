@@ -19,7 +19,7 @@ final class LoginListener implements ValueEventListener {
     private final SignedInHandler signedInHandler;
     private final FirebaseUser firebaseUser;
 
-    public LoginListener(DataWrapper database, FirebaseUser user, SignedInHandler signedInHandler) {
+    LoginListener(DataWrapper database, FirebaseUser user, SignedInHandler signedInHandler) {
         this.database = database;
         this.signedInHandler = signedInHandler;
         firebaseUser = user;
@@ -33,12 +33,14 @@ final class LoginListener implements ValueEventListener {
 
         if (user != null) {
             database.user = user;
-            signedInHandler.onSignInSuccess();
+            if (signedInHandler != null)
+                signedInHandler.onSignInSuccess();
         } else {
             user = new User(firebaseUser.getDisplayName(), firebaseUser.getEmail());
             database.user = user;
             database.updateUser();
-            signedInHandler.onSignInSuccess();
+            if (signedInHandler != null)
+                signedInHandler.onSignInSuccess();
         }
     }
 
