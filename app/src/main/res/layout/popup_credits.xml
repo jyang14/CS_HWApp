@@ -42,10 +42,13 @@
             android:layout_width="match_parent"
             app:layout_widthPercent="80%"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/textView4"
-            android:layout_centerHorizontal="true"
             android:text="TextView"
-            android:textSize="20sp"/>
+            android:padding="5sp"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:layout_above="@+id/textView4"
+            android:layout_alignLeft="@+id/textView4"
+            android:layout_alignStart="@+id/textView4" />
 
 
     </RelativeLayout>

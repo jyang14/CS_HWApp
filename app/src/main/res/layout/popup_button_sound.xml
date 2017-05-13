@@ -19,22 +19,19 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-
         <Button
             android:id="@+id/popup_buttonSound_button"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-
             android:background="@drawable/settingsbutton1"
             android:textColor="@android:color/white"
             android:textSize="20sp"
             android:padding="5sp"
             android:layout_margin="5sp"
-
-
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:text="Enable Sound"
+            android:text=""
             android:onClick="controlSound"/>
     </RelativeLayout>
+
 </android.support.constraint.ConstraintLayout>

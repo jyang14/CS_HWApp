@@ -13,8 +13,14 @@ public class ButtonSoundPopup extends Activity {
     TextView buttonText;
     String buttonText2;
 
-    private static boolean testCase;
+    private static boolean testCase = true;
+    private static String enableSound = "Enable Sound";
+    private static String disableSound = "Disable Sound";
 
+    /**
+     * Creates the activity
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,26 +35,36 @@ public class ButtonSoundPopup extends Activity {
         getWindow().setLayout((int)(width*0.8),(int)(height*0.6));
         buttonText = ((TextView)findViewById(R.id.popup_buttonSound_button));
 
-        if (buttonText.getText().toString().equals("Enable Sound")) {
-            testCase = true;
+        if (testCase) {
+            buttonText.setText(disableSound);
         } else {
-            testCase = false;
+            buttonText.setText(enableSound);
         }
+
     }
 
-    public void controlSound(View v) {
+    /**
+     * Called when user clicks on enable/disable sound
+     * @param view the current view
+     */
+    public void controlSound(View view) {
 
+        buttonText = ((TextView)findViewById(R.id.popup_buttonSound_button));
         buttonText2 = ((TextView)findViewById(R.id.popup_buttonSound_button)).getText().toString();
 
-        if (buttonText2.equals("Enable Sound")) {
-            buttonText.setText("Disable Sound");
-            testCase = false;
+        if (testCase) {
+            testCase = !testCase;
+            buttonText.setText(enableSound);
         } else {
-            buttonText.setText("Enable Sound");
-            testCase = true;
+            testCase = !testCase;
+            buttonText.setText(disableSound);
         }
     }
 
+    /**
+     * Returns the value of the test case
+     * @return boolean testCase
+     */
     public static boolean getTestCaseValue () {
         return testCase;
     }

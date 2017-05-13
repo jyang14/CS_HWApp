@@ -8,6 +8,7 @@ import android.widget.ListView;
 
 import com.example.johnta.homeworkappv2.adapters.AssignmentAdapter;
 import com.example.johnta.homeworkappv2.adapters.AssignmentStructure;
+import com.example.johnta.homeworkappv2.firebase.FirebaseWrapper;
 import com.example.johnta.homeworkappv2.popup.CloudPopup;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -36,6 +37,10 @@ public class CloudActivity extends AppCompatActivity {
         assignmentAdapterCloud = new AssignmentAdapter(this, arrayOfInformationCloud);
         ListView listView = (ListView) findViewById(list);
         listView.setAdapter(assignmentAdapterCloud);
+
+        FirebaseWrapper.getInstance(this).refreshLists(listView, assignmentAdapterCloud);
+
+        assignmentAdapterCloud.notifyDataSetChanged();
     }
 
     /**

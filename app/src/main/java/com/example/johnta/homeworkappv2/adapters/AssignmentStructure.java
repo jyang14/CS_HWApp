@@ -69,10 +69,10 @@ public class AssignmentStructure {
 
     /**
      * Hashing function that returns string instead of int.
-     * Also StackOverflow tells me that SHA-256 collisions are pretty rare.
+     * StackOverflow tells me that SHA-256 collisions are pretty rare.
      * http://stackoverflow.com/questions/4014090/is-it-safe-to-ignore-the-possibility-of-sha-collisions-in-practice
-     *
-     * @return Returns the SHA-256 (kind of overkill) of the class
+     * Thanks to Jinchao for this
+     * @return Returns the SHA-256 of the class
      */
     public String hash() {
 
@@ -87,6 +87,7 @@ public class AssignmentStructure {
             output = bigInt.toString(16);
 
             return output;
+
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
             return String.format("N%X", System.nanoTime());
