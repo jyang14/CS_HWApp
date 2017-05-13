@@ -29,7 +29,9 @@
 
             android:background="#FFFFE0"
             android:layout_margin="5sp"
-            android:textSize="20sp"/>
+            android:textSize="20sp"
+
+            android:onClick="changeBackgroundToLightYellow"/>
 
         <Button
             android:id="@+id/popup_changeBackgroundColor_lightGray"
@@ -42,6 +44,8 @@
 
             android:layout_margin="5sp"
             android:textSize="20sp"
+
+            android:onClick="changeBackgroundToLightGray"
             />
 
         <Button
@@ -60,7 +64,10 @@
             android:layout_alignRight="@id/popup_changeBackgroundColor_lightYellow"
 
             android:textSize="20sp"
+
+            android:onClick="changeBackgroundToSkyBlue"
             />
+
 
         <Button
             android:id="@+id/popup_changeBackgroundColor_white"
@@ -73,7 +80,9 @@
             android:layout_alignEnd="@id/popup_changeBackgroundColor_lightYellow"
             android:layout_alignRight="@id/popup_changeBackgroundColor_lightYellow"
             android:background="#ffffff"
-            android:textSize="20sp"/>
+            android:textSize="20sp"
+
+            android:onClick="changeBackgroundToWhite"/>
 
         <Button
             android:id="@+id/popup_changeBackgroundColor_blue"
@@ -85,6 +94,8 @@
             android:layout_margin="5sp"
             android:background="#107FC9"
             android:textSize="20sp"
+
+            android:onClick="changeBackgroundToBlue"
             />
 
         <TextView

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 
+import com.example.johnta.homeworkappv2.HelperWrapper;
 import com.example.johnta.homeworkappv2.R;
 
 /**
@@ -24,5 +25,14 @@ public class ErrorGeneralPopup extends Activity {
         int height = dm.heightPixels;
 
         getWindow().setLayout((int) (width * 0.6), (int) (height * 0.3));
+    }
+
+    /**
+     * Overrides onResume and calls the HelperWrapper.setBackgroundColor method
+     */
+    @Override
+    public void onResume() {
+        super.onResume();
+        HelperWrapper.setBackgroundColorWindow(this);
     }
 }

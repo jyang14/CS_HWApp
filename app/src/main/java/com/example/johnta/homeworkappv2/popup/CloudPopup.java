@@ -6,6 +6,7 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.EditText;
 
+import com.example.johnta.homeworkappv2.HelperWrapper;
 import com.example.johnta.homeworkappv2.R;
 import com.example.johnta.homeworkappv2.firebase.FirebaseWrapper;
 
@@ -15,6 +16,11 @@ public class CloudPopup extends Activity {
     private EditText input_assignment;
 
     private String nameOfClassCloud, classAssignmentCloud;
+
+    /**
+     * Starts the activity
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,11 +38,19 @@ public class CloudPopup extends Activity {
         getWindow().setLayout((int)(width*0.8),(int)(height*0.6));
     }
 
+    /**
+     * User clicks button "cancel" to return to previous screen
+     * @param v
+     */
     public void onClickCancel (View v) {
         finish();
         super.onBackPressed();
     }
 
+    /**
+     * Adds user input to FireBase
+     * @param v
+     */
     public void onClickAdd (View v) {
         txtInput = (EditText)findViewById(R.id.popup_cloudPlanner_name_of_class);
         input_assignment = (EditText)findViewById(R.id.popup_cloudPlanner_assignment_name);
@@ -47,4 +61,14 @@ public class CloudPopup extends Activity {
         finish();
         super.onBackPressed();
     }
+
+    /**
+     * Overrides onResume and calls the HelperWrapper.setBackgroundColor method
+     */
+    @Override
+    public void onResume() {
+        super.onResume();
+        HelperWrapper.setBackgroundColorWindow(this);
+    }
+
 }

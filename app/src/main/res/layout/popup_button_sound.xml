@@ -32,6 +32,20 @@
             android:layout_centerVertical="true"
             android:text=""
             android:onClick="controlSound"/>
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:textSize="40sp"
+            android:background="@drawable/settingsbutton1"
+
+            android:text="Button Sound"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>

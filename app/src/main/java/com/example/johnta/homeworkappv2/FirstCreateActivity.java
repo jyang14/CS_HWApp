@@ -40,4 +40,13 @@ public class FirstCreateActivity extends AppCompatActivity implements SignedInHa
         Log.v("LOGIN", "Login Success");
     }
 
+    /**
+     * Overrides onResume and calls the HelperWrapper.setBackgroundColor method
+     */
+    @Override
+    public void onResume() {
+        super.onResume();
+        HelperWrapper.setBackgroundColorWindow(this);
+    }
+
 }

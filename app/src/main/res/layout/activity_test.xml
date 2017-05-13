@@ -1,14 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.percent.PercentRelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:percent="http://schemas.android.com/apk/res-auto"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/blue">
+
+    <ImageButton
+        android:id="@+id/main_cloudButton"
+        percent:layout_widthPercent="40%"
+        percent:layout_aspectRatio="100%"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+
+        android:background="@drawable/roundbutton"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/cloud"
+        />
+
+    <TextView
+        android:id="@+id/main_cloudButton_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/main_cloudButton"
+        android:layout_centerHorizontal="true"
+        android:text="The Hub"
+
+        android:background="@drawable/settingsbutton1"
+        android:padding="3sp"
+        android:textSize="20sp"
+        android:textColor="@android:color/white"
+        android:gravity="center"
+        android:layout_alignStart="@id/main_cloudButton"
+        android:layout_alignLeft="@id/main_cloudButton"
+        android:layout_alignEnd="@id/main_cloudButton"
+        android:layout_alignRight="@id/main_cloudButton"/>
+
+    <ImageButton
+        android:id="@+id/main_settingsButton"
+        percent:layout_widthPercent="25%"
+        percent:layout_aspectRatio="100%"
+        percent:layout_marginTopPercent="5%"
+        percent:layout_marginRightPercent="5%"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+
+        android:background="@drawable/roundbutton"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/settings_icon"/>
+
+    <TextView
+        android:id="@+id/main_settingsButton_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Settings"
+
+        android:background="@drawable/settingsbutton1"
+        android:padding="3sp"
+        android:textSize="15sp"
+        android:textColor="@android:color/white"
+        android:gravity="center"
+
+        android:layout_below="@id/main_settingsButton"
+        android:layout_alignStart="@id/main_settingsButton"
+        android:layout_alignLeft="@id/main_settingsButton"
+        android:layout_alignEnd="@id/main_settingsButton"
+        android:layout_alignRight="@id/main_settingsButton"/>
+
+    <ImageButton
+        android:id="@+id/main_plannerButton"
+        percent:layout_widthPercent="25%"
+        percent:layout_aspectRatio="100%"
+
+        percent:layout_marginTopPercent="12%"
+        percent:layout_marginLeftPercent="6%"
+
+        android:background="@drawable/roundbutton"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/planner10pad"
+        />
+
+    <TextView
+        android:id="@+id/main_plannerButton_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Planner"
+
+        android:layout_alignLeft="@+id/main_plannerButton"
+        android:layout_alignStart="@+id/main_plannerButton"
+        android:layout_alignEnd="@id/main_plannerButton"
+        android:layout_alignRight="@id/main_plannerButton"
+        android:layout_below="@+id/main_plannerButton"
+
+        android:background="@drawable/settingsbutton1"
+        android:padding="3sp"
+        android:textSize="15sp"
+        android:textColor="@android:color/white"
+        android:gravity="center" />
+
+    <ImageButton
+        android:id="@+id/main_scheduleButton"
+        percent:layout_widthPercent="25%"
+        percent:layout_aspectRatio="100%"
 
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:srcCompat="@drawable/ic_action_name" />
+        percent:layout_marginTopPercent="75%"
+        percent:layout_marginRightPercent="15%"
+
+        android:background="@drawable/roundbutton"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/schedule"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Schedule"
+
+        android:layout_below="@id/main_scheduleButton"
+        android:layout_alignStart="@id/main_scheduleButton"
+        android:layout_alignLeft="@id/main_scheduleButton"
+        android:layout_alignEnd="@id/main_scheduleButton"
+        android:layout_alignRight="@id/main_scheduleButton"
+
+        android:background="@drawable/settingsbutton1"
+        android:padding="3sp"
+        android:textSize="15sp"
+        android:textColor="@android:color/white"
+        android:gravity="center" />
+
 </android.support.percent.PercentRelativeLayout>

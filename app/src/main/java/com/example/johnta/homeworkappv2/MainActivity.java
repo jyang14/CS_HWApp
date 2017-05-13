@@ -16,9 +16,12 @@ public class MainActivity extends AppCompatActivity {
 
     MediaPlayer mp;
 
+    /**
+     * Creates the main activity
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
 
         DatabaseReference mDatabase;
         FirebaseDatabase mFirebase;
@@ -35,32 +38,61 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //HelperWrapper.setBackgroundColorWindow(this);
+
         mFirebase = FirebaseDatabase.getInstance();
         mDatabase = mFirebase.getReference();
     }
 
+    /**
+     * Overrides onResume and calls the HelperWrapper.setBackgroundColor method
+     */
+    @Override
+    public void onResume() {
+        super.onResume();
+        HelperWrapper.setBackgroundColorWindow(this);
+    }
+
+    /**
+     * Transition to PlannerActivity
+     * @param v Current View
+     */
     public void toPlannerScreen(View v) {
         playSound();
         startActivity(new Intent(MainActivity.this, PlannerActivity.class));
     }
 
+    /**
+     * Transition to CloudActivity
+     * @param v Current View
+     */
     public void toCloudScreen(View v) {
         playSound();
         startActivity(new Intent(MainActivity.this, CloudActivity.class));
     }
 
+    /**
+     * Transition to ScheduleActivity
+     * @param v Current View
+     */
     public void toScheduleScreen(View v) {
         playSound();
         startActivity(new Intent(MainActivity.this, ScheduleActivity.class));
     }
 
+    /**
+     * Transition SettingsActivity
+     * @param view Current View
+     */
     public void toSettingsScreen(View view) {
         playSound();
         startActivity(new Intent(MainActivity.this, SettingsActivity.class));
     }
 
+    /**
+     * Play Button Sound
+     */
     public void playSound () {
-
         if (ButtonSoundPopup.getTestCaseValue()) {
             mp.start();
         }

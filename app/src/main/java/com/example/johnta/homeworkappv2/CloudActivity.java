@@ -47,6 +47,15 @@ public class CloudActivity extends AppCompatActivity {
     }
 
     /**
+     * Overrides onResume and calls the HelperWrapper.setBackgroundColor method
+     */
+    @Override
+    public void onResume() {
+        super.onResume();
+        HelperWrapper.setBackgroundColorWindow(this);
+    }
+
+    /**
      * Called when user clicks "add"
      * @param v current view
      */
