@@ -23,18 +23,23 @@ class DataWrapper implements DataInterface {
 
     }
 
-
     @Override
     public void addItemToArray(String className, String assignmentName) {
-        DatabaseReference mDatabase = firebaseDatabase.getReference();
+        DatabaseReference assignmentRef = firebaseDatabase.getReference("Assignment");
 
         AssignmentStructure assignment = new AssignmentStructure(className, assignmentName);
         //assignmentAdapter.add(assignment);
 
-        mDatabase.child("Assignment").push().setValue(assignment);
+        assignmentRef.child(assignment.hash()).setValue(assignment);
 
         //assignmentAdapter.notifyDataSetChanged();
         //Log.v(TAG, assignmentAdapter.toString());
+    }
+
+    @Override
+    public void removeItem(AssignmentStructure assignmentStructure) {
+        DatabaseReference assignmentRef = firebaseDatabase.getReference("Assignment");
+        assignmentRef.child(assignmentStructure.hash()).removeValue();
     }
 
     @Override
@@ -46,10 +51,7 @@ class DataWrapper implements DataInterface {
                 AssignmentStructure assignment = dataSnapshot.getValue(AssignmentStructure.class);
 
                 assignmentAdapter.add(assignment);
-                //assignmentAdapter.notifyDataSetChanged();
-
-                //assignmentAdapter.add(assignment);
-                listView.setAdapter(assignmentAdapter);
+                assignmentAdapter.notifyDataSetChanged();
             }
 
             @Override

@@ -87,8 +87,10 @@ public class PlannerActivity extends ListActivity {
             boolean delete = bundle.getBoolean("delete");
 
             if (delete) {
-                assignmentAdapter.remove(assignmentAdapter.getItem(position));
-
+                AssignmentStructure assignment = assignmentAdapter.getItem(position);
+                assignmentAdapter.remove(assignment);
+                FirebaseWrapper.getInstance(this).removeItem(assignment);
+                assignmentAdapter.notifyDataSetChanged();
             }
         }
 
