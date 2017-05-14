@@ -7,7 +7,7 @@ import android.widget.EditText;
 
 import com.example.johnta.homeworkappv2.R;
 import com.example.johnta.homeworkappv2.backend.HelperWrapper;
-import com.example.johnta.homeworkappv2.adapters.AssignmentStructure;
+import com.example.johnta.homeworkappv2.firebase.data.Assignment;
 import com.example.johnta.homeworkappv2.firebase.FirebaseWrapper;
 
 /**
@@ -53,7 +53,7 @@ public class PlannerPopup extends Activity {
 
         String className = classEditTest.getText().toString();
         String assignmentName = assignementEditText.getText().toString();
-        AssignmentStructure assignment = new AssignmentStructure(className, assignmentName);
+        Assignment assignment = new Assignment(className, assignmentName);
         FirebaseWrapper.getInstance(this).addAssignmentToUser(assignment);
         finish();
         super.onBackPressed();

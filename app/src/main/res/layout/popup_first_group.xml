@@ -13,14 +13,15 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        percent:layout_marginTopPercent = "40%"
-        percent:layout_marginLeftPercent = "5%"
-        android:text="Create a group"
-
-        android:textSize="20sp"
+        android:background="@drawable/settingsbutton1"
+        android:onClick="onCreateGroup"
         android:padding="5sp"
+
+        android:text="Create a group"
         android:textColor="@android:color/white"
-        android:background="@drawable/settingsbutton1"/>
+        android:textSize="20sp"
+        percent:layout_marginLeftPercent="5%"
+        percent:layout_marginTopPercent="40%" />
 
     <TextView
         android:id="@+id/textView8"
@@ -50,7 +51,9 @@
         android:textSize="20sp"
         android:padding="5sp"
         android:textColor="@android:color/white"
-        android:background="@drawable/settingsbutton1"/>
+        android:background="@drawable/settingsbutton1"
+
+        android:onClick="onJoinGroup"/>
 
     <Button
         android:id="@+id/popup_firstGroup_whatisagroup"

@@ -1,12 +1,12 @@
 package com.example.johnta.homeworkappv2.firebase;
 
 import android.util.Log;
-import android.widget.ListView;
 
-import com.example.johnta.homeworkappv2.adapters.AssignmentAdapter;
-import com.example.johnta.homeworkappv2.adapters.AssignmentStructure;
+import com.example.johnta.homeworkappv2.firebase.data.Assignment;
+import com.example.johnta.homeworkappv2.firebase.data.Group;
 import com.example.johnta.homeworkappv2.firebase.data.User;
 import com.example.johnta.homeworkappv2.firebase.handler.AssignmentHandler;
+import com.example.johnta.homeworkappv2.firebase.handler.GroupJoinedHandler;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -25,13 +25,23 @@ import java.util.List;
 class DataWrapper implements DataInterface {
 
     static private final String TAG = "DATAWRAPPER";
+
+    final DatabaseReference assignmentRef;
+    final DatabaseReference usersRef;
+    final DatabaseReference groupsRef;
+    final DatabaseReference uuidRef;
+
+
     FirebaseDatabase firebaseDatabase;
     User user;
-    private DatabaseReference assignmentRef;
+    Group group;
 
     DataWrapper() {
         firebaseDatabase = FirebaseDatabase.getInstance();
         assignmentRef = firebaseDatabase.getReference("Assignments");
+        usersRef = firebaseDatabase.getReference("Users");
+        groupsRef = firebaseDatabase.getReference("Groups");
+        uuidRef = firebaseDatabase.getReference("UUID");
     }
 
     /**
@@ -40,7 +50,7 @@ class DataWrapper implements DataInterface {
      * @param assignment the assignment to be added
      */
     @Override
-    public void addAssignmentToDatabase(AssignmentStructure assignment) {
+    public void addAssignmentToDatabase(Assignment assignment) {
         assignmentRef.child(assignment.hash()).setValue(assignment);
     }
 
@@ -50,13 +60,13 @@ class DataWrapper implements DataInterface {
      * @param assignment the assignment to be added
      */
     @Override
-    public void addAssignmentToUser(AssignmentStructure assignment) {
+    public void addAssignmentToUser(Assignment assignment) {
         // Just in case others may want to upload the same assignment
         // Got to build up that hash map
         addAssignmentToDatabase(assignment);
 
         if (user != null) {
-            if(user.assignments == null)
+            if (user.assignments == null)
                 user.assignments = new ArrayList<>();
             user.assignments.add(assignment.hash());
             updateUser();
@@ -65,56 +75,184 @@ class DataWrapper implements DataInterface {
         }
     }
 
+    @Override
+    public void addAssignmentToGroup(Assignment assignment) {
+        addAssignmentToDatabase(assignment);
+
+        if (group != null) {
+            if (group.assignments == null)
+                group.assignments = new ArrayList<>();
+            group.assignments.add(assignment.hash());
+            updateGroup();
+        } else {
+            Log.w(TAG, "ERROR GROUP NOT INITIALIZED.");
+        }
+    }
+
     /**
      * Removes the assignment from the database
      *
-     * @param assignmentStructure assignment
+     * @param assignment assignment
      * @deprecated DO NOT CALL
      */
     @Override
-    public void removeItem(AssignmentStructure assignmentStructure) {
+    public void removeItem(Assignment assignment) {
         DatabaseReference assignmentRef = this.assignmentRef;
-        assignmentRef.child(assignmentStructure.hash()).removeValue();
+        assignmentRef.child(assignment.hash()).removeValue();
+    }
+
+    @Override
+    public void removeAssignmentFromUser(Assignment assignment) {
+        if (user != null && user.assignments != null) {
+            user.assignments.remove(assignment.hash());
+            updateUser();
+        }
+    }
+
+    @Override
+    public void removeAssignmentFromGroup(Assignment assignment) {
+        if (group != null && group.assignments != null) {
+            group.assignments.remove(assignment.hash());
+            updateGroup();
+        }
     }
 
     /**
      * Reloads the adapter upon onCreate()
      *
-     * @param listView          the activitiy's listView
-     * @param assignmentAdapter the listView's adapter
+     * @param assignmentHandler
      */
     @Override
-    public void refreshLists(final ListView listView, final AssignmentAdapter assignmentAdapter) {
-        assignmentRef.addChildEventListener(new ChildEventListener() {
+    public void onGroupChanges(final AssignmentHandler assignmentHandler) {
+        groupsRef.child(String.valueOf(group.UUID)).child("assignments").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String prevChildKey) {
-                AssignmentStructure assignment = dataSnapshot.getValue(AssignmentStructure.class);
-
-                assignmentAdapter.add(assignment);
-                assignmentAdapter.notifyDataSetChanged();
+                getGroupAssignments(assignmentHandler);
             }
 
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String prevChildKey) {
+                getGroupAssignments(assignmentHandler);
             }
 
             @Override
             public void onChildRemoved(DataSnapshot dataSnapshot) {
+                getGroupAssignments(assignmentHandler);
             }
 
             @Override
             public void onChildMoved(DataSnapshot dataSnapshot, String prevChildKey) {
+                getGroupAssignments(assignmentHandler);
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
+                getGroupAssignments(assignmentHandler);
             }
         });
     }
 
     @Override
+    public void createGroup(final String name, final GroupJoinedHandler groupJoinedHandler) {
+        if (user == null) {
+            Log.w(TAG, "ERROR USER NOT INITIALIZED.");
+            return;
+        }
+        if (name == null) {
+            Log.w(TAG, "ERROR NAME NOT INITIALIZED.");
+            return;
+        }
+        uuidRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                long p = dataSnapshot.child("p").getValue(Long.class); // Prime number
+                long g = dataSnapshot.child("g").getValue(Long.class); // Number coprime with p
+                long n = dataSnapshot.child("n").getValue(Long.class); // UUID
+
+                n = (g * n) % p; // Max number of groups is 99990
+                dataSnapshot.child("n").getRef().setValue(n);
+                n += 100000 * (user.hashCode() % 10); // Just in case there is a data race
+
+                user.group = n;
+                group = new Group(name, n, user);
+                updateGroup();
+
+                groupJoinedHandler.handleGroupJoined(true);
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.w(TAG, "ERROR: UUID generator could not be accessed");
+                groupJoinedHandler.handleGroupJoined(false);
+            }
+        });
+    }
+
+    @Override
+    public void joinGroup(final long uuid, final GroupJoinedHandler groupJoinedHandler) {
+        uuidRef.child(String.valueOf(uuid)).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Group group = dataSnapshot.getValue(Group.class);
+
+                if (group != null) {
+                    DataWrapper.this.group = group;
+                    user.group = uuid;
+                    groupJoinedHandler.handleGroupJoined(true);
+                } else {
+                    groupJoinedHandler.handleGroupJoined(false);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.w(TAG, "ERROR: Could not access group");
+                groupJoinedHandler.handleGroupJoined(false);
+            }
+        });
+    }
+
+    @Override
+    public void copyGroupToUser() {
+        if (user == null || group == null) {
+            Log.w(TAG, "INVALID STATE NULL USER OR GROUP");
+            return;
+        }
+
+        if (user.assignments == null)
+            user.assignments = new ArrayList<>();
+
+        if (group.assignments == null)
+            group.assignments = new ArrayList<>();
+
+        user.assignments.addAll(group.assignments);
+    }
+
+    @Override
+    public void copyUserToGroup() {
+        if (user == null || group == null) {
+            Log.w(TAG, "INVALID STATE NULL USER OR GROUP");
+            return;
+        }
+        if (user.assignments == null)
+            user.assignments = new ArrayList<>();
+
+        if (group.assignments == null)
+            group.assignments = new ArrayList<>();
+
+        group.assignments.addAll(user.assignments);
+
+    }
+
+    @Override
     public User getUser() {
         return user;
+    }
+
+    @Override
+    public Group getGroup() {
+        return group;
     }
 
     @Override
@@ -124,11 +262,21 @@ class DataWrapper implements DataInterface {
             return;
         }
 
-        firebaseDatabase.getReference("Users").child(user.hashEmail()).setValue(user);
+        usersRef.child(user.hashEmail()).setValue(user);
     }
 
     @Override
-    public void getAssignments(List<String> hashes, final AssignmentHandler assignmentHandler) {
+    public void updateGroup() {
+        if (group == null) {
+            Log.w(TAG, "INVALID STATE NULL GROUP");
+            return;
+        }
+
+        groupsRef.child(String.valueOf(group.UUID)).setValue(group);
+    }
+
+    @Override
+    public void getAssignments(final List<String> hashes, final AssignmentHandler assignmentHandler) {
 
         if (hashes == null) {
             Log.v(TAG, "No Assignments. Enjoy your free time."); // Let me be salty
@@ -138,7 +286,7 @@ class DataWrapper implements DataInterface {
             return;
         }
 
-        final List<AssignmentStructure> temp = new ArrayList<>();
+        final List<Assignment> temp = new ArrayList<>();
 
         for (String hash : hashes) {
 
@@ -146,10 +294,10 @@ class DataWrapper implements DataInterface {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
 
-                    AssignmentStructure assignment = dataSnapshot.getValue(AssignmentStructure.class);
+                    Assignment assignment = dataSnapshot.getValue(Assignment.class);
                     temp.add(assignment);
 
-                    if (temp.size() == user.assignments.size()) {
+                    if (temp.size() == hashes.size()) {
                         temp.removeAll(Collections.singleton(null));
                         assignmentHandler.handleAssignments(temp);
                     }
@@ -158,7 +306,7 @@ class DataWrapper implements DataInterface {
 
                 @Override
                 public void onCancelled(DatabaseError databaseError) {
-                    Log.w(TAG, "ERROR: Animal not retrieved");
+                    Log.w(TAG, "ERROR: Assignment not retrieved");
                 }
             });
 
@@ -176,7 +324,13 @@ class DataWrapper implements DataInterface {
     }
 
     @Override
-    public void addUserAssignmentListener(ChildEventListener listener) {
-        //TODO
+    public void getGroupAssignments(AssignmentHandler assignmentHandler) {
+        if (group == null) {
+            Log.w(TAG, "ERROR GROUP NOT INITIALIZED.");
+            return;
+        }
+
+        getAssignments(group.assignments, assignmentHandler);
     }
+
 }

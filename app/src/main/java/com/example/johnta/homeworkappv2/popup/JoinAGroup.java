@@ -12,17 +12,27 @@ import com.example.johnta.homeworkappv2.activities.CloudActivity;
 import com.example.johnta.homeworkappv2.firebase.FirebaseWrapper;
 import com.example.johnta.homeworkappv2.firebase.handler.GroupJoinedHandler;
 
-public class CreateAGroup extends AppCompatActivity implements GroupJoinedHandler {
+public class JoinAGroup extends AppCompatActivity implements GroupJoinedHandler {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_group);
+        setContentView(R.layout.activity_join_a_group);
     }
 
-
     public void onCreateGroup(View view) {
-        FirebaseWrapper.getInstance(this).createGroup(((EditText) findViewById(R.id.editText7)).getText().toString(), this);
+        try {
+            long uuid = Long.parseLong(((EditText) findViewById(R.id.editText6)).getText().toString());
+
+            FirebaseWrapper.getInstance(this).joinGroup(uuid, this);
+        } catch (NumberFormatException e) {
+            new AlertDialog.Builder(this)
+                    .setTitle("Error")
+                    .setMessage("Invalid Entry")
+                    .setNeutralButton("OK", null).create().show();
+        }
+
+
     }
 
     @Override
@@ -30,11 +40,12 @@ public class CreateAGroup extends AppCompatActivity implements GroupJoinedHandle
         if (success) {
             startActivity(new Intent(this, CloudActivity.class));
             finish();
-        } else
+        } else {
             new AlertDialog.Builder(this)
                     .setTitle("Error")
                     .setMessage("Invalid UUID")
                     .setNeutralButton("OK", null).create().show();
+        }
     }
 
     public void onClickCancel(View view) {
