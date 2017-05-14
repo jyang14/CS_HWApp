@@ -86,7 +86,7 @@ public class PlannerActivity extends ListActivity implements AssignmentHandler {
                 User user = FirebaseWrapper.getInstance(this).getUser();
                 if (user != null && user.assignments != null) {
                     Log.v(TAG, String.format("Hash to remove: %s", assignment.hash()));
-                    user.assignments.removeAll(Collections.singleton(assignment.hash()));
+                    user.assignments.remove(assignment.hash());
                     for(String hash : user.assignments)
                         Log.v(TAG, String.format("Hash in list: %s", hash));
                     FirebaseWrapper.getInstance(this).updateUser();
