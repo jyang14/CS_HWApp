@@ -1,12 +1,10 @@
 package com.example.johnta.homeworkappv2.firebase;
 
-import android.widget.ListView;
-
-import com.example.johnta.homeworkappv2.adapters.AssignmentAdapter;
 import com.example.johnta.homeworkappv2.firebase.data.Assignment;
 import com.example.johnta.homeworkappv2.firebase.data.Group;
 import com.example.johnta.homeworkappv2.firebase.data.User;
 import com.example.johnta.homeworkappv2.firebase.handler.AssignmentHandler;
+import com.example.johnta.homeworkappv2.firebase.handler.GroupJoinedHandler;
 
 import java.util.List;
 
@@ -29,6 +27,8 @@ interface DataInterface {
      */
     void addAssignmentToUser(Assignment assignment);
 
+    void addAssignmentToGroup(Assignment assignment);
+
     /**
      * Removes the assignment from the database
      *
@@ -41,9 +41,15 @@ interface DataInterface {
 
     void removeAssignmentFromGroup(Assignment assignment);
 
-    void refreshLists(ListView listView, AssignmentAdapter assignmentAdapter);
+    void onGroupChanges(AssignmentHandler assignmentHandler);
 
-    void createGroup(String name);
+    void createGroup(String name, GroupJoinedHandler groupJoinedHandler);
+
+    void joinGroup(long uuid, GroupJoinedHandler groupJoinedHandler);
+
+    void copyGroupToUser();
+
+    void copyUserToGroup();
 
     User getUser();
 

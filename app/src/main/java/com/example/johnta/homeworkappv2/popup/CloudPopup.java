@@ -60,7 +60,7 @@ public class CloudPopup extends Activity {
         classAssignmentCloud = input_assignment.getText().toString();
 
         Assignment assignment = new Assignment(nameOfClassCloud,classAssignmentCloud);
-        FirebaseWrapper.getInstance(this).addAssignmentToDatabase(assignment);
+        FirebaseWrapper.getInstance(this).addAssignmentToGroup(assignment);
         finish();
         super.onBackPressed();
     }

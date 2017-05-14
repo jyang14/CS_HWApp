@@ -49,7 +49,7 @@ final class LoginListener implements ValueEventListener {
                         database.user.group = 0;
                     else
                         database.group = group;
-
+                    if(signedInHandler!=null)
                     signedInHandler.onSignInSuccess();
                 }
 

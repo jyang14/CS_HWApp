@@ -3,13 +3,12 @@ package com.example.johnta.homeworkappv2.firebase;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
-import android.widget.ListView;
 
-import com.example.johnta.homeworkappv2.adapters.AssignmentAdapter;
 import com.example.johnta.homeworkappv2.firebase.data.Assignment;
 import com.example.johnta.homeworkappv2.firebase.data.Group;
 import com.example.johnta.homeworkappv2.firebase.data.User;
 import com.example.johnta.homeworkappv2.firebase.handler.AssignmentHandler;
+import com.example.johnta.homeworkappv2.firebase.handler.GroupJoinedHandler;
 import com.example.johnta.homeworkappv2.firebase.handler.SignedInHandler;
 
 import java.util.List;
@@ -67,6 +66,11 @@ public class FirebaseWrapper implements DataInterface, AuthInterface {
         dataWrapper.addAssignmentToUser(assignment);
     }
 
+    @Override
+    public void addAssignmentToGroup(Assignment assignment) {
+        dataWrapper.addAssignmentToGroup(assignment);
+    }
+
     /**
      * Removes the assignment from the database
      *
@@ -89,19 +93,33 @@ public class FirebaseWrapper implements DataInterface, AuthInterface {
     }
 
     /**
-     * Method that takes the listViw and its adapter and calls refreshLists() method
+     * Method that takes the listViw and its adapter and calls onGroupChanges() method
      *
-     * @param listView          listViw of the original activity
-     * @param assignmentAdapter the listView's adapter
+     * @param assignmentHandler
      */
     @Override
-    public void refreshLists(ListView listView, AssignmentAdapter assignmentAdapter) {
-        dataWrapper.refreshLists(listView, assignmentAdapter);
+    public void onGroupChanges(AssignmentHandler assignmentHandler) {
+        dataWrapper.onGroupChanges(assignmentHandler);
     }
 
     @Override
-    public void createGroup(String name) {
-        dataWrapper.createGroup(name);
+    public void createGroup(String name, GroupJoinedHandler groupJoinedHandler) {
+        dataWrapper.createGroup(name, groupJoinedHandler);
+    }
+
+    @Override
+    public void joinGroup(long uuid, GroupJoinedHandler groupJoinedHandler) {
+        dataWrapper.joinGroup(uuid, groupJoinedHandler);
+    }
+
+    @Override
+    public void copyGroupToUser() {
+        dataWrapper.copyGroupToUser();
+    }
+
+    @Override
+    public void copyUserToGroup() {
+        dataWrapper.copyUserToGroup();
     }
 
     @Override

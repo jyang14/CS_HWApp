@@ -51,7 +51,9 @@
         android:textSize="20sp"
         android:padding="5sp"
         android:textColor="@android:color/white"
-        android:background="@drawable/settingsbutton1"/>
+        android:background="@drawable/settingsbutton1"
+
+        android:onClick="onJoinGroup"/>
 
     <Button
         android:id="@+id/popup_firstGroup_whatisagroup"

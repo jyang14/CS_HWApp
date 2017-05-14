@@ -46,7 +46,7 @@ public class PlannerActivity extends ListActivity implements AssignmentHandler {
 
         FirebaseWrapper.getInstance(this).getUserAssignments(this);
 
-        //FirebaseWrapper.getInstance(this).refreshLists(listView, assignmentAdapter);
+        //FirebaseWrapper.getInstance(this).onGroupChanges(listView, assignmentAdapter);
         // assignmentAdapter = new ArraysIntoOne_backend(this, arrayOfInformation);
     }
 
@@ -60,7 +60,7 @@ public class PlannerActivity extends ListActivity implements AssignmentHandler {
     }
 
     public void onClickCopy(View v) {
-
+        FirebaseWrapper.getInstance(this).copyUserToGroup();
     }
 
     /**

@@ -12,6 +12,9 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.johnta.homeworkappv2.R;
+import com.example.johnta.homeworkappv2.activities.CloudActivity;
+import com.example.johnta.homeworkappv2.activities.PlannerActivity;
+import com.example.johnta.homeworkappv2.firebase.FirebaseWrapper;
 import com.example.johnta.homeworkappv2.firebase.data.Assignment;
 import com.example.johnta.homeworkappv2.popup.RemoveItemFromListPopup;
 
@@ -35,7 +38,7 @@ public class AssignmentAdapter extends ArrayAdapter<Assignment> {
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
 
-        final Assignment named = getItem(position);
+        final Assignment assignment = getItem(position);
 
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.backend_listview_items_planner, parent, false);
@@ -50,8 +53,8 @@ public class AssignmentAdapter extends ArrayAdapter<Assignment> {
         ImageButton transferButton = (ImageButton)convertView.findViewById(R.id.backend_listViewItemsPlanner_transfer);
         transferButton.setImageResource(R.drawable.transfer_icon);
 
-        nameOfClass.setText(named.getClassname());
-        homeworkDescription.setText(named.getDescription());
+        nameOfClass.setText(assignment.getClassname());
+        homeworkDescription.setText(assignment.getDescription());
        // subtractButton.set
 
         /**
@@ -64,7 +67,7 @@ public class AssignmentAdapter extends ArrayAdapter<Assignment> {
                 Intent intent = new Intent(context, RemoveItemFromListPopup.class);
 
                 Bundle bundle = new Bundle();
-                bundle.putString("thing", named.getDescription());
+                bundle.putString("thing", assignment.getDescription());
                 bundle.putInt("position", position);
                 intent.putExtras(bundle);
 
@@ -78,7 +81,11 @@ public class AssignmentAdapter extends ArrayAdapter<Assignment> {
         transferButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO
+                if(context instanceof PlannerActivity){
+                    FirebaseWrapper.getInstance(context).addAssignmentToGroup(assignment);
+                }else if (context instanceof CloudActivity){
+                    FirebaseWrapper.getInstance(context).addAssignmentToUser(assignment);
+                }
             }
         });
 

@@ -12,14 +12,14 @@ public class Group {
     public String name;
     public long UUID;
 
-    public List<User> users;
+    public List<String> users;
     public List<String> assignments;
 
     public Group(String name, long UUID, User user){
         this.name = name;
         this.UUID = UUID;
         users = new ArrayList<>();
-        users.add(user);
+        users.add(user.hashEmail());
     }
 
     public Group(){
