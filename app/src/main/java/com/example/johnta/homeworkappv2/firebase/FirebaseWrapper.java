@@ -2,18 +2,25 @@ package com.example.johnta.homeworkappv2.firebase;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.widget.ListView;
 
 import com.example.johnta.homeworkappv2.adapters.AssignmentAdapter;
 import com.example.johnta.homeworkappv2.adapters.AssignmentStructure;
 import com.example.johnta.homeworkappv2.firebase.data.User;
+import com.example.johnta.homeworkappv2.firebase.handler.AssignmentHandler;
 import com.example.johnta.homeworkappv2.firebase.handler.SignedInHandler;
+import com.google.firebase.database.ChildEventListener;
+
+import java.util.List;
 
 /**
  * Created by johnta on 5/12/17.
  */
 
 public class FirebaseWrapper implements DataInterface, AuthInterface {
+
+    private static final String TAG = "FIREBASEWRAPPER";
 
     private static FirebaseWrapper instance;
 
@@ -24,6 +31,7 @@ public class FirebaseWrapper implements DataInterface, AuthInterface {
      * Private constructor
      */
     private FirebaseWrapper(Context context) {
+        Log.v(TAG, "constructor");
         dataWrapper = new DataWrapper();
         authWrapper = new AuthWrapper(context, new AuthListener(dataWrapper));
     }
@@ -41,22 +49,33 @@ public class FirebaseWrapper implements DataInterface, AuthInterface {
     }
 
     /**
-     * Takes the two strings of user input and calls the addItemToArray method
-     * @param className name of the class name of class
-     * @param assignmentName description of assignment  description of assignment
+     * Adds item to the listView upon completion of user input
+     * @param assignment the assignment to be added
      */
     @Override
-    public void addItemToArray(String className, String assignmentName) {
-        dataWrapper.addItemToArray(className, assignmentName);
+    public void addAssignmentToDatabase(AssignmentStructure assignment) {
+        dataWrapper.addAssignmentToDatabase(assignment);
     }
 
     /**
-     * Method that takes the object of assignmentStructure and calls removeItem()
-     * @param assignmentStructure assignment
+     * Adds assignment to user's list of assignments
+     *
+     * @param assignment the assignment to be added
      */
     @Override
-    public void removeItem(AssignmentStructure assignmentStructure) {
-        dataWrapper.removeItem(assignmentStructure);
+    public void addAssignmentToUser(AssignmentStructure assignment) {
+        dataWrapper.addAssignmentToUser(assignment);
+    }
+
+    /**
+     * Removes the assignment from the database
+     *
+     * @deprecated DO NOT CALL
+     * @param assignment assignment
+     */
+    @Override
+    public void removeItem(AssignmentStructure assignment) {
+        dataWrapper.removeItem(assignment);
     }
 
     /**
@@ -97,5 +116,20 @@ public class FirebaseWrapper implements DataInterface, AuthInterface {
     @Override
     public void updateUser() {
         dataWrapper.updateUser();
+    }
+
+    @Override
+    public void getAssignments(List<String> hashes, AssignmentHandler assignmentHandler) {
+        dataWrapper.getAssignments(hashes, assignmentHandler);
+    }
+
+    @Override
+    public void getUserAssignments(AssignmentHandler assignmentHandler) {
+        dataWrapper.getUserAssignments(assignmentHandler);
+    }
+
+    @Override
+    public void addUserAssignmentListener(ChildEventListener listener) {
+        dataWrapper.addUserAssignmentListener(listener);
     }
 }

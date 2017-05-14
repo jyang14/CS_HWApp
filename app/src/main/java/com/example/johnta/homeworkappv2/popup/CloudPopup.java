@@ -8,6 +8,7 @@ import android.widget.EditText;
 
 import com.example.johnta.homeworkappv2.HelperWrapper;
 import com.example.johnta.homeworkappv2.R;
+import com.example.johnta.homeworkappv2.adapters.AssignmentStructure;
 import com.example.johnta.homeworkappv2.firebase.FirebaseWrapper;
 
 public class CloudPopup extends Activity {
@@ -57,7 +58,8 @@ public class CloudPopup extends Activity {
         nameOfClassCloud = txtInput.getText().toString();
         classAssignmentCloud = input_assignment.getText().toString();
 
-        FirebaseWrapper.getInstance(this).addItemToArray(nameOfClassCloud, classAssignmentCloud);
+        AssignmentStructure assignment = new AssignmentStructure(nameOfClassCloud,classAssignmentCloud);
+        FirebaseWrapper.getInstance(this).addAssignmentToDatabase(assignment);
         finish();
         super.onBackPressed();
     }

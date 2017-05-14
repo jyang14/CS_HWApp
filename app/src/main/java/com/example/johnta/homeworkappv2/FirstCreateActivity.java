@@ -9,7 +9,7 @@ import android.view.View;
 import com.example.johnta.homeworkappv2.firebase.FirebaseWrapper;
 import com.example.johnta.homeworkappv2.firebase.handler.SignedInHandler;
 
-public class FirstCreateActivity extends AppCompatActivity implements SignedInHandler {
+public class FirstCreateActivity extends AppCompatActivity implements SignedInHandler, View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +18,8 @@ public class FirstCreateActivity extends AppCompatActivity implements SignedInHa
 
         //RelativeLayout layout_main = (RelativeLayout) findViewById(R.id.relativeLayoutFirstCreate);
         //layout_main.setVisibility(View.VISIBLE);
-        FirebaseWrapper.getInstance(this).signIn();
+
+        findViewById(R.id.sign_in_button).setOnClickListener(this);
     }
 
     @Override
@@ -28,16 +29,16 @@ public class FirstCreateActivity extends AppCompatActivity implements SignedInHa
 
     }
 
-    public void onSignInUser(View view) {
-        //layout_main.setVisibility(View.GONE);
+    @Override
+    public void onClick(View v) {
         FirebaseWrapper.getInstance(this).signIn();
     }
-
 
     @Override
     public void onSignInSuccess() {
         Log.v("LOGIN", "Login Success");
         startActivity(new Intent(this, MainActivity.class));
+        finish();
     }
 
     /**

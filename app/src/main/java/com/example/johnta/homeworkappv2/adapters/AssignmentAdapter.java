@@ -77,7 +77,7 @@ public class AssignmentAdapter extends ArrayAdapter<AssignmentStructure> {
         transferButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                //TODO
             }
         });
 

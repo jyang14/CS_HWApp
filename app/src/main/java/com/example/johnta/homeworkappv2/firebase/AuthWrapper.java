@@ -54,6 +54,7 @@ class AuthWrapper implements AuthInterface, GoogleApiClient.OnConnectionFailedLi
 
     @Override
     public void signIn() {
+        Log.d(TAG, "Starting Intent");
         Intent signInIntent = com.google.android.gms.auth.api.Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
         ((AppCompatActivity) context).startActivityForResult(signInIntent, RC_SIGN_IN);
 
