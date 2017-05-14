@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by jinch on 5/13/2017.
+ * Created by johnta on 5/13/2017.
  */
 
 public class Group {
+
+    //Thanks to Jinchao for help with this
 
     public String name;
     public long UUID;

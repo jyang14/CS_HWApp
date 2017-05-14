@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:percent="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.johnta.homeworkappv2.popup.GroupHelpPopup">
+
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="Groups are the central part of this app! \n\n Imagine having a planner, but shared between multiple people. Through this idea, you and your friends can upload homework and all of you can see what the assignments are. \n\n To join a group, ask the person who has created the group to provide you the group identification number so you can join! \n\nTo create a group, simply click 'Create Group!'"
+
+        android:textColor="@android:color/black"
+        android:background="@drawable/background_white_textfields"
+
+        percent:layout_marginPercent = "2%"
+
+        android:padding="5sp"
+
+        android:gravity="center"
+        android:textSize="20sp"
+
+
+        />
+
+    <Button
+        android:id="@+id/button18"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="53dp"
+        android:text="Return"
+
+        android:background="@drawable/settingsbutton1"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:layout_alignLeft="@id/textView10"
+        android:layout_alignStart="@id/textView10"
+        android:layout_alignEnd="@id/textView10"
+        android:layout_alignRight="@id/textView10"
+
+        android:onClick="onClickReturn"/>
+</android.support.percent.PercentRelativeLayout>

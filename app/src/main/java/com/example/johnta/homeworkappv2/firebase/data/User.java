@@ -6,7 +6,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 /**
- * Created by jinch on 5/13/2017.
+ * Created by johnta on 5/13/2017.
  */
 
 public class User {
@@ -19,6 +19,7 @@ public class User {
     /**
      * Gets the SHA-256 hash of the email for indexing
      * Assumes that one has an email and cannot change their email address for a given account
+     * Thanks Jinchao for this
      * @return hash of the email
      */
     public String hashEmail(){
