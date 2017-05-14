@@ -1,4 +1,4 @@
-package com.example.johnta.homeworkappv2;
+package com.example.johnta.homeworkappv2.backend;
 
 /**
  * Created by johnta on 5/13/17.

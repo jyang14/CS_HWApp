@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import com.example.johnta.homeworkappv2.HelperWrapper;
+import com.example.johnta.homeworkappv2.backend.HelperWrapper;
 import com.example.johnta.homeworkappv2.R;
 
 public class RemoveItemFromListPopup extends Activity {

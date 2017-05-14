@@ -11,7 +11,7 @@
             android:id="@+id/welcome_text"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="HomeworkHub"
+            android:text="Homework Hub"
 
             android:textColor="@android:color/white"
             android:padding="5sp"
@@ -21,14 +21,13 @@
 
         <ImageView
             android:id="@+id/imageView"
-            percent:layout_widthPercent = "40%"
+            percent:layout_widthPercent = "30%"
             percent:layout_aspectRatio="100%"
 
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
             app:srcCompat="@mipmap/homeworkhub_logo"
 
-            />
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
 
     <com.google.android.gms.common.SignInButton
         android:id="@+id/sign_in_button"

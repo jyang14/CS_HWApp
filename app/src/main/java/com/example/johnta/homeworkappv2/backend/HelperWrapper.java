@@ -1,4 +1,4 @@
-package com.example.johnta.homeworkappv2;
+package com.example.johnta.homeworkappv2.backend;
 
 import android.app.Activity;
 import android.graphics.Color;

@@ -1,9 +1,11 @@
-package com.example.johnta.homeworkappv2;
+package com.example.johnta.homeworkappv2.activities;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 
+import com.example.johnta.homeworkappv2.backend.HelperWrapper;
+import com.example.johnta.homeworkappv2.R;
 import com.example.johnta.homeworkappv2.adapters.AssignmentAdapter;
 
 public class DeleteObjectFromArray extends Activity {
