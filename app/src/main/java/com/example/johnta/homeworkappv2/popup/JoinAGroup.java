@@ -9,18 +9,32 @@ import android.widget.EditText;
 
 import com.example.johnta.homeworkappv2.R;
 import com.example.johnta.homeworkappv2.activities.CloudActivity;
+import com.example.johnta.homeworkappv2.backend.PlaySound;
 import com.example.johnta.homeworkappv2.firebase.FirebaseWrapper;
 import com.example.johnta.homeworkappv2.firebase.handler.GroupJoinedHandler;
 
 public class JoinAGroup extends AppCompatActivity implements GroupJoinedHandler {
 
+    PlaySound play;
+
+    /**
+     * Create activity
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_join_a_group);
+
+        play = new PlaySound(this);
     }
 
+    /**
+     * Creates a group
+     * @param view Current View
+     */
     public void onCreateGroup(View view) {
+        play.playSound();
         try {
             long uuid = Long.parseLong(((EditText) findViewById(R.id.editText6)).getText().toString());
 
@@ -31,8 +45,6 @@ public class JoinAGroup extends AppCompatActivity implements GroupJoinedHandler 
                     .setMessage("Invalid Entry")
                     .setNeutralButton("OK", null).create().show();
         }
-
-
     }
 
     @Override
@@ -48,7 +60,12 @@ public class JoinAGroup extends AppCompatActivity implements GroupJoinedHandler 
         }
     }
 
+    /**
+     * Return to previous activity
+     * @param view Current view
+     */
     public void onClickCancel(View view) {
+        play.playSound();
         finish();
         super.onBackPressed();
     }

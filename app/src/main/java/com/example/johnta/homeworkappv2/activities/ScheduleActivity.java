@@ -9,6 +9,7 @@ import android.view.View;
 
 import com.example.johnta.homeworkappv2.R;
 import com.example.johnta.homeworkappv2.backend.HelperWrapper;
+import com.example.johnta.homeworkappv2.backend.PlaySound;
 import com.example.johnta.homeworkappv2.popup.CreateScheduleURLPopup;
 import com.example.johnta.homeworkappv2.popup.Error404Popup;
 
@@ -21,16 +22,22 @@ public class ScheduleActivity extends AppCompatActivity {
 
     private static String url;
     private static String response;
+    PlaySound play;
 
     public static void setURL(String url2) {
         url = url2;
     }
 
+    /**
+     * Start activity
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_schedule);
     }
+
 
     public void toWebsite(View view) {
         if (url == null) {

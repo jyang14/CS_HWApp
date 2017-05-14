@@ -1,4 +1,4 @@
-package com.example.johnta.homeworkappv2.activities;
+package com.example.johnta.homeworkappv2.popup;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -8,20 +8,20 @@ import com.example.johnta.homeworkappv2.backend.HelperWrapper;
 import com.example.johnta.homeworkappv2.R;
 import com.example.johnta.homeworkappv2.adapters.AssignmentAdapter;
 
-public class DeleteObjectFromArray extends Activity {
+public class DeleteAssignmentFromPlannerPopup extends Activity {
 
     /**
      * Constructor
      * @param assignmentAdapter the adapter for the main class
      */
-    public DeleteObjectFromArray(AssignmentAdapter assignmentAdapter) {
+    public DeleteAssignmentFromPlannerPopup(AssignmentAdapter assignmentAdapter) {
 
     }
 
     /**
      * Empty constructor
      */
-    public DeleteObjectFromArray() {
+    public DeleteAssignmentFromPlannerPopup() {
 
     }
 

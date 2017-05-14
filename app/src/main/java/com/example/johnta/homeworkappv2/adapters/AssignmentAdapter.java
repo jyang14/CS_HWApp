@@ -3,7 +3,6 @@ package com.example.johnta.homeworkappv2.adapters;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,10 +11,8 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.johnta.homeworkappv2.R;
-import com.example.johnta.homeworkappv2.activities.CloudActivity;
-import com.example.johnta.homeworkappv2.activities.PlannerActivity;
-import com.example.johnta.homeworkappv2.firebase.FirebaseWrapper;
 import com.example.johnta.homeworkappv2.firebase.data.Assignment;
+import com.example.johnta.homeworkappv2.popup.CopyAssignmentPlannerToHubPopup;
 import com.example.johnta.homeworkappv2.popup.RemoveItemFromListPopup;
 
 import java.util.ArrayList;
@@ -57,9 +54,6 @@ public class AssignmentAdapter extends ArrayAdapter<Assignment> {
         homeworkDescription.setText(assignment.getDescription());
        // subtractButton.set
 
-        /**
-         * Onclicklistener for the remove item from list
-         */
         subtractButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -68,24 +62,35 @@ public class AssignmentAdapter extends ArrayAdapter<Assignment> {
 
                 Bundle bundle = new Bundle();
                 bundle.putString("thing", assignment.getDescription());
+                bundle.putString("classname",assignment.getClassname());
                 bundle.putInt("position", position);
                 intent.putExtras(bundle);
 
                 context.startActivityForResult(intent, 123);
-
-                Log.i("PlannerActivity", "Item has been clicked!!!");
             }
         });
-
 
         transferButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                Intent intent = new Intent (context, CopyAssignmentPlannerToHubPopup.class);
+
+                Bundle bundle = new Bundle();
+                bundle.putString("thing", assignment.getDescription());
+                bundle.putString("classname",assignment.getClassname());
+                bundle.putInt("position", position);
+                intent.putExtras(bundle);
+
+                context.startActivityForResult(intent, 987);
+
+                /*
                 if(context instanceof PlannerActivity){
                     FirebaseWrapper.getInstance(context).addAssignmentToGroup(assignment);
                 }else if (context instanceof CloudActivity){
                     FirebaseWrapper.getInstance(context).addAssignmentToUser(assignment);
                 }
+                */
             }
         });
 

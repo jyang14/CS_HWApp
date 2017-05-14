@@ -1,88 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.johnta.homeworkappv2.activities.CloudActivity">
+    xmlns:percent="http://schemas.android.com/apk/res-auto">
 
-    <RelativeLayout
+    <ImageView
+        android:id="@+id/planner_picture"
+        percent:layout_widthPercent = "20%"
+        percent:layout_aspectRatio = "100%"
+        percent:layout_marginPercent = "2.5%"
+
+        android:layout_centerHorizontal="true"
+
+        android:background="@drawable/roundbutton"
+        android:src="@drawable/cloud" />
+
+    <TextView
+        android:id="@+id/textView20"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintTop_creator="1">
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/planner_picture"
+        android:layout_centerHorizontal="true"
+        android:text="Homework Hub"
 
-        <ImageView
-            android:id="@+id/planner_picture"
-            android:layout_width="130dp"
-            android:layout_height="130dp"
-            android:background="@drawable/roundbutton"
-            android:src="@drawable/cloud"
-            android:layout_centerHorizontal="true"
-            android:layout_margin="10sp"/>
+        android:gravity="center"
+        android:background="@drawable/background_names"
+        android:padding="10sp"
+        android:textSize="30sp"
+        android:textColor="@android:color/white"
 
-        <Button
-            android:id="@+id/activity_cloud_editButton"
-            android:layout_width="wrap_content"
-            android:layout_height="58sp"
-            android:text="Add"
-            android:textSize="15sp"
+        />
 
-            android:layout_below="@id/planner_picture"
+    <Button
+        android:id="@+id/activity_cloud_editButton"
+        percent:layout_widthPercent = "17.5%"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/textView20"
+        android:text="Add"
+        android:layout_alignBottom="@+id/textView20"
 
-            android:onClick="onClickAdd"
+        android:background="@drawable/settingsbutton1"
+        android:textColor="@android:color/white"
+        android:padding="5sp"
 
-            android:textColor="@android:color/white"
-            android:background="@drawable/settingsbutton1"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+        android:onClick="onClickAdd"/>
 
-        <Button
-            android:id="@+id/activity_cloud_copyButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Copy"
-            android:textSize="15sp"
+    <Button
+        android:id="@+id/activity_cloud_copyButton"
+        percent:layout_widthPercent = "17.5%"
+        android:layout_height="wrap_content"
+        android:text="Copy\nAll"
 
-            android:layout_above="@android:id/list"
-            android:layout_alignTop="@+id/activity_cloud_textView"
+        android:background="@drawable/settingsbutton1"
+        android:textColor="@android:color/white"
+        android:padding="5sp"
 
-            android:onClick="onClickCopyToPlanner"
+        android:onClick="onClickCopyToPlanner"
+        android:layout_alignTop="@+id/textView20"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_above="@+id/list" />
 
-            android:textColor="@android:color/white"
-            android:background="@drawable/settingsbutton1"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+    <Button
+        android:id="@+id/button22"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Group settings"
+        android:layout_alignParentBottom="true"
 
-        <TextView
-            android:id="@+id/activity_cloud_textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="The Hub"
-            android:padding="10sp"
-            android:background="@drawable/background_names"
-            android:textColor="@android:color/white"
-            android:textSize="32sp"
-            android:gravity="center"
-            android:onClick="onClickAdd"
-            android:layout_alignTop="@+id/activity_cloud_editButton"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+        android:layout_centerHorizontal="true"
 
-        <ListView
-            android:id="@android:id/list"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:background="#ffffff"
-            android:layout_below="@+id/activity_cloud_textView"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_weight="1"
-            android:divider="#000000">
-        </ListView>
+        android:textSize="20sp"
+        android:background="@drawable/settingsbutton1"
+        android:textColor="@android:color/white"
+        android:padding="5sp"
 
-    </RelativeLayout>
+        android:onClick="goToGroupSettings"
+        />
 
-</android.support.constraint.ConstraintLayout>
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView20"
+        android:background="#ffffff"
+        />
+
+
+</android.support.percent.PercentRelativeLayout>

@@ -8,10 +8,12 @@ import android.widget.EditText;
 import com.example.johnta.homeworkappv2.R;
 import com.example.johnta.homeworkappv2.activities.ScheduleActivity;
 import com.example.johnta.homeworkappv2.backend.HelperWrapper;
+import com.example.johnta.homeworkappv2.backend.PlaySound;
 
 public class CreateScheduleURLPopup extends Activity {
 
     private String url;
+    PlaySound play;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +29,8 @@ public class CreateScheduleURLPopup extends Activity {
 
         getWindow().setLayout((int) (width * 0.8), (int) (height * 0.8));
         */
+
+        play = new PlaySound(this);
     }
 
     /**
@@ -34,6 +38,7 @@ public class CreateScheduleURLPopup extends Activity {
      * @param view
      */
     public void onClickGoBackToBefore(View view) {
+        play.playSound();
         finish();
         super.onBackPressed();
 

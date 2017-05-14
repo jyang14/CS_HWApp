@@ -7,17 +7,20 @@ import android.widget.EditText;
 
 import com.example.johnta.homeworkappv2.R;
 import com.example.johnta.homeworkappv2.backend.HelperWrapper;
-import com.example.johnta.homeworkappv2.firebase.data.Assignment;
+import com.example.johnta.homeworkappv2.backend.PlaySound;
 import com.example.johnta.homeworkappv2.firebase.FirebaseWrapper;
+import com.example.johnta.homeworkappv2.firebase.data.Assignment;
 
 /**
  * Created by johnta on 4/3/17.
  */
 
-public class PlannerPopup extends Activity {
+public class AddAssignmentToPlannerPopup extends Activity {
 
     private EditText classEditTest;
-    private EditText assignementEditText;
+    private EditText assignmentEditText;
+
+    PlaySound play;
 
     /**
      * Creates the popup_planner activity
@@ -27,10 +30,13 @@ public class PlannerPopup extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.popup_planner);
+        setContentView(R.layout.popup_add_assignment_to_planner);
 
         classEditTest = (EditText) findViewById(R.id.name_of_class);
-        assignementEditText = (EditText) findViewById(R.id.class_assignment);
+        assignmentEditText = (EditText) findViewById(R.id.class_assignment);
+
+        play = new PlaySound (this);
+
         /*
         txtInput = (EditText) findViewById(R.id.name_of_class);
         input_assignment = (EditText) findViewById(R.id.class_assignment);
@@ -50,9 +56,10 @@ public class PlannerPopup extends Activity {
      * @param v Current view
      */
     public void onClickEditList(View v) {
+        play.playSound();
 
         String className = classEditTest.getText().toString();
-        String assignmentName = assignementEditText.getText().toString();
+        String assignmentName = assignmentEditText.getText().toString();
         Assignment assignment = new Assignment(className, assignmentName);
         FirebaseWrapper.getInstance(this).addAssignmentToUser(assignment);
         finish();
@@ -74,6 +81,8 @@ public class PlannerPopup extends Activity {
      * @param v Current view
      */
     public void onClickCancel(View v) {
+        play.playSound();
+
         finish();
         super.onBackPressed();
     }

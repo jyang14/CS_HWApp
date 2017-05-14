@@ -30,7 +30,6 @@
         android:layout_below="@+id/main_cloudButton"
         android:layout_centerHorizontal="true"
         android:text="The Hub"
-
         android:background="@drawable/settingsbutton1"
         android:padding="3sp"
         android:textSize="20sp"
@@ -92,8 +91,6 @@
 
         app:srcCompat="@drawable/planner"
 
-
-        android:adjustViewBounds="true"
         android:onClick="toPlannerScreen"/>
 
     <TextView

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.johnta.homeworkappv2.popup.CloudPopup"
+    tools:context="com.example.johnta.homeworkappv2.popup.AddAssignmentToCloudPopup"
     android:background="@drawable/preface_popup_background">
 
 

@@ -2,12 +2,12 @@ package com.example.johnta.homeworkappv2.popup;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 
 import com.example.johnta.homeworkappv2.R;
 import com.example.johnta.homeworkappv2.backend.BackgroundColorSelector;
 import com.example.johnta.homeworkappv2.backend.HelperWrapper;
+import com.example.johnta.homeworkappv2.backend.PlaySound;
 
 public class ChangeBackgroundColorPopup extends AppCompatActivity {
 
@@ -16,6 +16,8 @@ public class ChangeBackgroundColorPopup extends AppCompatActivity {
     private static String skyBlueHexCode = "#87CEEB";
     private static String whiteHexCode = "#ffffff";
     private static String blueHexCode = "#107FC9";
+
+    PlaySound play;
 
     /**
      * Initilizes the activity
@@ -35,6 +37,8 @@ public class ChangeBackgroundColorPopup extends AppCompatActivity {
 
         getWindow().setLayout((int)(width*0.8),(int)(height*0.6));
         */
+
+        play = new PlaySound(this);
     }
 
     /**
@@ -42,7 +46,7 @@ public class ChangeBackgroundColorPopup extends AppCompatActivity {
      * @param view Current View
      */
     public void changeBackgroundToLightYellow(View view) {
-        Log.i("he", "help");
+        play.playSound();
 
         BackgroundColorSelector.setStringColor(lightYellowHexCode);
     }
@@ -52,6 +56,7 @@ public class ChangeBackgroundColorPopup extends AppCompatActivity {
      * @param view Current view
      */
     public void changeBackgroundToLightGray(View view) {
+        play.playSound();
         BackgroundColorSelector.setStringColor(lightGrayHexCode);
     }
 
@@ -60,6 +65,7 @@ public class ChangeBackgroundColorPopup extends AppCompatActivity {
      * @param view Current view
      */
     public void changeBackgroundToSkyBlue(View view) {
+        play.playSound();
         BackgroundColorSelector.setStringColor(skyBlueHexCode);
     }
 
@@ -68,6 +74,7 @@ public class ChangeBackgroundColorPopup extends AppCompatActivity {
      * @param view Current view
      */
     public void changeBackgroundToWhite(View view) {
+        play.playSound();
         BackgroundColorSelector.setStringColor(whiteHexCode);
     }
 
@@ -76,6 +83,7 @@ public class ChangeBackgroundColorPopup extends AppCompatActivity {
      * @param view Current view
      */
     public void changeBackgroundToBlue(View view) {
+        play.playSound();
         BackgroundColorSelector.setStringColor(blueHexCode);
     }
 
@@ -88,8 +96,12 @@ public class ChangeBackgroundColorPopup extends AppCompatActivity {
         HelperWrapper.setBackgroundColorWindow(this);
     }
 
-
+    /**
+     * Return to previous activity
+     * @param view Current view
+     */
     public void goToCancel(View view) {
+        play.playSound();
         finish();
         super.onBackPressed();
     }

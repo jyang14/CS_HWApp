@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import com.example.johnta.homeworkappv2.R;
 import com.example.johnta.homeworkappv2.backend.HelperWrapper;
+import com.example.johnta.homeworkappv2.backend.PlaySound;
 
 public class ButtonSoundPopup extends Activity {
 
@@ -16,6 +17,8 @@ public class ButtonSoundPopup extends Activity {
     private static boolean testCase = true;
     private static String enableSound = "Enable Sound";
     private static String disableSound = "Disable Sound";
+
+    PlaySound play;
 
     /**
      * Creates the activity
@@ -34,6 +37,8 @@ public class ButtonSoundPopup extends Activity {
         int height = dm.heightPixels;
 
         getWindow().setLayout((int)(width*0.8),(int)(height*0.6));
+        */
+
         buttonText = ((TextView)findViewById(R.id.popup_buttonSound_button));
 
         if (testCase) {
@@ -41,7 +46,8 @@ public class ButtonSoundPopup extends Activity {
         } else {
             buttonText.setText(enableSound);
         }
-        */
+
+        play = new PlaySound(this);
 
     }
 
@@ -50,6 +56,7 @@ public class ButtonSoundPopup extends Activity {
      * @param view the current view
      */
     public void controlSound(View view) {
+        play.playSound();
 
         buttonText = ((TextView)findViewById(R.id.popup_buttonSound_button));
         buttonText2 = ((TextView)findViewById(R.id.popup_buttonSound_button)).getText().toString();
@@ -80,7 +87,13 @@ public class ButtonSoundPopup extends Activity {
         HelperWrapper.setBackgroundColorWindow(this);
     }
 
+    /**
+     * Returns to previous activity
+     * @param view Current view
+     */
     public void onClickCancel (View view) {
+        play.playSound();
+
         finish();
         super.onBackPressed();
     }

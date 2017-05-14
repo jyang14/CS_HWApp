@@ -21,26 +21,29 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".popup.PlannerPopup"
+            android:name=".popup.AddAssignmentToPlannerPopup"
             android:theme="@style/AppTheme.CustomTheme" />
-        <activity android:name=".activities.NewUserPopupActivity" />
+        <activity android:name=".activities.NewUserActivity" />
         <activity
-            android:name=".popup.fullscreenpopups.LoginPopup"
+            android:name=".popup.LoginPopup"
             android:theme="@style/AppTheme.CustomTheme" />
-        <activity android:name=".activities.DeleteObjectFromArray" />
+        <activity android:name=".popup.DeleteAssignmentFromPlannerPopup" />
         <activity android:name=".activities.ScheduleActivity" />
         <activity android:name=".popup.CreateScheduleURLPopup" />
         <activity android:name=".popup.Error404Popup" />
         <activity android:name=".popup.ErrorGeneralPopup" />
         <activity android:name=".activities.PersonalScheduleActivity" />
         <activity android:name=".popup.RemoveItemFromListPopup" />
-        <activity android:name=".popup.CloudPopup" />
+        <activity android:name=".popup.AddAssignmentToCloudPopup" />
         <activity android:name=".popup.ButtonSoundPopup" />
         <activity android:name=".popup.ChangeBackgroundColorPopup" />
-        <activity android:name=".popup.fullscreenpopups.CreditsPopup" />
+        <activity android:name=".activities.CreditsActivity" />
         <activity android:name=".activities.FirstGroupActivity" />
         <activity android:name=".popup.CreateAGroup" />
-        <activity android:name=".popup.JoinAGroup"></activity>
+        <activity android:name=".popup.JoinAGroup" />
+        <activity android:name=".popup.GroupHelpPopup" />
+        <activity android:name=".popup.CopyAssignmentPlannerToHubPopup" />
+        <activity android:name=".activities.GroupSettingsActivity"></activity>
     </application>
 
 </manifest>

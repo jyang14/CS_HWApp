@@ -7,11 +7,13 @@ import android.view.View;
 
 import com.example.johnta.homeworkappv2.backend.HelperWrapper;
 import com.example.johnta.homeworkappv2.R;
+import com.example.johnta.homeworkappv2.backend.PlaySound;
 import com.example.johnta.homeworkappv2.popup.ButtonSoundPopup;
 import com.example.johnta.homeworkappv2.popup.ChangeBackgroundColorPopup;
-import com.example.johnta.homeworkappv2.popup.fullscreenpopups.CreditsPopup;
 
 public class SettingsActivity extends AppCompatActivity {
+
+    PlaySound play;
 
     /**
      * Starts the activity
@@ -21,6 +23,8 @@ public class SettingsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+
+        play = new PlaySound(this);
     }
 
     /**
@@ -28,15 +32,17 @@ public class SettingsActivity extends AppCompatActivity {
      * @param v Current view
      */
     public void buttonSound (View v) {
+        play.playSound();
         startActivity(new Intent(SettingsActivity.this, ButtonSoundPopup.class));
     }
 
     /**
-     * Starts the CreditsPopup popup
+     * Starts the CreditsActivity popup
      * @param v Current view
      */
     public void toCreditsScreen (View v) {
-        startActivity(new Intent(SettingsActivity.this, CreditsPopup.class));
+        play.playSound();
+        startActivity(new Intent(SettingsActivity.this, CreditsActivity.class));
     }
 
     /**
@@ -44,6 +50,7 @@ public class SettingsActivity extends AppCompatActivity {
      * @param v Current view
      */
     public void changeBackgroundColor (View v) {
+        play.playSound();
         startActivity(new Intent(SettingsActivity.this, ChangeBackgroundColorPopup.class));
     }
 

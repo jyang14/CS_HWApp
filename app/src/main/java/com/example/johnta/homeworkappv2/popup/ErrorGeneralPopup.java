@@ -13,6 +13,10 @@ import com.example.johnta.homeworkappv2.R;
 
 public class ErrorGeneralPopup extends Activity {
 
+    /**
+     * Creates the activity
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

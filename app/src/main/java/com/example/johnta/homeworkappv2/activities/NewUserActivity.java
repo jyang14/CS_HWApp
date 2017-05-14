@@ -8,7 +8,7 @@ import android.view.View;
 import com.example.johnta.homeworkappv2.R;
 import com.example.johnta.homeworkappv2.backend.HelperWrapper;
 
-public class NewUserPopupActivity extends AppCompatActivity {
+public class NewUserActivity extends AppCompatActivity {
 
     /**
      * Starts new activity
@@ -25,7 +25,7 @@ public class NewUserPopupActivity extends AppCompatActivity {
      * @param view Current View
      */
     public void onClickTransitionToMain(View view) {
-        startActivity(new Intent(NewUserPopupActivity.this, MainActivity.class));
+        startActivity(new Intent(NewUserActivity.this, MainActivity.class));
 
     }
 
@@ -34,7 +34,7 @@ public class NewUserPopupActivity extends AppCompatActivity {
      * @param view
      */
     public void onClickGoBackToPrimary(View view) {
-        startActivity(new Intent(NewUserPopupActivity.this, FirstCreateActivity.class));
+        startActivity(new Intent(NewUserActivity.this, FirstCreateActivity.class));
 
     }
 

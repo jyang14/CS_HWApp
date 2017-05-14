@@ -1,15 +1,14 @@
 package com.example.johnta.homeworkappv2.activities;
 
 import android.content.Intent;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.example.johnta.homeworkappv2.R;
 import com.example.johnta.homeworkappv2.backend.HelperWrapper;
+import com.example.johnta.homeworkappv2.backend.PlaySound;
 import com.example.johnta.homeworkappv2.firebase.FirebaseWrapper;
-import com.example.johnta.homeworkappv2.popup.ButtonSoundPopup;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -17,11 +16,10 @@ public class MainActivity extends AppCompatActivity {
 
     private static boolean isUserSignedIn = false;
 
-    MediaPlayer mp;
+    PlaySound play;
 
     /**
      * Creates the main activity
-     *
      * @param savedInstanceState
      */
     @Override
@@ -30,15 +28,6 @@ public class MainActivity extends AppCompatActivity {
         DatabaseReference mDatabase;
         FirebaseDatabase mFirebase;
 
-        /*
-        //NEEDS TO RETRIEVE STATE
-       if (isUserSignedIn == false) {
-           startActivity(new Intent(MainActivity.this, FirstCreateActivity.class));
-       }
-       */
-
-        mp = MediaPlayer.create(this, R.raw.water_drop_sound);
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -46,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
 
         mFirebase = FirebaseDatabase.getInstance();
         mDatabase = mFirebase.getReference();
+
+        play = new PlaySound(this);
     }
 
     /**
@@ -60,21 +51,19 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Transition to PlannerActivity
-     *
      * @param v Current View
      */
     public void toPlannerScreen(View v) {
-        playSound();
+        play.playSound();
         startActivity(new Intent(this, PlannerActivity.class));
     }
 
     /**
      * Transition to CloudActivity
-     *
      * @param v Current View
      */
     public void toCloudScreen(View v) {
-        playSound();
+        play.playSound();
         if (FirebaseWrapper.getInstance(this).getGroup() != null)
             startActivity(new Intent(this, CloudActivity.class));
         else {
@@ -84,30 +73,20 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Transition to ScheduleActivity
-     *
      * @param v Current View
      */
     public void toScheduleScreen(View v) {
-        playSound();
+        play.playSound();
         startActivity(new Intent(this, ScheduleActivity.class));
     }
 
     /**
      * Transition SettingsActivity
-     *
      * @param view Current View
      */
     public void toSettingsScreen(View view) {
-        playSound();
+        play.playSound();
         startActivity(new Intent(this, SettingsActivity.class));
     }
 
-    /**
-     * Play Button Sound
-     */
-    public void playSound() {
-        if (ButtonSoundPopup.getTestCaseValue()) {
-            mp.start();
-        }
-    }
 }

@@ -6,16 +6,19 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.example.johnta.homeworkappv2.R;
+import com.example.johnta.homeworkappv2.backend.PlaySound;
 import com.example.johnta.homeworkappv2.firebase.data.Assignment;
 import com.example.johnta.homeworkappv2.backend.HelperWrapper;
 import com.example.johnta.homeworkappv2.firebase.FirebaseWrapper;
 
-public class CloudPopup extends Activity {
+public class AddAssignmentToCloudPopup extends Activity {
 
     private EditText txtInput;
     private EditText input_assignment;
 
     private String nameOfClassCloud, classAssignmentCloud;
+
+    PlaySound play;
 
     /**
      * Starts the activity
@@ -24,7 +27,7 @@ public class CloudPopup extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.popup_cloud);
+        setContentView(R.layout.popup_add_assignment_to_cloud);
 
         /*
         txtInput = (EditText) findViewById(R.id.name_of_class);
@@ -38,6 +41,8 @@ public class CloudPopup extends Activity {
 
         getWindow().setLayout((int)(width*0.8),(int)(height*0.6));
         */
+
+        play = new PlaySound(this);
     }
 
     /**
@@ -45,6 +50,8 @@ public class CloudPopup extends Activity {
      * @param v
      */
     public void onClickCancel (View v) {
+        play.playSound();
+
         finish();
         super.onBackPressed();
     }

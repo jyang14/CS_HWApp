@@ -9,12 +9,11 @@
         android:id="@+id/name_of_class"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="24sp"
-        android:paddingTop="3dp"
-        android:paddingBottom="3dp"
-        android:paddingLeft="5dp"
-        android:paddingRight="3dp"
-        android:hint="Class name"
+        android:textSize="20sp"
+
+        android:padding="5sp"
+        android:hint="Class Name"
+
         android:textStyle="bold"
         android:editable="false"
         />
@@ -23,39 +22,44 @@
         android:id="@+id/homework_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="3dp"
-        android:paddingBottom="3dp"
-        android:paddingLeft="3dp"
+
+        android:padding="5sp"
         android:hint="Class Assignment"
         android:editable="false"
         android:textSize="20sp"
         android:focusable="true"
         android:focusableInTouchMode="true"
-        android:layout_alignBaseline="@+id/name_of_class"
+        android:layout_toRightOf="@+id/name_of_class"
+        android:layout_toEndOf="@+id/name_of_class"
         android:layout_alignBottom="@+id/name_of_class"
-        android:layout_toRightOf="@+id/name_of_class" />
+        android:layout_alignParentTop="true" />
 
     <ImageButton
         android:id="@+id/backend_listViewItemsPlanner_subtract"
         android:background="@android:color/white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/name_of_class"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
         app:srcCompat="@drawable/subtract_icon"
-        android:onClick=""/>
+        android:onClick=""
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignBottom="@+id/name_of_class"
+
+        android:layout_marginRight="2.5sp"/>
 
     <ImageButton
         android:id="@+id/backend_listViewItemsPlanner_transfer"
         android:background="@android:color/white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
         app:srcCompat="@drawable/transfer_icon"
-        android:layout_toRightOf="@+id/homework_description"
-        android:layout_alignBottom="@+id/homework_description"
+
+        android:layout_marginRight="2.5sp"
+
+        android:layout_alignParentTop="true"
         android:layout_toLeftOf="@+id/backend_listViewItemsPlanner_subtract"
-        android:layout_toStartOf="@+id/backend_listViewItemsPlanner_subtract" />
+        android:layout_toStartOf="@+id/backend_listViewItemsPlanner_subtract"
+        android:layout_alignBottom="@+id/backend_listViewItemsPlanner_subtract" />
 
 </RelativeLayout>

@@ -19,7 +19,6 @@ public class User {
     /**
      * Gets the SHA-256 hash of the email for indexing
      * Assumes that one has an email and cannot change their email address for a given account
-     *
      * @return hash of the email
      */
     public String hashEmail(){

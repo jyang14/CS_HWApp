@@ -119,19 +119,16 @@
         android:id="@+id/button7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView18"
-        android:layout_centerHorizontal="true"
         android:text="Return"
 
-        percent:layout_marginTopPercent = "1%"
-        percent:layout_marginBottomPercent = "1%"
-        percent:layout_widthPercent="95%"
+        percent:layout_widthPercent="100%"
         android:gravity="center"
         android:background="@drawable/settingsbutton1"
         android:padding="5sp"
         android:textSize="20sp"
         android:textColor="@android:color/white"
 
-        android:onClick="returnToPrevious"/>
+        android:onClick="returnToPrevious"
+        android:layout_alignParentBottom="true" />
 
 </android.support.percent.PercentRelativeLayout>

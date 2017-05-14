@@ -56,6 +56,8 @@
         android:onClick="onJoinGroup"/>
 
     <Button
+
+        percent:layout_marginTopPercent = "3%"
         android:id="@+id/popup_firstGroup_whatisagroup"
         percent:layout_widthPercent="10%"
         percent:layout_aspectRatio="100%"
@@ -65,5 +67,18 @@
 
         android:text="\?"
         android:background="@drawable/roundbutton"
+
+        android:onClick="toQuestionMark"
         />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/popup_firstGroup_whatisagroup"
+        android:layout_toEndOf="@+id/popup_firstGroup_whatisagroup"
+        android:layout_toRightOf="@+id/popup_firstGroup_whatisagroup"
+        android:text="What are groups?"
+
+        android:textColor="@android:color/black"/>
 </android.support.percent.PercentRelativeLayout>
