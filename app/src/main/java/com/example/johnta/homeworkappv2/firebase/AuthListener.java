@@ -26,7 +26,7 @@ class AuthListener implements FirebaseAuth.AuthStateListener {
     }
 
     /**
-     * Gets the SHA-256 hash of the email for indexing
+     * Gets the MD5 hash of the email for indexing
      * Assumes that one has an email and cannot change their email address for a given account
      *
      * @param email email address of the user
@@ -34,7 +34,7 @@ class AuthListener implements FirebaseAuth.AuthStateListener {
      */
     private String hashEmail(String email) {
         try {
-            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            MessageDigest digest = MessageDigest.getInstance("MD5");
             byte[] hash = digest.digest(email.getBytes());
             BigInteger bigInt = new BigInteger(1, hash);
             return bigInt.toString(16);
