@@ -5,6 +5,10 @@ import android.widget.ListView;
 import com.example.johnta.homeworkappv2.adapters.AssignmentAdapter;
 import com.example.johnta.homeworkappv2.adapters.AssignmentStructure;
 import com.example.johnta.homeworkappv2.firebase.data.User;
+import com.example.johnta.homeworkappv2.firebase.handler.AssignmentHandler;
+import com.google.firebase.database.ChildEventListener;
+
+import java.util.List;
 
 /**
  * Created by jinch on 5/13/2017.
@@ -13,15 +17,22 @@ import com.example.johnta.homeworkappv2.firebase.data.User;
 interface DataInterface {
 
     /**
-     * Adds item to the listView upon completion of user input
-     * @param className name of the class
-     * @param assignmentName description of assignment
+     * Adds assignment to Firebase Real-time Database
+     * @param assignment the assignment to be added
      */
-    void addItemToArray(String className, String assignmentName);
+    void addAssignmentToDatabase(AssignmentStructure assignment);
 
 
     /**
+     * Adds assignment to user's list of assignments
+     * @param assignment the assignment to be added
+     */
+    void addAssignmentToUser(AssignmentStructure assignment);
+
+    /**
      * Removes the assignment from the database
+     *
+     * @deprecated DO NOT CALL
      * @param assignmentStructure assignment
      */
     void removeItem(AssignmentStructure assignmentStructure);
@@ -32,4 +43,9 @@ interface DataInterface {
 
     void updateUser();
 
+    void getAssignments(List<String> hashes, AssignmentHandler assignmentHandler);
+
+    void getUserAssignments(AssignmentHandler assignmentHandler);
+
+    void addUserAssignmentListener(ChildEventListener listener);
 }

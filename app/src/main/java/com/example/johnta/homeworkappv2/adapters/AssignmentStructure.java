@@ -90,7 +90,7 @@ public class AssignmentStructure {
 
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
-            return String.format("N%X", System.nanoTime());
+            return "N"+String.format("%X", System.nanoTime());
         }
 
     }
