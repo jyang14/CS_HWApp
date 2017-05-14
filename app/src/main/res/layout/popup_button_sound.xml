@@ -46,6 +46,24 @@
             android:text="Button Sound"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/popup_buttonSound_button"
+            android:layout_alignRight="@+id/popup_buttonSound_button"
+            android:layout_alignLeft="@id/popup_buttonSound_button"
+            android:layout_alignStart="@id/popup_buttonSound_button"
+            android:layout_below="@+id/popup_buttonSound_button"
+            android:layout_centerVertical="true"
+
+            android:text="Cancel"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:background="@drawable/settingsbutton1"
+
+            android:onClick="onClickCancel"/>
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>

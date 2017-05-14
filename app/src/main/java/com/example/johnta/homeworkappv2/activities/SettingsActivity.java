@@ -1,10 +1,12 @@
-package com.example.johnta.homeworkappv2;
+package com.example.johnta.homeworkappv2.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.example.johnta.homeworkappv2.backend.HelperWrapper;
+import com.example.johnta.homeworkappv2.R;
 import com.example.johnta.homeworkappv2.popup.ButtonSoundPopup;
 import com.example.johnta.homeworkappv2.popup.ChangeBackgroundColorPopup;
 import com.example.johnta.homeworkappv2.popup.fullscreenpopups.CreditsPopup;

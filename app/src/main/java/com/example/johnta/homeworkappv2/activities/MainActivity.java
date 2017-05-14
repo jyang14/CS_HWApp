@@ -1,4 +1,4 @@
-package com.example.johnta.homeworkappv2;
+package com.example.johnta.homeworkappv2.activities;
 
 import android.content.Intent;
 import android.media.MediaPlayer;
@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.example.johnta.homeworkappv2.backend.HelperWrapper;
+import com.example.johnta.homeworkappv2.R;
 import com.example.johnta.homeworkappv2.popup.ButtonSoundPopup;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -51,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
     public void onResume() {
         super.onResume();
         HelperWrapper.setBackgroundColorWindow(this);
+
     }
 
     /**

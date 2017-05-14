@@ -2,13 +2,12 @@ package com.example.johnta.homeworkappv2.popup;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.EditText;
 
-import com.example.johnta.homeworkappv2.HelperWrapper;
 import com.example.johnta.homeworkappv2.R;
 import com.example.johnta.homeworkappv2.adapters.AssignmentStructure;
+import com.example.johnta.homeworkappv2.backend.HelperWrapper;
 import com.example.johnta.homeworkappv2.firebase.FirebaseWrapper;
 
 public class CloudPopup extends Activity {
@@ -27,6 +26,7 @@ public class CloudPopup extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.popup_cloud);
 
+        /*
         txtInput = (EditText) findViewById(R.id.name_of_class);
         input_assignment = (EditText) findViewById(R.id.class_assignment);
 
@@ -37,6 +37,7 @@ public class CloudPopup extends Activity {
         int height = dm.heightPixels;
 
         getWindow().setLayout((int)(width*0.8),(int)(height*0.6));
+        */
     }
 
     /**

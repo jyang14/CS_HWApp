@@ -2,12 +2,11 @@ package com.example.johnta.homeworkappv2.popup;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.TextView;
 
-import com.example.johnta.homeworkappv2.HelperWrapper;
 import com.example.johnta.homeworkappv2.R;
+import com.example.johnta.homeworkappv2.backend.HelperWrapper;
 
 public class ButtonSoundPopup extends Activity {
 
@@ -27,6 +26,7 @@ public class ButtonSoundPopup extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.popup_button_sound);
 
+        /*
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
 
@@ -41,6 +41,7 @@ public class ButtonSoundPopup extends Activity {
         } else {
             buttonText.setText(enableSound);
         }
+        */
 
     }
 
@@ -77,6 +78,11 @@ public class ButtonSoundPopup extends Activity {
     public void onResume() {
         super.onResume();
         HelperWrapper.setBackgroundColorWindow(this);
+    }
+
+    public void onClickCancel (View view) {
+        finish();
+        super.onBackPressed();
     }
 
 }

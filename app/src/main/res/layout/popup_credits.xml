@@ -86,8 +86,6 @@
         android:id="@+id/textView17"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView16"
-        android:layout_centerHorizontal="true"
         android:text="Questions or Comments?"
 
         percent:layout_marginTopPercent = "1%"
@@ -97,7 +95,10 @@
         android:background="@drawable/settingsbutton1"
         android:padding="5sp"
         android:textSize="20sp"
-        android:textColor="@android:color/white"/>
+        android:textColor="@android:color/white"
+        android:layout_below="@+id/textView16"
+        android:layout_alignLeft="@+id/textView15"
+        android:layout_alignStart="@+id/textView15" />
 
     <TextView
         android:id="@+id/textView18"
@@ -113,5 +114,24 @@
         android:padding="5sp"
         android:textSize="15sp"
         android:textColor="@android:color/black"/>
+
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView18"
+        android:layout_centerHorizontal="true"
+        android:text="Return"
+
+        percent:layout_marginTopPercent = "1%"
+        percent:layout_marginBottomPercent = "1%"
+        percent:layout_widthPercent="95%"
+        android:gravity="center"
+        android:background="@drawable/settingsbutton1"
+        android:padding="5sp"
+        android:textSize="20sp"
+        android:textColor="@android:color/white"
+
+        android:onClick="returnToPrevious"/>
 
 </android.support.percent.PercentRelativeLayout>

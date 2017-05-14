@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.johnta.homeworkappv2.ScheduleActivity"
+    tools:context="com.example.johnta.homeworkappv2.activities.ScheduleActivity"
     android:background="#87ceeb">
 
     <RelativeLayout

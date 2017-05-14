@@ -5,8 +5,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.example.johnta.homeworkappv2.FirstCreateActivity;
-import com.example.johnta.homeworkappv2.MainActivity;
+import com.example.johnta.homeworkappv2.activities.FirstCreateActivity;
+import com.example.johnta.homeworkappv2.activities.MainActivity;
 import com.example.johnta.homeworkappv2.R;
 
 public class LoginPopup extends AppCompatActivity {

@@ -2,13 +2,12 @@ package com.example.johnta.homeworkappv2.popup;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 
-import com.example.johnta.homeworkappv2.BackgroundColorSelector;
-import com.example.johnta.homeworkappv2.HelperWrapper;
 import com.example.johnta.homeworkappv2.R;
+import com.example.johnta.homeworkappv2.backend.BackgroundColorSelector;
+import com.example.johnta.homeworkappv2.backend.HelperWrapper;
 
 public class ChangeBackgroundColorPopup extends AppCompatActivity {
 
@@ -27,6 +26,7 @@ public class ChangeBackgroundColorPopup extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.popup_change_background_color);
 
+        /*
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
 
@@ -34,7 +34,7 @@ public class ChangeBackgroundColorPopup extends AppCompatActivity {
         int height = dm.heightPixels;
 
         getWindow().setLayout((int)(width*0.8),(int)(height*0.6));
-
+        */
     }
 
     /**
@@ -86,6 +86,12 @@ public class ChangeBackgroundColorPopup extends AppCompatActivity {
     public void onResume() {
         super.onResume();
         HelperWrapper.setBackgroundColorWindow(this);
+    }
+
+
+    public void goToCancel(View view) {
+        finish();
+        super.onBackPressed();
     }
 
 

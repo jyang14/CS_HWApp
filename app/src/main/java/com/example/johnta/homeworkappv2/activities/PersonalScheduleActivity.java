@@ -1,9 +1,12 @@
-package com.example.johnta.homeworkappv2;
+package com.example.johnta.homeworkappv2.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-public class PersonalSchedule extends AppCompatActivity {
+import com.example.johnta.homeworkappv2.R;
+import com.example.johnta.homeworkappv2.backend.HelperWrapper;
+
+public class PersonalScheduleActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

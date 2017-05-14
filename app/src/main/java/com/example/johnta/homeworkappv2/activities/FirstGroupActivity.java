@@ -1,9 +1,11 @@
-package com.example.johnta.homeworkappv2;
+package com.example.johnta.homeworkappv2.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class FirstGroupPopup extends AppCompatActivity {
+import com.example.johnta.homeworkappv2.R;
+
+public class FirstGroupActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

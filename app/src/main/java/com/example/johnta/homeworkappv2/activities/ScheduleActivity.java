@@ -1,4 +1,4 @@
-package com.example.johnta.homeworkappv2;
+package com.example.johnta.homeworkappv2.activities;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.example.johnta.homeworkappv2.backend.HelperWrapper;
+import com.example.johnta.homeworkappv2.R;
 import com.example.johnta.homeworkappv2.popup.CreateScheduleURLPopup;
 import com.example.johnta.homeworkappv2.popup.Error404Popup;
 
@@ -39,7 +41,7 @@ public class ScheduleActivity extends AppCompatActivity {
     }
 
     public void toPersonalSchedule(View view) {
-        startActivity(new Intent(ScheduleActivity.this, PersonalSchedule.class));
+        startActivity(new Intent(ScheduleActivity.this, PersonalScheduleActivity.class));
     }
 
     public void toWebsiteScheduleURL() {

@@ -126,7 +126,9 @@
             android:layout_alignEnd="@id/popup_changeBackgroundColor_lightYellow"
             android:layout_alignLeft="@+id/popup_changeBackgroundColor_lightGray"
             android:layout_alignRight="@id/popup_changeBackgroundColor_lightYellow"
-            android:layout_alignStart="@+id/popup_changeBackgroundColor_lightGray"/>
+            android:layout_alignStart="@+id/popup_changeBackgroundColor_lightGray"
+
+            android:onClick="goToCancel"/>
 
         <TextView
             android:id="@+id/textView7"
