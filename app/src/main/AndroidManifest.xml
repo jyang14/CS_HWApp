@@ -38,7 +38,9 @@
         <activity android:name=".popup.ButtonSoundPopup" />
         <activity android:name=".popup.ChangeBackgroundColorPopup" />
         <activity android:name=".popup.fullscreenpopups.CreditsPopup" />
-        <activity android:name=".activities.FirstGroupActivity"></activity>
+        <activity android:name=".activities.FirstGroupActivity" />
+        <activity android:name=".popup.CreateAGroup" />
+        <activity android:name=".JoinAGroup"></activity>
     </application>
 
 </manifest>
