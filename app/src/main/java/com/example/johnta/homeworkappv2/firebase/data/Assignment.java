@@ -69,17 +69,16 @@ public class Assignment {
 
     /**
      * Hashing function that returns string instead of int.
-     * StackOverflow tells me that SHA-256 collisions are pretty rare.
-     * http://stackoverflow.com/questions/4014090/is-it-safe-to-ignore-the-possibility-of-sha-collisions-in-practice
-     * Thanks to Jinchao for this
-     * @return Returns the SHA-256 of the class
+     * According to the birthday paradox I am safe as long there will be less than 2^64 entries
+     *
+     * @return Returns the MD5 of the class
      */
     public String hash() {
 
         String output;
 
         try {
-            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            MessageDigest digest = MessageDigest.getInstance("MD5");
             digest.update(classname.getBytes());
             digest.update((byte)0);
             byte[] hash = digest.digest(description.getBytes());
