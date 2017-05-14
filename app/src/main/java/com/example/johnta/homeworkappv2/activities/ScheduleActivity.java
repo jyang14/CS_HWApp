@@ -4,10 +4,11 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 
-import com.example.johnta.homeworkappv2.backend.HelperWrapper;
 import com.example.johnta.homeworkappv2.R;
+import com.example.johnta.homeworkappv2.backend.HelperWrapper;
 import com.example.johnta.homeworkappv2.popup.CreateScheduleURLPopup;
 import com.example.johnta.homeworkappv2.popup.Error404Popup;
 
@@ -51,13 +52,18 @@ public class ScheduleActivity extends AppCompatActivity {
             int index = url.indexOf("http:");
             boolean transfer = true;
 
+            Log.i("jinchao",url);
+
             if (index != -1) {
                 URL u = new URL(url);
                 HttpURLConnection huc = (HttpURLConnection) u.openConnection();
                 huc.setRequestMethod("GET");
-                huc.connect();
+
                 response = Integer.toString((huc.getResponseCode()));
+                Log.i("jinchao","success");
             }
+
+           // Log.i("jinchao",response);
 
             if (index == -1) {
                 startActivity(new Intent(ScheduleActivity.this, Error404Popup.class));
@@ -69,8 +75,10 @@ public class ScheduleActivity extends AppCompatActivity {
 
         } catch (MalformedURLException e) {
             e.printStackTrace();
+            startActivity(new Intent(ScheduleActivity.this, Error404Popup.class));
         } catch (IOException e) {
             e.printStackTrace();
+            startActivity(new Intent(ScheduleActivity.this, Error404Popup.class));
         }
 
         // Log.i("John100",response);
