@@ -1,5 +1,6 @@
 package com.example.johnta.homeworkappv2.firebase.data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -13,6 +14,13 @@ public class Group {
 
     public List<User> users;
     public List<String> assignments;
+
+    public Group(String name, long UUID, User user){
+        this.name = name;
+        this.UUID = UUID;
+        users = new ArrayList<>();
+        users.add(user);
+    }
 
     public Group(){
 

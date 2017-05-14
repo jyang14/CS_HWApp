@@ -1,4 +1,4 @@
-package com.example.johnta.homeworkappv2.adapters;
+package com.example.johnta.homeworkappv2.firebase.data;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;
@@ -8,7 +8,7 @@ import java.security.NoSuchAlgorithmException;
  * Created by johnta on 4/6/17.
  */
 
-public class AssignmentStructure {
+public class Assignment {
 
     private String classname;
     private String description;
@@ -19,7 +19,7 @@ public class AssignmentStructure {
      * @param classname               - name of the class
      * @param descriptionOfAssignment - description of the assignment
      */
-    public AssignmentStructure(String classname, String descriptionOfAssignment) {
+    public Assignment(String classname, String descriptionOfAssignment) {
         this.classname = classname;
         description = descriptionOfAssignment;
     }
@@ -27,7 +27,7 @@ public class AssignmentStructure {
     /**
      * Empty Constructor for Firebase
      */
-    public AssignmentStructure() {
+    public Assignment() {
 
     }
 

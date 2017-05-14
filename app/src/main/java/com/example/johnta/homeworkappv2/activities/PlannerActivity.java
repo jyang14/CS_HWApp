@@ -7,17 +7,15 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 
-import com.example.johnta.homeworkappv2.backend.HelperWrapper;
 import com.example.johnta.homeworkappv2.R;
 import com.example.johnta.homeworkappv2.adapters.AssignmentAdapter;
-import com.example.johnta.homeworkappv2.adapters.AssignmentStructure;
+import com.example.johnta.homeworkappv2.backend.HelperWrapper;
 import com.example.johnta.homeworkappv2.firebase.FirebaseWrapper;
-import com.example.johnta.homeworkappv2.firebase.data.User;
+import com.example.johnta.homeworkappv2.firebase.data.Assignment;
 import com.example.johnta.homeworkappv2.firebase.handler.AssignmentHandler;
 import com.example.johnta.homeworkappv2.popup.PlannerPopup;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import static android.R.id.list;
@@ -39,7 +37,7 @@ public class PlannerActivity extends ListActivity implements AssignmentHandler {
 
         setContentView(R.layout.activity_planner);
 
-        assignmentAdapter = new AssignmentAdapter(this, new ArrayList<AssignmentStructure>());
+        assignmentAdapter = new AssignmentAdapter(this, new ArrayList<Assignment>());
         assignmentAdapter.clear();
 
         final ListView listView = (ListView) findViewById(list);
@@ -83,16 +81,9 @@ public class PlannerActivity extends ListActivity implements AssignmentHandler {
             boolean delete = bundle.getBoolean("delete");
 
             if (delete) {
-                AssignmentStructure assignment = assignmentAdapter.getItem(position);
+                Assignment assignment = assignmentAdapter.getItem(position);
                 assignmentAdapter.remove(assignment);
-                User user = FirebaseWrapper.getInstance(this).getUser();
-                if (user != null && user.assignments != null) {
-                    Log.v(TAG, String.format("Hash to remove: %s", assignment.hash()));
-                    user.assignments.remove(assignment.hash());
-                    for(String hash : user.assignments)
-                        Log.v(TAG, String.format("Hash in list: %s", hash));
-                    FirebaseWrapper.getInstance(this).updateUser();
-                }
+                FirebaseWrapper.getInstance(this).removeAssignmentFromUser(assignment);
             }
         }
 
@@ -109,7 +100,7 @@ public class PlannerActivity extends ListActivity implements AssignmentHandler {
     }
 
     @Override
-    public void handleAssignments(List<AssignmentStructure> assignments) {
+    public void handleAssignments(List<Assignment> assignments) {
         Log.v(TAG, "Handling Assignments");
         assignmentAdapter.clear();
         assignmentAdapter.addAll(assignments);

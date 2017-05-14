@@ -6,11 +6,11 @@ import android.util.Log;
 import android.widget.ListView;
 
 import com.example.johnta.homeworkappv2.adapters.AssignmentAdapter;
-import com.example.johnta.homeworkappv2.adapters.AssignmentStructure;
+import com.example.johnta.homeworkappv2.firebase.data.Assignment;
+import com.example.johnta.homeworkappv2.firebase.data.Group;
 import com.example.johnta.homeworkappv2.firebase.data.User;
 import com.example.johnta.homeworkappv2.firebase.handler.AssignmentHandler;
 import com.example.johnta.homeworkappv2.firebase.handler.SignedInHandler;
-import com.google.firebase.database.ChildEventListener;
 
 import java.util.List;
 
@@ -37,7 +37,6 @@ public class FirebaseWrapper implements DataInterface, AuthInterface {
     }
 
     /**
-     *
      * @param context
      * @return
      */
@@ -50,10 +49,11 @@ public class FirebaseWrapper implements DataInterface, AuthInterface {
 
     /**
      * Adds item to the listView upon completion of user input
+     *
      * @param assignment the assignment to be added
      */
     @Override
-    public void addAssignmentToDatabase(AssignmentStructure assignment) {
+    public void addAssignmentToDatabase(Assignment assignment) {
         dataWrapper.addAssignmentToDatabase(assignment);
     }
 
@@ -63,29 +63,45 @@ public class FirebaseWrapper implements DataInterface, AuthInterface {
      * @param assignment the assignment to be added
      */
     @Override
-    public void addAssignmentToUser(AssignmentStructure assignment) {
+    public void addAssignmentToUser(Assignment assignment) {
         dataWrapper.addAssignmentToUser(assignment);
     }
 
     /**
      * Removes the assignment from the database
      *
-     * @deprecated DO NOT CALL
      * @param assignment assignment
+     * @deprecated DO NOT CALL
      */
     @Override
-    public void removeItem(AssignmentStructure assignment) {
+    public void removeItem(Assignment assignment) {
         dataWrapper.removeItem(assignment);
+    }
+
+    @Override
+    public void removeAssignmentFromUser(Assignment assignment) {
+        dataWrapper.removeAssignmentFromUser(assignment);
+    }
+
+    @Override
+    public void removeAssignmentFromGroup(Assignment assignment) {
+        dataWrapper.removeAssignmentFromGroup(assignment);
     }
 
     /**
      * Method that takes the listViw and its adapter and calls refreshLists() method
-     * @param listView listViw of the original activity
+     *
+     * @param listView          listViw of the original activity
      * @param assignmentAdapter the listView's adapter
      */
     @Override
     public void refreshLists(ListView listView, AssignmentAdapter assignmentAdapter) {
         dataWrapper.refreshLists(listView, assignmentAdapter);
+    }
+
+    @Override
+    public void createGroup(String name) {
+        dataWrapper.createGroup(name);
     }
 
     @Override
@@ -114,8 +130,18 @@ public class FirebaseWrapper implements DataInterface, AuthInterface {
     }
 
     @Override
+    public Group getGroup() {
+        return dataWrapper.getGroup();
+    }
+
+    @Override
     public void updateUser() {
         dataWrapper.updateUser();
+    }
+
+    @Override
+    public void updateGroup() {
+        dataWrapper.updateGroup();
     }
 
     @Override
@@ -129,7 +155,8 @@ public class FirebaseWrapper implements DataInterface, AuthInterface {
     }
 
     @Override
-    public void addUserAssignmentListener(ChildEventListener listener) {
-        dataWrapper.addUserAssignmentListener(listener);
+    public void getGroupAssignments(AssignmentHandler assignmentHandler) {
+        dataWrapper.getGroupAssignments(assignmentHandler);
     }
+
 }

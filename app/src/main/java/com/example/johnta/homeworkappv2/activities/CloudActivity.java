@@ -9,7 +9,7 @@ import android.widget.ListView;
 import com.example.johnta.homeworkappv2.backend.HelperWrapper;
 import com.example.johnta.homeworkappv2.R;
 import com.example.johnta.homeworkappv2.adapters.AssignmentAdapter;
-import com.example.johnta.homeworkappv2.adapters.AssignmentStructure;
+import com.example.johnta.homeworkappv2.firebase.data.Assignment;
 import com.example.johnta.homeworkappv2.firebase.FirebaseWrapper;
 import com.example.johnta.homeworkappv2.popup.CloudPopup;
 import com.google.firebase.database.DatabaseReference;
@@ -22,7 +22,7 @@ import static android.R.id.list;
 public class CloudActivity extends AppCompatActivity {
 
     private static AssignmentAdapter assignmentAdapterCloud;
-    private static ArrayList<AssignmentStructure> arrayOfInformationCloud = new ArrayList<AssignmentStructure>();
+    private static ArrayList<Assignment> arrayOfInformationCloud = new ArrayList<Assignment>();
 
     static DatabaseReference mDatabase;
     static FirebaseDatabase mFirebase;
@@ -85,7 +85,7 @@ public class CloudActivity extends AppCompatActivity {
             boolean delete = bundle.getBoolean("delete");
 
             if (delete) {
-                AssignmentStructure assignment = assignmentAdapterCloud.getItem(position);
+                Assignment assignment = assignmentAdapterCloud.getItem(position);
                 assignmentAdapterCloud.remove(assignment);
                 FirebaseWrapper.getInstance(this).removeItem(assignment);
                 assignmentAdapterCloud.notifyDataSetChanged();

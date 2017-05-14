@@ -12,6 +12,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.johnta.homeworkappv2.R;
+import com.example.johnta.homeworkappv2.firebase.data.Assignment;
 import com.example.johnta.homeworkappv2.popup.RemoveItemFromListPopup;
 
 import java.util.ArrayList;
@@ -20,13 +21,13 @@ import java.util.ArrayList;
  * Created by johnta on 4/6/17.
  */
 
-public class AssignmentAdapter extends ArrayAdapter<AssignmentStructure> {
+public class AssignmentAdapter extends ArrayAdapter<Assignment> {
 
     private static final String TAG = "ASSIGNMENTADAPTER";
 
     Activity context;
 
-    public AssignmentAdapter(Activity context, ArrayList<AssignmentStructure> listOfInformation) {
+    public AssignmentAdapter(Activity context, ArrayList<Assignment> listOfInformation) {
         super(context, 0, listOfInformation);
         this.context = context;
     }
@@ -34,7 +35,7 @@ public class AssignmentAdapter extends ArrayAdapter<AssignmentStructure> {
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
 
-        final AssignmentStructure named = getItem(position);
+        final Assignment named = getItem(position);
 
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.backend_listview_items_planner, parent, false);

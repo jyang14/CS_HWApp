@@ -1,6 +1,6 @@
 package com.example.johnta.homeworkappv2.firebase.handler;
 
-import com.example.johnta.homeworkappv2.adapters.AssignmentStructure;
+import com.example.johnta.homeworkappv2.firebase.data.Assignment;
 
 import java.util.List;
 
@@ -9,5 +9,5 @@ import java.util.List;
  */
 
 public interface AssignmentHandler {
-    void handleAssignments(List<AssignmentStructure> assignments);
+    void handleAssignments(List<Assignment> assignments);
 }
