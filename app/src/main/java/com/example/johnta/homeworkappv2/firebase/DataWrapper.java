@@ -7,11 +7,11 @@ import com.example.johnta.homeworkappv2.firebase.data.Group;
 import com.example.johnta.homeworkappv2.firebase.data.User;
 import com.example.johnta.homeworkappv2.firebase.handler.AssignmentHandler;
 import com.example.johnta.homeworkappv2.firebase.handler.GroupJoinedHandler;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -124,30 +124,23 @@ class DataWrapper implements DataInterface {
      */
     @Override
     public void onGroupChanges(final AssignmentHandler assignmentHandler) {
-        groupsRef.child(String.valueOf(group.UUID)).child("assignments").addChildEventListener(new ChildEventListener() {
+        groupsRef.child(String.valueOf(group.UUID)).child("assignments").addValueEventListener(new ValueEventListener() {
             @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String prevChildKey) {
-                getGroupAssignments(assignmentHandler);
-            }
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                GenericTypeIndicator<List<String>> genericTypeIndicator = new GenericTypeIndicator<List<String>>() {
+                };
+                List<String> results = dataSnapshot.getValue(genericTypeIndicator);
+                if (results == null)
+                    results = new ArrayList<>();
 
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String prevChildKey) {
-                getGroupAssignments(assignmentHandler);
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-                getGroupAssignments(assignmentHandler);
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String prevChildKey) {
-                getGroupAssignments(assignmentHandler);
+                results.removeAll(Collections.singleton(null));
+                group.assignments = results;
+                getAssignments(results, assignmentHandler);
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                getGroupAssignments(assignmentHandler);
+
             }
         });
     }
@@ -176,6 +169,7 @@ class DataWrapper implements DataInterface {
                 user.group = n;
                 group = new Group(name, n, user);
                 updateGroup();
+                updateUser();
 
                 groupJoinedHandler.handleGroupJoined(true);
 
@@ -191,7 +185,7 @@ class DataWrapper implements DataInterface {
 
     @Override
     public void joinGroup(final long uuid, final GroupJoinedHandler groupJoinedHandler) {
-        uuidRef.child(String.valueOf(uuid)).addListenerForSingleValueEvent(new ValueEventListener() {
+        groupsRef.child(String.valueOf(uuid)).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Group group = dataSnapshot.getValue(Group.class);
@@ -199,6 +193,7 @@ class DataWrapper implements DataInterface {
                 if (group != null) {
                     DataWrapper.this.group = group;
                     user.group = uuid;
+                    updateUser();
                     groupJoinedHandler.handleGroupJoined(true);
                 } else {
                     groupJoinedHandler.handleGroupJoined(false);
@@ -227,6 +222,7 @@ class DataWrapper implements DataInterface {
             group.assignments = new ArrayList<>();
 
         user.assignments.addAll(group.assignments);
+        updateUser();
     }
 
     @Override
@@ -242,7 +238,7 @@ class DataWrapper implements DataInterface {
             group.assignments = new ArrayList<>();
 
         group.assignments.addAll(user.assignments);
-
+        updateGroup();
     }
 
     @Override
@@ -286,8 +282,12 @@ class DataWrapper implements DataInterface {
             return;
         }
 
-        final List<Assignment> temp = new ArrayList<>();
 
+        final List<Assignment> temp = new ArrayList<>();
+        if (hashes.size() == 0) {
+            assignmentHandler.handleAssignments(temp);
+            return;
+        }
         for (String hash : hashes) {
 
             assignmentRef.child(hash).addListenerForSingleValueEvent(new ValueEventListener() {
