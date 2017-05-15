@@ -177,4 +177,14 @@ public class FirebaseWrapper implements DataInterface, AuthInterface {
         dataWrapper.getGroupAssignments(assignmentHandler);
     }
 
+    @Override
+    public void setUrl(String url) {
+        dataWrapper.setUrl(url);
+    }
+
+    @Override
+    public String getUrl() {
+        return dataWrapper.getUrl();
+    }
+
 }

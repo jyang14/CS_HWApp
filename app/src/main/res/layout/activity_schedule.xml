@@ -15,39 +15,15 @@
             android:id="@+id/button_to_website"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
             android:text="Website"
             android:textSize="20sp"
             android:background="@drawable/settingsbutton1"
             android:textColor="@android:color/white"
-            android:layout_margin="5sp"
-            android:onClick="toWebsite"/>
 
-        <Button
-            android:id="@+id/button_to_schedule"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/button_to_website"
-            android:layout_centerHorizontal="true"
-            android:text="Personal Schedule"
-            android:textSize="20sp"
-            android:textColor="@android:color/white"
-            android:background="@drawable/settingsbutton1"
-            android:layout_margin="5sp"
-            android:onClick="toPersonalSchedule"/>
+            android:onClick="toWebsite"
+            android:layout_centerVertical="true"
 
-        <Button
-            android:id="@+id/button15"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:layout_above="@+id/button_to_website"
-            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5sp" />
 
-            android:layout_alignLeft="@id/button_to_schedule"
-            android:layout_alignStart="@id/button_to_schedule"
-            android:layout_alignEnd="@id/button_to_schedule"
-            android:layout_alignRight="@id/button_to_schedule"/>
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

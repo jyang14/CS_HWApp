@@ -43,7 +43,8 @@
         <activity android:name=".popup.JoinAGroup" />
         <activity android:name=".popup.GroupHelpPopup" />
         <activity android:name=".popup.CopyAssignmentPlannerToHubPopup" />
-        <activity android:name=".activities.GroupSettingsActivity"></activity>
+        <activity android:name=".activities.GroupSettingsActivity" />
+        <activity android:name=".popup.DisplayWebsiteURL"></activity>
     </application>
 
 </manifest>

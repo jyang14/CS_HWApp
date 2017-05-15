@@ -10,7 +10,9 @@ import android.view.View;
 import com.example.johnta.homeworkappv2.R;
 import com.example.johnta.homeworkappv2.backend.HelperWrapper;
 import com.example.johnta.homeworkappv2.backend.PlaySound;
+import com.example.johnta.homeworkappv2.firebase.FirebaseWrapper;
 import com.example.johnta.homeworkappv2.popup.CreateScheduleURLPopup;
+import com.example.johnta.homeworkappv2.popup.DisplayWebsiteURL;
 import com.example.johnta.homeworkappv2.popup.Error404Popup;
 
 import java.io.IOException;
@@ -25,6 +27,7 @@ public class ScheduleActivity extends AppCompatActivity {
     PlaySound play;
 
     public static void setURL(String url2) {
+
         url = url2;
     }
 
@@ -40,10 +43,13 @@ public class ScheduleActivity extends AppCompatActivity {
 
 
     public void toWebsite(View view) {
+
+        url = FirebaseWrapper.getInstance(this).getUrl();
+
         if (url == null) {
             startActivity(new Intent(ScheduleActivity.this, CreateScheduleURLPopup.class));
         } else {
-            toWebsiteScheduleURL();
+            startActivity(new Intent(ScheduleActivity.this, DisplayWebsiteURL.class));
         }
 
     }

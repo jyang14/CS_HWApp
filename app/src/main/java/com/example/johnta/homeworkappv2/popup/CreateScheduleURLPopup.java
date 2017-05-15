@@ -9,6 +9,7 @@ import com.example.johnta.homeworkappv2.R;
 import com.example.johnta.homeworkappv2.activities.ScheduleActivity;
 import com.example.johnta.homeworkappv2.backend.HelperWrapper;
 import com.example.johnta.homeworkappv2.backend.PlaySound;
+import com.example.johnta.homeworkappv2.firebase.FirebaseWrapper;
 
 public class CreateScheduleURLPopup extends Activity {
 
@@ -46,6 +47,9 @@ public class CreateScheduleURLPopup extends Activity {
 
     public void getInput(View view) {
         url = ((EditText) findViewById(R.id.scheduleURL)).getText().toString();
+
+        FirebaseWrapper.getInstance(this).setUrl(url);
+
         ScheduleActivity.setURL(url);
         super.onBackPressed();
     }

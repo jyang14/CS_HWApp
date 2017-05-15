@@ -103,6 +103,17 @@ public class CloudActivity extends AppCompatActivity implements AssignmentHandle
                 FirebaseWrapper.getInstance(this).removeAssignmentFromGroup(assignment);
             }
         }
+
+        if (request == 987 && result == RESULT_OK) {
+            Bundle bundle = data.getExtras();
+            final int position = bundle.getInt("position");
+            boolean transfer = bundle.getBoolean("transfer");
+
+            if (transfer) {
+                Assignment assignment = assignmentAdapter.getItem(position);
+                FirebaseWrapper.getInstance(this).addAssignmentToUser(assignment);
+            }
+        }
     }
 
     @Override

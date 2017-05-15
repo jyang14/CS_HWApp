@@ -31,7 +31,6 @@ class DataWrapper implements DataInterface {
     final DatabaseReference groupsRef;
     final DatabaseReference uuidRef;
 
-
     FirebaseDatabase firebaseDatabase;
     User user;
     Group group;
@@ -331,6 +330,27 @@ class DataWrapper implements DataInterface {
         }
 
         getAssignments(group.assignments, assignmentHandler);
+    }
+
+    @Override
+    public void setUrl(String url) {
+        if (user == null) {
+            Log.w(TAG, "ERROR USER NOT INITIALIZED.");
+            return;
+        }
+
+        user.url = url;
+        updateUser();
+    }
+
+    @Override
+    public String getUrl() {
+        if (user == null) {
+            Log.w(TAG, "ERROR USER NOT INITIALIZED.");
+            return null;
+        }
+
+        return user.url;
     }
 
 }

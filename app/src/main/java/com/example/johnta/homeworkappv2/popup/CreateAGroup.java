@@ -26,7 +26,7 @@ public class CreateAGroup extends AppCompatActivity implements GroupJoinedHandle
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_group);
 
-        play.playSound();
+        play = play = play = new PlaySound(this);
     }
 
     /**

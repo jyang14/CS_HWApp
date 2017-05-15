@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:percent="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/websiteUrl_textView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:autoLink=""
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+
+        android:gravity="center"
+        android:textSize="20sp"
+        android:background="@drawable/background_white_textfields"
+        android:padding="5sp"
+
+        percent:layout_marginPercent = "2.5%"
+
+        />
+
+    <Button
+        android:id="@+id/button15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Return"
+
+        android:gravity="center"
+        android:textSize="20sp"
+        android:background="@drawable/settingsbutton1"
+        android:textColor="@android:color/white"
+
+        android:padding="5sp"
+        android:layout_below="@+id/websiteUrl_textView"
+        android:layout_alignLeft="@+id/websiteUrl_textView"
+        android:layout_alignStart="@+id/websiteUrl_textView"
+        android:layout_alignRight="@+id/websiteUrl_textView"
+        android:layout_alignEnd="@+id/websiteUrl_textView"
+
+        android:onClick="onClickReturn"/>
+
+    <Button
+        android:id="@+id/button21"
+        percent:layout_marginPercent = "2.5%"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button15"
+        android:layout_centerHorizontal="true"
+        android:text="New URL"
+
+        android:textSize="20sp"
+        android:background="@drawable/settingsbutton1"
+        android:textColor="@android:color/white"
+
+        android:padding="5sp"
+
+        android:onClick="createNewUrl"
+        />
+</android.support.percent.PercentRelativeLayout>

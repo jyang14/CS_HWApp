@@ -16,6 +16,8 @@ public class User {
     public List<String> assignments;
     public long group;
 
+    public String url;
+
     /**
      * Gets the MD5 hash of the email for indexing
      * Assumes that one has an email and cannot change their email address for a given account

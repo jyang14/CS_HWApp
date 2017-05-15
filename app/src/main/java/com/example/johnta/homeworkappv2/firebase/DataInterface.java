@@ -16,6 +16,7 @@ interface DataInterface {
 
     /**
      * Adds assignment to Firebase Real-time Database
+     *
      * @param assignment the assignment to be added
      */
     void addAssignmentToDatabase(Assignment assignment);
@@ -23,6 +24,7 @@ interface DataInterface {
 
     /**
      * Adds assignment to user's list of assignments
+     *
      * @param assignment the assignment to be added
      */
     void addAssignmentToUser(Assignment assignment);
@@ -32,8 +34,8 @@ interface DataInterface {
     /**
      * Removes the assignment from the database
      *
-     * @deprecated DO NOT CALL
      * @param assignment assignment
+     * @deprecated DO NOT CALL
      */
     void removeItem(Assignment assignment);
 
@@ -64,4 +66,8 @@ interface DataInterface {
     void getUserAssignments(AssignmentHandler assignmentHandler);
 
     void getGroupAssignments(AssignmentHandler assignmentHandler);
+
+    void setUrl(String url);
+
+    String getUrl();
 }
