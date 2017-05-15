@@ -74,6 +74,10 @@ class DataWrapper implements DataInterface {
         }
     }
 
+    /**
+     * Adds assignment to the group
+     * @param assignment the assignment
+     */
     @Override
     public void addAssignmentToGroup(Assignment assignment) {
         addAssignmentToDatabase(assignment);
@@ -100,6 +104,10 @@ class DataWrapper implements DataInterface {
         assignmentRef.child(assignment.hash()).removeValue();
     }
 
+    /**
+     * Remove assignment from the individual planner
+     * @param assignment The assignment in the arraylist
+     */
     @Override
     public void removeAssignmentFromUser(Assignment assignment) {
         if (user != null && user.assignments != null) {
@@ -108,6 +116,10 @@ class DataWrapper implements DataInterface {
         }
     }
 
+    /**
+     * Remove assignment from the hub planner
+     * @param assignment The assignment to be removed
+     */
     @Override
     public void removeAssignmentFromGroup(Assignment assignment) {
         if (group != null && group.assignments != null) {
@@ -144,6 +156,11 @@ class DataWrapper implements DataInterface {
         });
     }
 
+    /**
+     * Method to create the group
+     * @param name Name of the group
+     * @param groupJoinedHandler Check if user is in a group
+     */
     @Override
     public void createGroup(final String name, final GroupJoinedHandler groupJoinedHandler) {
         if (user == null) {
@@ -182,6 +199,11 @@ class DataWrapper implements DataInterface {
         });
     }
 
+    /**
+     * Join group
+     * @param uuid Identification number of the group
+     * @param groupJoinedHandler Checks if user is even in a group
+     */
     @Override
     public void joinGroup(final long uuid, final GroupJoinedHandler groupJoinedHandler) {
         groupsRef.child(String.valueOf(uuid)).addListenerForSingleValueEvent(new ValueEventListener() {
@@ -240,11 +262,19 @@ class DataWrapper implements DataInterface {
         updateGroup();
     }
 
+    /**
+     * Method used to get the user
+     * @return user
+     */
     @Override
     public User getUser() {
         return user;
     }
 
+    /**
+     * Used to get the group
+     * @return group
+     */
     @Override
     public Group getGroup() {
         return group;

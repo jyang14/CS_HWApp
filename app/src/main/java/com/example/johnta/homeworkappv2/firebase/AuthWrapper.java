@@ -20,6 +20,7 @@ import com.google.firebase.auth.GoogleAuthProvider;
 
 /**
  * Created by jinch on 5/13/2017.
+ * Thank you Jinchao for this
  */
 
 class AuthWrapper implements AuthInterface, GoogleApiClient.OnConnectionFailedListener {
