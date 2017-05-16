@@ -16,7 +16,6 @@ import java.util.List;
 /**
  * Created by johnta on 5/12/17.
  */
-
 public class FirebaseWrapper implements DataInterface, AuthInterface {
 
     private static final String TAG = "FIREBASEWRAPPER";
@@ -36,8 +35,10 @@ public class FirebaseWrapper implements DataInterface, AuthInterface {
     }
 
     /**
-     * @param context
-     * @return
+     * Gets instance.
+     *
+     * @param context the context
+     * @return instance
      */
     public static FirebaseWrapper getInstance(Context context) {
         if (instance == null)

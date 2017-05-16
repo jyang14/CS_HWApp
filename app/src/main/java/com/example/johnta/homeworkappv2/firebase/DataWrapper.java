@@ -21,20 +21,43 @@ import java.util.List;
 /**
  * Created by jinch on 5/13/2017.
  */
-
 class DataWrapper implements DataInterface {
 
     static private final String TAG = "DATAWRAPPER";
 
+    /**
+     * The Assignment ref.
+     */
     final DatabaseReference assignmentRef;
+    /**
+     * The Users ref.
+     */
     final DatabaseReference usersRef;
+    /**
+     * The Groups ref.
+     */
     final DatabaseReference groupsRef;
+    /**
+     * The Uuid ref.
+     */
     final DatabaseReference uuidRef;
 
+    /**
+     * The Firebase database.
+     */
     FirebaseDatabase firebaseDatabase;
+    /**
+     * The User.
+     */
     User user;
+    /**
+     * The Group.
+     */
     Group group;
 
+    /**
+     * Instantiates a new Data wrapper.
+     */
     DataWrapper() {
         firebaseDatabase = FirebaseDatabase.getInstance();
         assignmentRef = firebaseDatabase.getReference("Assignments");

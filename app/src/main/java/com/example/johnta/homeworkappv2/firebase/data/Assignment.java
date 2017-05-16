@@ -7,7 +7,6 @@ import java.security.NoSuchAlgorithmException;
 /**
  * Created by johnta on 4/6/17.
  */
-
 public class Assignment {
 
     private String classname;
@@ -34,7 +33,7 @@ public class Assignment {
     /**
      * Gets the name of the class
      *
-     * @return
+     * @return classname
      */
     public String getClassname() {
         return classname;
@@ -52,7 +51,7 @@ public class Assignment {
     /**
      * Gets the description of the assignment
      *
-     * @return
+     * @return description
      */
     public String getDescription() {
         return description;
@@ -69,7 +68,7 @@ public class Assignment {
 
     /**
      * Hashing function that returns string instead of int.
-     * According to the birthday paradox I am safe as long there will be less than 2^64 entries
+     * According to the birthday paradox I am safe as long there will be less than 2^60 entries
      *
      * @return Returns the MD5 of the class
      */

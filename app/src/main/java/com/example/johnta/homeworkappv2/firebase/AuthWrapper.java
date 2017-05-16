@@ -22,7 +22,6 @@ import com.google.firebase.auth.GoogleAuthProvider;
  * Created by jinch on 5/13/2017.
  * Thank you Jinchao for this
  */
-
 class AuthWrapper implements AuthInterface, GoogleApiClient.OnConnectionFailedListener {
 
     private static final String TAG = "FirebaseAuth";
@@ -33,6 +32,12 @@ class AuthWrapper implements AuthInterface, GoogleApiClient.OnConnectionFailedLi
 
     private Context context;
 
+    /**
+     * Instantiates a new Auth wrapper.
+     *
+     * @param context      the context
+     * @param authListener the auth listener
+     */
     AuthWrapper(final Context context, AuthListener authListener) {
         firebaseAuth = FirebaseAuth.getInstance();
 

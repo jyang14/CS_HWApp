@@ -10,6 +10,9 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 
+/**
+ * The type Login listener.
+ */
 //TODO Pretty up code
 final class LoginListener implements ValueEventListener {
 
@@ -20,6 +23,13 @@ final class LoginListener implements ValueEventListener {
     private final SignedInHandler signedInHandler;
     private final FirebaseUser firebaseUser;
 
+    /**
+     * Instantiates a new Login listener.
+     *
+     * @param database        the database
+     * @param user            the user
+     * @param signedInHandler the signed in handler
+     */
     LoginListener(DataWrapper database, FirebaseUser user, SignedInHandler signedInHandler) {
         this.database = database;
         this.signedInHandler = signedInHandler;
