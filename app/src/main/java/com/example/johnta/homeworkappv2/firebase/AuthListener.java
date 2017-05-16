@@ -21,6 +21,11 @@ class AuthListener implements FirebaseAuth.AuthStateListener {
     private DataWrapper dataWrapper;
     private SignedInHandler signedInHandler;
 
+    /**
+     * Instantiates a new Auth listener.
+     *
+     * @param dataWrapper the data wrapper
+     */
     AuthListener(DataWrapper dataWrapper) {
         this.dataWrapper = dataWrapper;
     }
@@ -46,6 +51,11 @@ class AuthListener implements FirebaseAuth.AuthStateListener {
 
     }
 
+    /**
+     * Sets signed in handler.
+     *
+     * @param signedInHandler the signed in handler
+     */
     void setSignedInHandler(SignedInHandler signedInHandler) {
         this.signedInHandler = signedInHandler;
     }

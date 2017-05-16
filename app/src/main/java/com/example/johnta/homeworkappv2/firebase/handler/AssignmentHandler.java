@@ -7,7 +7,11 @@ import java.util.List;
 /**
  * Created by jinch on 5/13/2017.
  */
-
 public interface AssignmentHandler {
+    /**
+     * Handle assignments.
+     *
+     * @param assignments the assignments
+     */
     void handleAssignments(List<Assignment> assignments);
 }
