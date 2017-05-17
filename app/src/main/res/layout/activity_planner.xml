@@ -60,6 +60,7 @@
         android:padding="5sp"
 
         android:onClick="onClickCopy"
+
         android:layout_alignTop="@+id/textView20"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
@@ -74,6 +75,8 @@
         android:layout_below="@+id/textView20"
         android:background="#ffffff"
         />
+
+
 
 
 </android.support.percent.PercentRelativeLayout>

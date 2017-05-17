@@ -252,6 +252,9 @@ class DataWrapper implements DataInterface {
         });
     }
 
+    /**
+     * Method used to copy all the stuff in the group planner to the user planner
+     */
     @Override
     public void copyGroupToUser() {
         if (user == null || group == null) {
@@ -265,10 +268,30 @@ class DataWrapper implements DataInterface {
         if (group.assignments == null)
             group.assignments = new ArrayList<>();
 
-        user.assignments.addAll(group.assignments);
+        for (int x = group.assignments.size() - 1; x >= 0 ; x--) {
+
+            boolean toAdd = true;
+
+            for (int y = user.assignments.size() - 1; y >= 0; y--) {
+
+                if (group.assignments.get(x).equals(user.assignments.get(y))) {
+                    toAdd = !toAdd;
+                }
+
+            }
+
+            if (toAdd) {
+                user.assignments.add(group.assignments.get(x));
+            }
+        }
+
+        //user.assignments.addAll(group.assignments);
         updateUser();
     }
 
+    /**
+     * Method used to copy all the stuff in the individual planner to the hub
+     */
     @Override
     public void copyUserToGroup() {
         if (user == null || group == null) {
@@ -281,7 +304,24 @@ class DataWrapper implements DataInterface {
         if (group.assignments == null)
             group.assignments = new ArrayList<>();
 
-        group.assignments.addAll(user.assignments);
+        for (int x = user.assignments.size() - 1; x >= 0 ; x--) {
+
+            boolean toAdd = true;
+
+            for (int y = group.assignments.size() - 1; y >= 0; y--) {
+
+                if (user.assignments.get(x).equals(group.assignments.get(y))) {
+                    toAdd = !toAdd;
+                }
+
+            }
+
+            if (toAdd) {
+                group.assignments.add(user.assignments.get(x));
+            }
+        }
+
+        //group.assignments.addAll(user.assignments);
         updateGroup();
     }
 

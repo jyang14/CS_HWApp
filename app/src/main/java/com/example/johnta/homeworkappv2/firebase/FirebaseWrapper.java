@@ -115,7 +115,7 @@ public class FirebaseWrapper implements DataInterface, AuthInterface {
 
     @Override
     public void copyGroupToUser() {
-        dataWrapper.copyGroupToUser();
+         dataWrapper.copyGroupToUser();
     }
 
     @Override

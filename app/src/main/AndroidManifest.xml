@@ -44,7 +44,9 @@
         <activity android:name=".popup.GroupHelpPopup" />
         <activity android:name=".popup.CopyAssignmentPlannerToHubPopup" />
         <activity android:name=".activities.GroupSettingsActivity" />
-        <activity android:name=".popup.DisplayWebsiteURL"></activity>
+        <activity android:name=".popup.DisplayWebsiteURL" />
+        <activity android:name=".popup.CopyAssignmentsPopup" />
+        <activity android:name=".popup.CopyAllAssignmentsToPlannerFromHubPopup"></activity>
     </application>
 
 </manifest>

@@ -14,6 +14,7 @@ import com.example.johnta.homeworkappv2.firebase.FirebaseWrapper;
 import com.example.johnta.homeworkappv2.firebase.data.Assignment;
 import com.example.johnta.homeworkappv2.firebase.handler.AssignmentHandler;
 import com.example.johnta.homeworkappv2.popup.AddAssignmentToCloudPopup;
+import com.example.johnta.homeworkappv2.popup.CopyAssignmentsPopup;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -77,7 +78,8 @@ public class CloudActivity extends AppCompatActivity implements AssignmentHandle
      */
     public void onClickCopyToPlanner(View v) {
         play.playSound();
-        FirebaseWrapper.getInstance(this).copyGroupToUser();
+
+        startActivity(new Intent(this, CopyAssignmentsPopup.class));
     }
 
     /**
