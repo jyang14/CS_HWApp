@@ -90,7 +90,9 @@ class DataWrapper implements DataInterface {
         if (user != null) {
             if (user.assignments == null)
                 user.assignments = new ArrayList<>();
-            user.assignments.add(assignment.hash());
+            if (!user.assignments.contains(assignment.hash())) {
+                user.assignments.add(assignment.hash());
+            }
             updateUser();
         } else {
             Log.w(TAG, "ERROR USER NOT INITIALIZED.");
@@ -99,6 +101,7 @@ class DataWrapper implements DataInterface {
 
     /**
      * Adds assignment to the group
+     *
      * @param assignment the assignment
      */
     @Override
@@ -108,7 +111,9 @@ class DataWrapper implements DataInterface {
         if (group != null) {
             if (group.assignments == null)
                 group.assignments = new ArrayList<>();
-            group.assignments.add(assignment.hash());
+            if (!group.assignments.contains(assignment.hash())) {
+                group.assignments.add(assignment.hash());
+            }
             updateGroup();
         } else {
             Log.w(TAG, "ERROR GROUP NOT INITIALIZED.");
@@ -129,6 +134,7 @@ class DataWrapper implements DataInterface {
 
     /**
      * Remove assignment from the individual planner
+     *
      * @param assignment The assignment in the arraylist
      */
     @Override
@@ -141,6 +147,7 @@ class DataWrapper implements DataInterface {
 
     /**
      * Remove assignment from the hub planner
+     *
      * @param assignment The assignment to be removed
      */
     @Override
@@ -181,7 +188,8 @@ class DataWrapper implements DataInterface {
 
     /**
      * Method to create the group
-     * @param name Name of the group
+     *
+     * @param name               Name of the group
      * @param groupJoinedHandler Check if user is in a group
      */
     @Override
@@ -224,7 +232,8 @@ class DataWrapper implements DataInterface {
 
     /**
      * Join group
-     * @param uuid Identification number of the group
+     *
+     * @param uuid               Identification number of the group
      * @param groupJoinedHandler Checks if user is even in a group
      */
     @Override
@@ -268,24 +277,12 @@ class DataWrapper implements DataInterface {
         if (group.assignments == null)
             group.assignments = new ArrayList<>();
 
-        for (int x = group.assignments.size() - 1; x >= 0 ; x--) {
-
-            boolean toAdd = true;
-
-            for (int y = user.assignments.size() - 1; y >= 0; y--) {
-
-                if (group.assignments.get(x).equals(user.assignments.get(y))) {
-                    toAdd = !toAdd;
-                }
-
-            }
-
-            if (toAdd) {
-                user.assignments.add(group.assignments.get(x));
+        for (String assignment : group.assignments) {
+            if (!group.assignments.contains(assignment)) {
+                user.assignments.add(assignment);
             }
         }
 
-        //user.assignments.addAll(group.assignments);
         updateUser();
     }
 
@@ -304,29 +301,18 @@ class DataWrapper implements DataInterface {
         if (group.assignments == null)
             group.assignments = new ArrayList<>();
 
-        for (int x = user.assignments.size() - 1; x >= 0 ; x--) {
-
-            boolean toAdd = true;
-
-            for (int y = group.assignments.size() - 1; y >= 0; y--) {
-
-                if (user.assignments.get(x).equals(group.assignments.get(y))) {
-                    toAdd = !toAdd;
-                }
-
-            }
-
-            if (toAdd) {
-                group.assignments.add(user.assignments.get(x));
+        for (String assignment : user.assignments) {
+            if (!group.assignments.contains(assignment)) {
+                group.assignments.add(assignment);
             }
         }
 
-        //group.assignments.addAll(user.assignments);
         updateGroup();
     }
 
     /**
      * Method used to get the user
+     *
      * @return user
      */
     @Override
@@ -336,6 +322,7 @@ class DataWrapper implements DataInterface {
 
     /**
      * Used to get the group
+     *
      * @return group
      */
     @Override
@@ -426,6 +413,16 @@ class DataWrapper implements DataInterface {
     }
 
     @Override
+    public String getUrl() {
+        if (user == null) {
+            Log.w(TAG, "ERROR USER NOT INITIALIZED.");
+            return null;
+        }
+
+        return user.url;
+    }
+
+    @Override
     public void setUrl(String url) {
         if (user == null) {
             Log.w(TAG, "ERROR USER NOT INITIALIZED.");
@@ -434,16 +431,6 @@ class DataWrapper implements DataInterface {
 
         user.url = url;
         updateUser();
-    }
-
-    @Override
-    public String getUrl() {
-        if (user == null) {
-            Log.w(TAG, "ERROR USER NOT INITIALIZED.");
-            return null;
-        }
-
-        return user.url;
     }
 
 }
